@@ -1,0 +1,80 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+    <f:layout name="Default" />
+
+    <f:section name="Main">
+        <div class="cb-customisation">
+            <ul class="tabs">
+                <f:for each="{data.customisation_item}" as="tab" iteration="i">
+                    <li class="tab{f:if(condition: '{i.isFirst}', then: ' active')}" data-tab-id="{i.index}">
+                        <p class="title">{tab.title}</p>
+                        <p class="description">{tab.description}</p>
+                    </li>
+                </f:for>
+            </ul>
+
+            <div class="dropdown">
+                <div class="selected">
+                    <p>{data.customisation_item.0.title}</p>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M5.79289 15.7071C6.18342 16.0976 6.81658 16.0976 7.20711 15.7071L12.5 10.4142L17.7929 15.7071C18.1834 16.0976 18.8166 16.0976 19.2071 15.7071C19.5976 15.3166 19.5976 14.6834 19.2071 14.2929L13.2071 8.29289C12.8166 7.90237 12.1834 7.90237 11.7929 8.29289L5.79289 14.2929C5.40237 14.6834 5.40237 15.3166 5.79289 15.7071Z" fill="#111111"/>
+                    </svg>
+                </div>
+                <div class="dropdown-items">
+                    <f:for each="{data.customisation_item}" as="tab" iteration="i">
+                        <div class="dropdown-item{f:if(condition: '{i.isFirst}', then: ' active')}" data-tab-id="{i.index}">
+                            <p class="title">{tab.title}</p>
+                        </div>
+                    </f:for>
+                </div>
+            </div>
+
+            <f:for each="{data.customisation_item}" as="item" iteration="i">
+                <div class="content{f:if(condition: '{i.isFirst}', then: ' active')}" data-tab-id="{i.index}">
+                    <div class="options-column">
+                        <div class="text">
+                            <f:format.html parseFuncTSPath="lib.parseFunc">{item.textarea}</f:format.html>
+                        </div>
+
+                        <div class="options">
+                            <f:for each="{item.item_option}" as="option" iteration="j">
+                                <div class="option{f:if(condition: '{j.isFirst}', then: ' active')}" data-option-id="{j.index}">
+                                   <div class="option-content">
+                                        <div class="icon background-{option.color}{f:if(condition: '{option.border}', then: ' has-border')}"  style="--background: var(--{option.color});">
+                                            <f:if condition="{option.icon.0}">
+                                                <f:image src="{option.icon.0.uid}" treatIdAsReference="1" loading="lazy" alt="{f:if(condition: '{option.icon.alternative}', then: '{option.icon.alternative}')}" />
+                                            </f:if>
+                                        </div>
+                                        <div class="title">
+                                            <p>{option.title}</p>
+                                        </div>
+                                   </div>
+                                </div>
+                            </f:for>
+                        </div>
+                    </div>
+                    <div class="images-column">
+                        <f:for each="{item.item_option}" as="image" iteration="j">
+                            <div class="image-wrapper{f:if(condition: '{j.isFirst}', then: ' active')}" data-option-id="{j.index}">
+                                <f:if condition="{image.image_desktop.0} || {image.image_tablet.0} || {image.image_mobile.0}">
+                                    <div class="image">
+                                        <f:render partial="Image" arguments="{
+                                            images: {
+                                                desktop: image.image_desktop.0,
+                                                tablet: image.image_tablet.0,
+                                                mobile: image.image_mobile.0
+                                            }
+                                        }" />
+                                    </div>
+                                </f:if>
+                            </div>
+                        </f:for>
+                    </div>
+                </div>
+            </f:for>
+        </div>
+    </f:section>
+</html>

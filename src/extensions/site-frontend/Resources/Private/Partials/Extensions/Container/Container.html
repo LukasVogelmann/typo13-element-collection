@@ -1,0 +1,8 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+    <div class="{__containerClasses}{f:if(condition: '{onecol}', then: ' one-col')}{f:if(condition: '{padding-x} != default', then: ' px-{padding-x}')}{f:if(condition: '{padding-y} != default', then: ' py-{padding-y}')} background-{background}"  style="--background: var(--{background});">
+        <f:format.raw>{content}</f:format.raw>
+    </div>
+</html>

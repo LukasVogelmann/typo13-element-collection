@@ -1,0 +1,76 @@
+imports:
+  - { resource: "EXT:rte_ckeditor/Configuration/RTE/Processing.yaml" }
+  - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Base.yaml" }
+  - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Plugins.yaml" }
+
+classes:
+  btnTextlink:
+    name: 'Btn: Textlink'
+  btnTeaserlink:
+    name: 'Btn: Teaserlink'
+  btnPrimary:
+    name: 'Btn: Primary'
+  btnPrimaryDark:
+    name: 'Btn: Primary Dark'
+  btnPrimaryDisabled:
+    name: 'Btn: Primary Disabled'
+  btnSecondary:
+    name: 'Btn: Secondary'
+  btnSecondaryDark:
+    name: 'Btn: Secondary Dark'
+  btnSecondaryDisabled:
+    name: 'Btn: Secondary Disabled'
+  btnDefault:
+    name: 'Btn: No style'
+
+buttons:
+  link:
+    properties:
+      class:
+        allowedClasses: 'btnTextlink,btnTeaserlink,btnPrimary,btnPrimaryDark,btnPrimaryDisabled,btnSecondary,btnSecondaryDark,btnSecondaryDisabled,btnDefault'
+        default: 'btnTextlink'
+        required: true
+
+editor:
+  config:
+    contentsCss:
+      - 'EXT:rte_ckeditor/Resources/Public/Css/contents.css'
+      - '/dist/styles/rte.css'
+
+    stylesSet:
+      - { name: "Subline", element: "p", attributes: { "class": "subline" } }
+      - { name: "List with checkmark", element: "ul", attributes: { "class": "checkmark" } }
+
+    toolbarGroups:
+      - { name: styles, groups: [ format, styles ] }
+      - { name: basicstyles, groups: [ basicstyles ] }
+      - { name: paragraph, groups: [ list, indent, blocks, align ] }
+      - "/"
+      - { name: links, groups: [ links ] }
+      - { name: clipboard, groups: [ clipboard, cleanup, undo ] }
+      - { name: editing, groups: [ spellchecker ] }
+      - { name: insert, groups: [ insert ] }
+      - { name: tools, groups: [ table, specialchar ] }
+      - { name: document, groups: [ mode ] }
+
+    format_tags: "p;h1;h2;h3;h4;h5"
+    extraAllowedContent: "div;*(*)[data-*];"
+
+    justifyClasses:
+      - text-left
+      - text-center
+
+    extraPlugins:
+      - justify
+      - autolink
+      - autogrow
+
+    removePlugins:
+      - image
+
+    removeButtons:
+      - Anchor
+      - Superscript
+      - Subscript
+      - JustifyBlock
+      - JustifyRight

@@ -1,0 +1,49 @@
+group: site/startpage
+name: site/gallery
+basics:
+  - TYPO3/Appearance
+  - TYPO3/Links
+fields:
+  - identifier: site/default-basics
+    type: Basic
+  - identifier: gallery_tab
+    type: Collection
+    labelField: tabname
+    minitems: 1
+    fields:
+      - identifier: tabname
+        type: Text
+      - identifier: gallery_item
+        type: Collection
+        labelField: text
+        minitems: 5
+        maxitems: 5
+        fields:
+          - identifier: text
+            type: Text
+          - identifier: site/basics-link
+            type: Basic
+          - identifier: site/basics-images
+            type: Basic
+          - identifier: background
+            type: Select
+            renderType: selectSingle
+            items:
+              - label: Weiss
+                value: white
+              - label: Schwarz
+                value: black
+              - label: Dunkelblau
+                value: primary
+              - label: Akzentfarbe
+                value: accent-dark
+              - label: Schmuckfarbe
+                value: secondary
+              - label: Hellblau
+                value: baby-blue
+              - label: Dunkelgrau
+                value: dark-gray
+              - label: Mittelgrau
+                value: light-gray
+              - label: Hellgrau
+                value: lighter-gray

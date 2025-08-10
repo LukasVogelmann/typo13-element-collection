@@ -1,0 +1,29 @@
+group: site/contentblocks
+name: site/table
+basics:
+  - TYPO3/Appearance
+  - TYPO3/Links
+fields:
+  - identifier: site/default-basics
+    type: Basic
+  - identifier: table_caption
+    type: Text
+    label: Table Caption
+  - identifier: table_items
+    type: Collection
+    label: Table Rows
+    labelField: row_name
+    minitems: 1
+    fields:
+      - identifier: row_name
+        type: Text
+        label: Row Name
+      - identifier: row_columns
+        type: Collection
+        label: Columns
+        labelField: column_value
+        minitems: 1
+        fields:
+          - identifier: column_value
+            type: Text
+            label: Column Value

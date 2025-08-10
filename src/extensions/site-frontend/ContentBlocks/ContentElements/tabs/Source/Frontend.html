@@ -1,0 +1,18 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+    <f:layout name="Default" />
+
+    <f:section name="Main">
+        <div class="cb-tabs">
+            <ul class="tabs">
+                <f:for each="{data.tabs_item}" as="tab" iteration="i">
+                    <li class="tab">
+                        <f:link.typolink parameter="{tab.link}">{tab.title}</f:link.typolink>
+                    </li>
+                </f:for>
+            </ul>
+        </div>
+    </f:section>
+</html>

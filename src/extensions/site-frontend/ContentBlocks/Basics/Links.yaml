@@ -1,0 +1,13 @@
+identifier: site/basics-link
+group: site/contentblocks
+basics:
+  - TYPO3/Appearance
+fields:
+  - identifier: link-palette
+    type: Palette
+    label: Link
+    fields:
+      - identifier: link
+        type: Link
+      - identifier: link_text
+        type: Text

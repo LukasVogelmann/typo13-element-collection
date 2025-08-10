@@ -1,0 +1,122 @@
+@use '@/Scss/Mixins/Breakpoint' as Br;
+@use 'sass:math';
+
+@mixin generateColumnWidth() {
+    @for $i from 1 through $column-count {
+        &-#{$i} {
+            width:calc((100% / $column-count) * #{$i});
+        }
+    }
+}
+
+@mixin addInlinePadding($p) {
+    @for $i from 1 through $column-count {
+        &-#{$i} {
+            padding-inline: $p;
+        }
+    }
+}
+
+.frame-indent {
+    @include Br.sm-breakpoint-down(tablet) {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+$column-count: 12;
+
+.sm-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-inline: auto;
+    max-width: calc(100% - 40px);
+
+    @include Br.sm-breakpoint-up(tablet) {
+        max-width: calc(100% - 180px);
+    }
+    @include Br.sm-breakpoint-up(desktop) {
+        max-width: 1500px;
+    }
+}
+
+.sm-container-fullsize {
+    display: flex;
+    flex-wrap: wrap;
+    margin-inline: auto;
+    width: 100%;
+}
+
+.sm-container-medium {
+    display: flex;
+    flex-wrap: wrap;
+    margin-inline: auto;
+    max-width: calc(100% - 40px);
+
+    @include Br.sm-breakpoint-up(tablet) {
+        max-width: calc(100% - 390px);
+    }
+    @include Br.sm-breakpoint-up(desktop) {
+        max-width: 1264px;
+    }
+}
+
+.sm-container-small {
+    display: flex;
+    flex-wrap: wrap;
+    margin-inline: auto;
+    max-width: 100%;
+
+    @include Br.sm-breakpoint-up(mobile) {
+        max-width: calc(100% - 40px);
+    }
+
+    @include Br.sm-breakpoint-up(mobile-medium) {
+        max-width: calc(100% - 150px);
+    }
+
+    @include Br.sm-breakpoint-up(mobile-large) {
+        max-width: calc(100% - 212px);
+    }
+
+    @include Br.sm-breakpoint-up(tablet) {
+        max-width: calc(100% - 600px);
+    }
+
+    @include Br.sm-breakpoint-up(desktop) {
+        max-width: 1006px;
+    }
+}
+
+.sm-column {
+    @include generateColumnWidth();
+    @include addInlinePadding(10px);
+}
+.sm-column-mobile {
+    @include Br.sm-breakpoint-up(mobile) {
+        @include generateColumnWidth();
+        @include addInlinePadding(10px);
+    }
+}
+
+.sm-column-tablet {
+    @include Br.sm-breakpoint-up(tablet) {
+        @include generateColumnWidth();
+        @include addInlinePadding(10px);
+    }
+}
+
+.sm-column-largetablet {
+    @include Br.sm-breakpoint-up(tablet-large) {
+        @include generateColumnWidth();
+        @include addInlinePadding(10px);
+    }
+}
+
+.sm-column-desktop {
+    @include Br.sm-breakpoint-up(desktop) {
+        @include generateColumnWidth();
+        @include addInlinePadding(10px);
+    }
+}

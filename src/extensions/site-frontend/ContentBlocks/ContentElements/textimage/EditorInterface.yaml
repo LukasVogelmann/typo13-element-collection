@@ -1,0 +1,43 @@
+group: site/contentblocks
+name: site/textimage
+basics:
+  - TYPO3/Appearance
+  - TYPO3/Links
+fields:
+  - identifier: site/default-basics
+    type: Basic
+  - identifier: image_position
+    label: Position of Image
+    type: Select
+    renderType: selectSingle
+    items:
+      - label: left
+        value: left
+      - label: rigth
+        value: right
+  - identifier: layout_options
+    label: Width of Image
+    type: Select
+    renderType: selectSingle
+    items:
+      - label: 50%
+        value: 0
+      - label: 60%
+        value: 1
+      - label: 40%
+        value: 2
+      - label: 66%
+        value: 3
+      - label: 33%
+        value: 4
+      - label: 75%
+        value: 5
+      - label: 25%
+        value: 6
+  - identifier: site/basics-images
+    type: Basic
+  - identifier: textarea
+    type: Textarea
+    enableRichtext: true
+  - identifier: site/basics-colors
+    type: Basic

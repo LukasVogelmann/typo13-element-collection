@@ -1,0 +1,15 @@
+plugin.tx_form {
+    settings {
+        yamlConfigurations {
+            100 = EXT:site_frontend/Configuration/Yaml/FormSetup.yaml
+        }
+    }
+}
+
+module.tx_form {
+    settings {
+        yamlConfigurations {
+            100 = EXT:site_frontend/Configuration/Yaml/FormSetup.yaml
+        }
+    }
+}

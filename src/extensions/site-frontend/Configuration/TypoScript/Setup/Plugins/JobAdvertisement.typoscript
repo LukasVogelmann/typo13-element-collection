@@ -1,0 +1,36 @@
+plugin.tx_sitefrontend_jobadvertisement {
+    view {
+        templateRootPaths {
+            0 = EXT:site_frontend/Resources/Private/Templates/Plugins/
+        }
+        partialRootPaths {
+            0 = EXT:site_frontend/Resources/Private/Partials/Plugins/
+        }
+        layoutRootPaths {
+            0 = EXT:site_frontend/Resources/Private/Layouts/Plugins/JobAdvertisement
+        }
+    }
+    settings {
+        ajaxTypenum = 9417
+    }
+}
+
+ajaxOfferList = PAGE
+ajaxOfferList {
+    typeNum = 9417
+    10 = USER
+    10.userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+    10.extensionName= SiteFrontend
+    10.pluginName = AjaxList
+    10.vendorName = Site
+	10.controller = Ajax
+
+   config {
+      disableAllHeaderCode = 1
+      additionalHeaders = Content-type:application/json
+      xhtml_cleaning = 0
+      debug = 0
+      no_cache = 1
+      admPanel = 0
+    }
+}

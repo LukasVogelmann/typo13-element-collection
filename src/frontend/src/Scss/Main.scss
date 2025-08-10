@@ -1,0 +1,40 @@
+$grid-breakpoints: (
+        xs: 0,
+        sm: 576px,
+        md: 768px,
+        lg: 1024px,
+        xl: 1920px,
+);
+
+// Extensions
+@use 'Extensions/Blog';
+
+// runtime-related packages
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/autoplay';
+@import '@splidejs/splide/dist/css/splide.min.css';
+
+// Globals
+@import 'Config';
+@import 'Colors';
+@import 'Fonts';
+@import 'Typography';
+
+// Layout
+@import 'Layout/Container';
+@import 'Layout/Header';
+@import 'Layout/Footer';
+@import 'Layout/Spaces';
+
+// Components
+@import 'Components/A';
+@import 'Components/Form';
+@import 'Components/Tabs';
+@import 'Components/SliderPagination';
+@import 'Components/Icons';
+
+// Extensions
+@import '@/Scss/Extensions/Frontend/Person/Person.scss';
+@import '@/Scss/Extensions/Frontend/JobAdvertisement/JobAdvertisement.scss';

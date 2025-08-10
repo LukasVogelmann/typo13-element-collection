@@ -1,0 +1,69 @@
+:root {
+    --primary: #044782;
+    --secondary: #69B6FA;
+    --accent-dark: #0668BE;
+    --lighter-gray: #F7F7F7;
+    --light-gray: #BCBEC0;
+    --dark-gray: #777;
+    --baby-blue: #EEF7FF;
+    --font-color: #111;
+    --white: #FFF;
+    --black: #000;
+    --green: green;
+    --red: red;
+}
+
+[class*="color-"] {
+    color: var(--color, var(--font-color));
+}
+
+[class*="background-"] {
+    background-color: var(--background, var(--white));
+}
+
+[class*="svg-color-"] {
+    svg {
+        path, circle {
+            fill: var(--color, var(--white));
+        }
+    }
+
+    .book {
+        path {
+            fill: transparent;
+            stroke: var(--color, var(--white));
+        }
+    }
+    .chevron-down {
+        path {
+            fill: var(--color, var(--white));
+        }
+    }
+    .circle-chevron-right {
+        circle {
+            fill: transparent;
+            stroke: var(--color, var(--white));
+        }
+        path {
+            fill: var(--color, var(--white));
+        }
+    }
+    .contact {
+        path {
+            &:nth-child(2) {
+                fill: transparent;
+            }
+        }
+    }
+    .download {
+        path {
+            stroke: var(--color, var(--white));
+            fill: transparent;
+        }
+    }
+    .filter {
+        path {
+            stroke: var(--color, var(--white));
+        }
+    }
+}

@@ -1,0 +1,31 @@
+group: site/contentblocks
+name: site/quote
+basics:
+  - TYPO3/Appearance
+  - TYPO3/Links
+fields:
+  - identifier: site/default-basics
+    type: Basic
+  - identifier: size
+    label: Size
+    type: Select
+    renderType: selectSingle
+    onChange: reload
+    items:
+      - label: Large
+        value: large
+      - label: Small
+        value: small
+  - identifier: icon
+    label: Icon
+    type: File
+    displayCond: 'FIELD:size:=:large'
+    allowed: svg
+    minitems: 0
+    maxitems: 1
+  - identifier: bodytext
+    useExistingField: true
+  - identifier: cite
+    label: Cite
+    type: Text
+    rows: 2

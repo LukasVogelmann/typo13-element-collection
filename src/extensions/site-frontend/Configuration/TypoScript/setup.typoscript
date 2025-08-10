@@ -1,0 +1,20 @@
+@import 'EXT:form/Configuration/TypoScript/setup.typoscript'
+@import 'EXT:fluid_styled_content/Configuration/TypoScript/setup.typoscript'
+@import 'EXT:seo/Configuration/TypoScript/XmlSitemap/setup.typoscript'
+
+@import 'EXT:site_frontend/Configuration/TypoScript/Setup/*.typoscript'
+@import 'EXT:site_frontend/Configuration/TypoScript/Setup/Libs/*.typoscript'
+@import 'EXT:site_frontend/Configuration/TypoScript/Setup/Extensions/*.typoscript'
+@import 'EXT:site_frontend/Configuration/TypoScript/Setup/Plugins/*.typoscript'
+@import 'EXT:site_frontend/Configuration/TypoScript/Setup/Container/*.typoscript'
+
+config {
+    absRefPrefix = /
+    sys_language_uid = 0
+
+    # Automatically include WebP in srcset
+    sourceopt {
+        enable = 1
+        addWebp = 1
+    }
+}

@@ -1,0 +1,152 @@
+@use '@/Scss/Functions/Px-To-Rem' as Fn;
+@use '@/Scss/Mixins/Breakpoint' as Br;
+
+[data-ctype='site_teaser'] {
+    .cb-teaser {
+        .item {
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+
+            >a {
+                color: var(--black);
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+            }
+
+            .image {
+                min-height: Fn.px-to-rem(255);
+
+                img {
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            .content {
+                padding: Fn.px-to-rem(30) Fn.px-to-rem(16);
+                display: flex;
+                flex-direction: column;
+                flex-grow: 1;
+
+                .title {
+                    font-size: Fn.px-to-rem(20);
+                    line-height: Fn.px-to-rem(26);
+                    font-family: 'Jost-Medium';
+                    margin-bottom: Fn.px-to-rem(20);
+                }
+
+                .textarea {
+                    p {
+                        font-size: Fn.px-to-rem(16);
+                        line-height: Fn.px-to-rem(22);
+                        font-family: 'Jost-Regular';
+                    }
+
+                    margin-bottom: Fn.px-to-rem(20);
+                }
+
+                .button-wrapper {
+                    display: flex;
+                    flex-grow: 1;
+                    align-items: flex-end;
+
+                    .button {
+                        font-size: Fn.px-to-rem(18);
+                        line-height: Fn.px-to-rem(24);
+                        font-family: 'Jost-Medium';
+
+                        display: flex;
+                        align-items: center;
+                        gap: Fn.px-to-rem(10);
+                        color: var(--accent-dark);
+                    }
+                }
+            }
+        }
+
+        .wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: Fn.px-to-rem(20);
+
+            .item {
+                width: 100%;
+            }
+        }
+
+        @include Br.sm-breakpoint-up(mobile-large) {
+            .wrapper {
+                .item {
+                    width: calc(50% - Fn.px-to-rem(10));
+                }
+            }
+        }
+
+        @include Br.sm-breakpoint-up(tablet) {
+            .item {
+                .content {
+                    padding: Fn.px-to-rem(40) Fn.px-to-rem(30);
+
+                    .title {
+                        font-size: Fn.px-to-rem(24);
+                        line-height: Fn.px-to-rem(30);
+                    }
+
+                    .textarea {
+                        p {
+                            font-size: Fn.px-to-rem(18);
+                            line-height: Fn.px-to-rem(24);
+                        }
+                    }
+
+                    .button-wrapper {
+                        .button {
+                            font-size: Fn.px-to-rem(18);
+                            line-height: Fn.px-to-rem(24);
+                        }
+                    }
+                }
+            }
+        }
+
+        @include Br.sm-breakpoint-up(tablet-large) {
+            .wrapper {
+                .item {
+                    width: calc(33% - Fn.px-to-rem(10));
+                }
+            }
+        }
+
+        @include Br.sm-breakpoint-up(desktop) {
+            .item {
+                .content {
+                    padding: Fn.px-to-rem(40) Fn.px-to-rem(35);
+
+                    .title {
+                        font-size: Fn.px-to-rem(28);
+                        line-height: Fn.px-to-rem(38);
+                        margin-bottom: Fn.px-to-rem(32);
+                    }
+
+                    .textarea {
+                        p {
+                            font-size: Fn.px-to-rem(20);
+                            line-height: Fn.px-to-rem(30);
+                            margin-bottom: Fn.px-to-rem(32);
+                        }
+                    }
+
+                    .button-wrapper {
+                        .button {
+                            font-size: Fn.px-to-rem(24);
+                            line-height: Fn.px-to-rem(34);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

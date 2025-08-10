@@ -1,0 +1,173 @@
+@use '@/Scss/Mixins/Breakpoint' as Br;
+@use '@/Scss/Functions/Px-To-Rem' as Fn;
+
+#hero {
+    height: 100vh;
+    overflow: hidden;
+
+    .item {
+        position: relative;
+        height: 100%;
+
+        .image {
+            position: relative;
+            height: 100%;
+
+            &:after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.33);
+            }
+
+            img {
+                object-fit: cover;
+                height: 100%;
+            }
+        }
+
+        .content {
+            position: absolute;
+            top: 65%;
+            left: 0;
+            right: 0;
+            transform: translateY(-50%);
+            color: var(--white);
+
+            .heading {
+                padding: 0;
+                font-size: 2rem;
+                font-weight: 400;
+                line-height: 2.25rem;
+                font-family: 'Merriweather';
+                margin: 0;
+
+                @include Br.sm-breakpoint-up(tablet) {
+                    font-size: Fn.px-to-rem(50);
+                    line-height: Fn.px-to-rem(55);
+                }
+
+                @include Br.sm-breakpoint-up(tablet-large) {
+                    font-size: 4.5rem;
+                    line-height: 4.75rem;
+                }
+            }
+
+            p {
+                font-family: 'Jost-Regular';
+                font-size: 1.25rem;
+                line-height: 2rem;
+                font-weight: 400;
+                margin-top: Fn.px-to-rem(15);
+                margin-bottom: Fn.px-to-rem(15);
+
+                @include Br.sm-breakpoint-up(tablet) {
+                    font-size: Fn.px-to-rem(26);
+                    line-height: 2.5rem;
+                    margin-top: Fn.px-to-rem(25);
+                    margin-bottom: Fn.px-to-rem(25);
+                }
+
+                @include Br.sm-breakpoint-up(desktop) {
+                    font-size: Fn.px-to-rem(36);
+                    line-height: 2.875rem;
+                }
+            }
+
+            .btnSecondary {
+                display: block;
+                border-color: transparent;
+                font-size: 1rem;
+
+                &:hover {
+                    background-color: transparent;
+                    color: var(--white);
+                    border: 1px solid var(--white);
+                }
+
+                @include Br.sm-breakpoint-up(tablet-large) {
+                    font-size: Fn.px-to-rem(22);
+                }
+            }
+
+            @include Br.sm-breakpoint-up(tablet) {
+                top: 60%;
+            }
+        }
+    }
+
+    .arrow-icon {
+        display: none;
+        justify-content: center;
+        position: relative;
+
+        svg {
+            z-index: 1;
+            cursor: pointer;
+        }
+
+        @include Br.sm-breakpoint-up(tablet) {
+            display: flex;
+
+            svg {
+                position: absolute;
+                bottom: calc(100% + Fn.px-to-rem(30));
+            }
+        }
+    }
+
+    .btnSecondary {
+        border: none;
+    }
+
+    .btnSecondary:hover {
+        color: var(--black);
+    }
+
+    .swiper-pagination {
+        position: absolute;
+        bottom: Fn.px-to-rem(30);
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1;
+
+        @include Br.sm-breakpoint-up(tablet) {
+            bottom: Fn.px-to-rem(60);
+        }
+
+        @include Br.sm-breakpoint-up(tablet-large) {
+            bottom: Fn.px-to-rem(90);
+        }
+    }
+
+    .swiper-pagination-bullet {
+        z-index: 1;
+        border-color: var(--white);
+    }
+
+    .swiper-pagination-bullet-active {
+        width: 6.75rem;
+        border-color: var(--white);
+
+        @include Br.sm-breakpoint-up(tablet) {
+            width: 7.75rem;
+        }
+
+        @include Br.sm-breakpoint-up(tablet-large) {
+            width: 8.75rem;
+        }
+    }
+
+    .swiper-pagination.pagination-lines {
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+        padding-inline: Fn.px-to-rem(10);
+        align-items: center;
+        margin-left: 0 !important;
+        margin-right: auto;
+    }
+}

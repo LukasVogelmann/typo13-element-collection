@@ -1,0 +1,44 @@
+group: site/contentblocks
+name: site/customisation
+basics:
+  - TYPO3/Appearance
+  - TYPO3/Links
+fields:
+  - identifier: site/default-basics
+    type: Basic
+  - identifier: customisation_item
+    type: Collection
+    labelField: title
+    minitems: 3
+    maxitems: 5
+    fields:
+      - identifier: title
+        type: Text
+        required: true
+      - identifier: description
+        type: Text
+      - identifier: textarea
+        type: Textarea
+        enableRichtext: true
+      - identifier: item_option
+        type: Collection
+        labelField: title
+        minitems: 1
+        fields:
+          - identifier: title
+            type: Text
+            required: true
+          - identifier: icon
+            type: File
+            maxitems: 1
+            allowed: common-image-types
+          - identifier: border
+            label: Add Border
+            type: Checkbox
+            renderType: checkboxToggle
+          - identifier: site/basics-colors
+            type: Basic
+          - identifier: site/basics-images
+            type: Basic
+
+

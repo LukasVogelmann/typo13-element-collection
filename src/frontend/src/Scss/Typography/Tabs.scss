@@ -1,0 +1,10 @@
+.tab {
+    font-family: 'Jost-Regular';
+    font-size: 1.375rem;
+    font-weight: 450;
+    line-height: 1.875rem;
+
+    &[disabled] {
+        font-weight: 400;
+    }
+}

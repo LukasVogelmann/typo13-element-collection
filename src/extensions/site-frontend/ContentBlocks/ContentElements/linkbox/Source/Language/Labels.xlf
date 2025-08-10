@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file datatype="plaintext" original="Labels.xlf" source-language="en" date="2024-08-11T10:56:14+00:00" product-name="site/linkbox">
+		<header/>
+		<body>
+			<trans-unit id="title" resname="title">
+				<source>Linkbox for Contactpage</source>
+			</trans-unit>
+			<trans-unit id="description" resname="description">
+				<source>Box with icon and link</source>
+			</trans-unit>
+			<trans-unit id="color.label" resname="color">
+				<source>Box textcolor</source>
+			</trans-unit>
+			<trans-unit id="backgroundcolor.label" resname="color">
+				<source>Box backgroundcolor</source>
+			</trans-unit>
+			<trans-unit id="icon.label" resname="color">
+				<source>Icon</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

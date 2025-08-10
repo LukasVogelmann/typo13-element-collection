@@ -1,0 +1,19 @@
+@use '@/Scss/Mixins/Breakpoint' as Br;
+
+.subline {
+    font-family: 'Jost-Regular';
+    font-weight: 450;
+    font-size: 2rem;
+    line-height: 3.125rem;
+
+    &.small {
+        font-family: 'Jost-Regular';
+        font-size: 1.75rem;
+        line-height: 2.375rem;
+    }
+
+    @include Br.sm-breakpoint-up(tablet-large) {
+        font-size: 2.25rem;
+        line-height: 2.875rem;
+    }
+}

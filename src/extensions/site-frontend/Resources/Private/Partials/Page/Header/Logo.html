@@ -1,0 +1,24 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+    <div class="logo-container">
+        <f:link.page pageUid="{site.rootPageId}" aria-label="Brand logo">
+            <f:cache.disable>
+                <f:if condition="{site:contentBlocks.heroExists(pageId: page.uid)} && {page.site_pagesheader_logo_negative.properties}">
+                    <f:image src="{page.site_pagesheader_logo_negative.properties.uid}" treatIdAsReference="1" id="negative-logo" class="logo" />
+                </f:if>
+                <f:if condition="{page.site_pagesheader_logo.properties}">
+                    <f:if condition="{site:contentBlocks.heroExists(pageId: page.uid)} && {page.site_pagesheader_logo_negative.properties}">
+                        <f:then>
+                            <f:image src="{page.site_pagesheader_logo.properties.uid}" treatIdAsReference="1" id="logo" class="logo" style="opacity: 0;" />
+                        </f:then>
+                        <f:else>
+                            <f:image src="{page.site_pagesheader_logo.properties.uid}" treatIdAsReference="1" id="logo" class="logo" />
+                        </f:else>
+                    </f:if>
+                </f:if>
+            </f:cache.disable>
+        </f:link.page>
+    </div>
+</html>

@@ -1,0 +1,33 @@
+@use '@/Scss/Functions/Px-To-Rem' as Fn;
+
+.swiper-pagination {
+    &.pagination-lines {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: Fn.px-to-rem(10);
+        gap: Fn.px-to-rem(15);
+
+        .swiper-pagination-bullet {
+            display: block;
+            height: Fn.px-to-rem(10);
+            width: Fn.px-to-rem(42);
+            transition: width 0.3s;
+            border-bottom: Fn.px-to-rem(1) solid var(--light-gray);
+
+            &-active {
+                width: Fn.px-to-rem(102);
+                border-bottom: Fn.px-to-rem(4) solid var(--primary);
+            }
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    &.hidden {
+        display: none;
+    }
+}

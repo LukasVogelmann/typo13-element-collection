@@ -1,0 +1,41 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+    <nav>
+        <ul class="languages">
+            <f:for each="{languagenavigation}" as="language">
+                <f:if condition="{language.active}">
+                    <li>
+                        <div
+                            class="{f:if(condition: language.active, then: 'active')}"
+                            {f:if(condition: language.active, then: 'aria-current="page"')}
+                        >
+                            {language.navigationTitle}
+                            <core:icon identifier="{language.flag}"/>
+                            <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="14" height="9" viewBox="0 0 14 9" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0.292893 0.792893C0.683417 0.402369 1.31658 0.402369 1.70711 0.792893L7 6.08579L12.2929 0.792893C12.6834 0.402369 13.3166 0.402369 13.7071 0.792893C14.0976 1.18342 14.0976 1.81658 13.7071 2.20711L7.70711 8.20711C7.31658 8.59763 6.68342 8.59763 6.29289 8.20711L0.292893 2.20711C-0.0976311 1.81658 -0.0976311 1.18342 0.292893 0.792893Z" fill="white"/>
+                            </svg>
+                        </div>
+                    </li>
+                </f:if>
+            </f:for>
+        </ul>
+
+        <div class="languages-menu">
+            <f:for each="{languagenavigation}" as="language">
+                <f:if condition="!{language.active} && {language.available}">
+                    <a
+                        href="{language.link}"
+                        title="{language.navigationTitle}"
+                        class="{f:if(condition: language.active, then: 'active')}"
+                        {f:if(condition: language.active, then: 'aria-current="page"')}
+                    >
+                        {language.navigationTitle}
+                        <core:icon identifier="{language.flag}"/>
+                    </a>
+                </f:if>
+            </f:for>
+        </div>
+    </nav>
+</html>

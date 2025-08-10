@@ -1,0 +1,16 @@
+group: site/contentblocks
+name: site/banner
+basics:
+  - TYPO3/Appearance
+  - TYPO3/Links
+fields:
+  - identifier: site/default-basics
+    type: Basic
+  - identifier: headline
+    label: Headline
+    type: Text
+  - identifier: description
+    label: Description
+    type: Textarea
+  - identifier: site/basics-link
+    type: Basic

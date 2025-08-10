@@ -1,0 +1,106 @@
+identifier: site/person-images
+group: site/contentblocks
+basics:
+  - TYPO3/Appearance
+fields:
+  - identifier: xl-palette
+    type: Palette
+    label: Images for Large Layout
+    fields:
+      - identifier: xl_image_desktop
+        label: Desktop
+        type: File
+        minitems: 1
+        maxitems: 1
+        allowed: common-image-types
+      - identifier: xl_image_tablet
+        label: Tablet
+        type: File
+        maxitems: 1
+        allowed: common-image-types
+      - type: Linebreak
+      - identifier: xl_image_mobile
+        label: Mobile
+        type: File
+        maxitems: 1
+        allowed: common-image-types
+  - identifier: l-palette
+    type: Palette
+    label: Images for Default Layout (Fallback for all other layouts)
+    fields:
+      - identifier: l_image_desktop
+        label: Desktop
+        type: File
+        maxitems: 1
+        allowed: common-image-types
+      - identifier: l_image_tablet
+        label: Tablet
+        type: File
+        maxitems: 1
+        allowed: common-image-types
+      - type: Linebreak
+      - identifier: l_image_mobile
+        label: Mobile
+        type: File
+        maxitems: 1
+        allowed: common-image-types
+  - identifier: m-palette
+    type: Palette
+    label: Images for Teaser Layout
+    fields:
+      - identifier: m_image_desktop
+        label: Desktop
+        type: File
+        maxitems: 1
+        allowed: common-image-types
+      - identifier: m_image_tablet
+        label: Tablet
+        type: File
+        maxitems: 1
+        allowed: common-image-types
+      - type: Linebreak
+      - identifier: m_image_mobile
+        label: Mobile
+        type: File
+        maxitems: 1
+        allowed: common-image-types
+  - identifier: s-palette
+    type: Palette
+    label: Images for Minimal Layout
+    fields:
+      - identifier: s_image_desktop
+        label: Desktop
+        type: File
+        maxitems: 1
+        allowed: common-image-types
+      - identifier: s_image_tablet
+        label: Tablet
+        type: File
+        maxitems: 1
+        allowed: common-image-types
+      - type: Linebreak
+      - identifier: s_image_mobile
+        label: Mobile
+        type: File
+        maxitems: 1
+        allowed: common-image-types
+  - identifier: pdf-palette
+    type: Palette
+    label: Images for Pdf Layout
+    fields:
+      - identifier: pdf_image_desktop
+        label: Desktop
+        type: File
+        maxitems: 1
+        allowed: common-image-types
+      - identifier: pdf_image_tablet
+        label: Tablet
+        type: File
+        maxitems: 1
+        allowed: common-image-types
+      - type: Linebreak
+      - identifier: pdf_image_mobile
+        label: Mobile
+        type: File
+        maxitems: 1
+        allowed: common-image-types

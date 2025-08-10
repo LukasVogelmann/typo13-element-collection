@@ -1,0 +1,15 @@
+imports:
+  - { resource: "./FormElements/Overrides/FileUpload.yaml" }
+
+prototypes:
+  standard:
+    formElementsDefinition:
+      Form:
+        renderingOptions:
+          templateRootPaths:
+            1736776265: 'EXT:site_frontend/Resources/Private/Templates/Extensions/Form/Frontend/'
+          partialRootPaths:
+            1736776265: 'EXT:site_frontend/Resources/Private/Partials/Extensions/Form/Frontend/'
+          layoutRootPaths:
+            1736776265: 'EXT:site_frontend/Resources/Private/Layouts/Extensions/Form/Frontend/'
+

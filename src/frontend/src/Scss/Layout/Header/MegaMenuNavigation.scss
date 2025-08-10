@@ -1,0 +1,187 @@
+@use '@/Scss/Functions/Px-To-Rem' as Fn;
+@use '@/Scss/Mixins/Breakpoint' as Br;
+
+$space: Fn.px-to-rem(119);
+
+#mega-menu-nav {
+    #mega-menu-backdrop {
+        content: '';
+        position: absolute;
+        top: $space;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        backdrop-filter: blur(Fn.px-to-rem(10));
+        z-index: -1;
+        display: none;
+        background-color: rgba(0, 0, 0, 0.25);
+    }
+
+    #menu-desktop {
+        #mega-menu {
+            position: fixed;
+            top: $space;
+            left: 0;
+            width: 100vw;
+            height: calc(100vh - ($space * 1.5));
+            background-color: var(--white);
+            visibility: hidden;
+            opacity: 0;
+            pointer-events: none;
+            z-index: -1;
+            transition: .3s opacity;
+            overflow-y: scroll;
+            padding-bottom: 2rem;
+
+            &.active {
+                visibility: visible;
+                opacity: 1;
+                pointer-events: all;
+                z-index: 10;
+            }
+
+            .item {
+                &:not(.active) {
+                    display: none;
+                }
+
+                .content {
+                    .section {
+                        font-family: 'Jost-Regular';
+                        font-size: Fn.px-to-rem(26);
+                        font-weight: bold;
+                        gap: 1rem;
+                        align-items: center;
+
+                    }
+
+                    .tiles {
+                        margin-block-start: 1.885rem;
+
+                        figure {
+                            width: 100%;
+                            margin: 0;
+                            padding: 1rem;
+                            text-align: center;
+                            border: Fn.px-to-rem(1) solid var(--light-gray);
+
+                            img {
+                                width: 9.875rem;
+                                height: 9.75rem;
+                            }
+
+                            figcaption {
+                                margin-block-start: 1.56rem;
+                                color: var(--font-color);
+                                font-size: 1.25rem;
+                                font-style: normal;
+                                font-weight: 400;
+                                line-height: 2.375rem;
+                            }
+                        }
+                    }
+
+                    .btn {
+                        margin-block-start: 3.13rem;
+                    }
+
+                    nav.links {
+                        display: block;
+
+                        ul {
+                            list-style: none;
+                            padding-left: 0;
+                            margin-bottom: 0;
+                            margin-block-start: 1.88rem;
+                            display: flex;
+                            flex-direction: column;
+                            gap: 1.88rem;
+                            line-height: 1;
+
+                            li a {
+                                line-height: 1;
+                            }
+                        }
+                    }
+
+                    figure.teaser-image {
+                        position: relative;
+                        margin-block-start: 3.5rem;
+
+                        a {
+                            display: block;
+
+                            &:before {
+                                content: '';
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 100%;
+                                background: linear-gradient(166deg, rgba(0, 0, 0, 0.4) 25.43%, rgba(0, 0, 0, 0.4) 68.06%, rgba(0, 0, 0, 0.4) 68.06%);
+                            }
+
+                            figcaption {
+                                position: absolute;
+                                bottom: 0.95rem;
+                                left: 50%;
+                                transform: translateX(-50%);
+                                color: var(--white);
+                                font-family: 'Jost-Regular';
+                                font-size: 1.25rem;
+                                font-style: normal;
+                                font-weight: 400;
+                            }
+                        }
+                    }
+
+                    .left-section {
+                        padding-right: Fn.px-to-rem(35);
+
+                        .tiles {
+                            display: flex;
+                            flex-wrap: wrap;
+
+                            .tile {
+                                width: 25%;
+                                padding: 0 1rem 2rem;
+
+                                &:nth-child(4n + 1) {
+                                    padding: 0 1rem 2rem 0;
+                                }
+                            }
+                        }
+                    }
+
+                    .right-section {
+                        .tiles {
+                            display: flex;
+                            flex-direction: column;
+
+                            .tile {
+                                width: 100%;
+                                margin-bottom: 1rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .first-level {
+            gap: Fn.px-to-rem(30);
+
+            @include Br.sm-breakpoint-up(desktop) {
+                gap: Fn.px-to-rem(60);
+            }
+
+            .bold {
+                font-weight: 500;
+            }
+
+            .underline {
+                border-bottom: Fn.px-to-rem(4) solid var(--primary);
+            }
+        }
+    }
+}

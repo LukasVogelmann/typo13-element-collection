@@ -1,0 +1,99 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Standard" />
+
+<f:section name="Main">
+    <div class="job-list sm-container-fullsize">
+        <div class="preloader">
+            <div class="preloader__circle"></div>
+        </div>
+
+        <div class="job__toggle-filter d-flex d-lg-none flex-row">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#777777" class="bi bi-filter"
+                viewBox="0 0 16 16">
+                <path
+                    d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5" />
+            </svg>
+            <p class="job__toggle-filter-info">
+                <f:translate key="LLL:EXT:site_frontend/Resources/Private/Language/locallang.xlf:job.toggle-filter" />
+            </p>
+        </div>
+
+        <f:form class="job-list__form filter" extensionName="SiteFrontend" pluginName="AjaxList" controller="Ajax"
+            action="show" pageType="{settings.ajaxTypenum}">
+            <input type="hidden" name="jobs" value="{settings.job}">
+            <svg class="filter__mobile-close d-lg-none" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                viewBox="0 0 24 24" fill="#111">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M6.29289 6.29289C6.68342 5.90237 7.31658 5.90237 7.70711 6.29289L12 10.5858L16.2929 6.29289C16.6834 5.90237 17.3166 5.90237 17.7071 6.29289C18.0976 6.68342 18.0976 7.31658 17.7071 7.70711L13.4142 12L17.7071 16.2929C18.0976 16.6834 18.0976 17.3166 17.7071 17.7071C17.3166 18.0976 16.6834 18.0976 16.2929 17.7071L12 13.4142L7.70711 17.7071C7.31658 18.0976 6.68342 18.0976 6.29289 17.7071C5.90237 17.3166 5.90237 16.6834 6.29289 16.2929L10.5858 12L6.29289 7.70711C5.90237 7.31658 5.90237 6.68342 6.29289 6.29289Z"
+                    fill="#111" />
+            </svg>
+            <p class="filter__mobile-info d-lg-none">
+                <f:translate key="LLL:EXT:site_frontend/Resources/Private/Language/locallang.xlf:job.mobile-info" />
+            </p>
+
+            <f:if condition="{filters.departments}">
+                <f:render section="filters" arguments="{filters: filters.departments, key: 'departments'}" />
+            </f:if>
+
+            <f:if condition="{filters.positions}">
+                <f:render section="filters" arguments="{filters: filters.positions, key: 'positions'}" />
+            </f:if>
+            <div class="filter__mobile-apply d-lg-none">
+                <span>
+                    <f:translate key="LLL:EXT:site_frontend/Resources/Private/Language/locallang.xlf:filter.apply" />
+                </span>
+
+                <svg fill="#fff" stroke="#fff" width="24" height="24" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" stroke="#fff" stroke-width="2" />
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M9.29289 18.7071C8.90237 18.3166 8.90237 17.6834 9.29289 17.2929L14.5858 12L9.29289 6.70711C8.90237 6.31658 8.90237 5.68342 9.29289 5.29289C9.68342 4.90237 10.3166 4.90237 10.7071 5.29289L16.7071 11.2929C17.0976 11.6834 17.0976 12.3166 16.7071 12.7071L10.7071 18.7071C10.3166 19.0976 9.68342 19.0976 9.29289 18.7071Z"
+                        fill="#044782" />
+                </svg>
+
+            </div>
+
+
+        </f:form>
+        <div class="job-list__results">
+            <f:render partial="Plugin/JobList" arguments="{jobs: jobs}" />
+        </div>
+    </div>
+</f:section>
+
+<f:section name="filters">
+    <div class="filter__wrapper">
+        <p class="filter__header" id="{key}-dropdown-toggle">
+            <f:translate key="LLL:EXT:site_frontend/Resources/Private/Language/locallang.xlf:{key}.header" />
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="22" viewBox="0 0 24 22"
+                class="filter__header-icon" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M5.79289 8.29289C6.18342 7.90237 6.81658 7.90237 7.20711 8.29289L12.5 13.5858L17.7929 8.29289C18.1834 7.90237 18.8166 7.90237 19.2071 8.29289C19.5976 8.68342 19.5976 9.31658 19.2071 9.70711L13.2071 15.7071C12.8166 16.0976 12.1834 16.0976 11.7929 15.7071L5.79289 9.70711C5.40237 9.31658 5.40237 8.68342 5.79289 8.29289Z"
+                    fill="#111111" />
+            </svg>
+            <svg class="filter__header-icon filter__header-icon--active" xmlns="http://www.w3.org/2000/svg" width="24"
+                height="24" viewBox="0 0 24 24" fill="#0668BE">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M6.29289 6.29289C6.68342 5.90237 7.31658 5.90237 7.70711 6.29289L12 10.5858L16.2929 6.29289C16.6834 5.90237 17.3166 5.90237 17.7071 6.29289C18.0976 6.68342 18.0976 7.31658 17.7071 7.70711L13.4142 12L17.7071 16.2929C18.0976 16.6834 18.0976 17.3166 17.7071 17.7071C17.3166 18.0976 16.6834 18.0976 16.2929 17.7071L12 13.4142L7.70711 17.7071C7.31658 18.0976 6.68342 18.0976 6.29289 17.7071C5.90237 17.3166 5.90237 16.6834 6.29289 16.2929L10.5858 12L6.29289 7.70711C5.90237 7.31658 5.90237 6.68342 6.29289 6.29289Z"
+                    fill="#0668BE" />
+            </svg>
+        </p>
+        <div class="filter__content" id="{key}-dropdown-menu">
+
+            <f:for each="{filters}" as="filter">
+                <div class="filter__item">
+                    <label class="filter__label">
+                        <f:if condition="{key} == 'departments'}">
+                            <f:then>{filter.site_jobadvertisement_department}</f:then>
+                            <f:else>{filter.site_jobadvertisement_position}</f:else>
+                        </f:if>
+                        <input type="checkbox" class="filter__checkbox" name="{key}[]" value="{f:if(condition: '{key} == \'departments\'', 
+                                                    then: filter.site_jobadvertisement_department, 
+                                                    else: filter.site_jobadvertisement_position)}" />
+                        <div class="filter__custom-checkbox"></div>
+                    </label>
+                </div>
+            </f:for>
+        </div>
+    </div>
+</f:section>

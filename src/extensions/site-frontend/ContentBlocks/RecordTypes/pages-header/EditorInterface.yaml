@@ -1,0 +1,119 @@
+name: site/pages-header
+typeName: 100
+table: pages
+security:
+  ignorePageTypeRestriction: true
+fields:
+  - identifier: logo
+    label: Logo
+    type: File
+    maxitems: 1
+    allowed: svg
+  - identifier: logo_negative
+    label: 'Header Logo - Negative'
+    description: 'Negative brand-logo which is being used in combination with content-block: hero only.'
+    type: File
+    maxitems: 1
+    allowed: svg
+  - identifier: cta_headline
+    label: 'CTA - Headline'
+    type: Text
+  - identifier: cta_subline
+    label: 'CTA - Subline'
+    type: Text
+  - identifier: cta_link
+    label: 'CTA - Link'
+    type: Link
+  - identifier: stickycta_link
+    label: 'Sticky Button - Link'
+    type: Link
+  - identifier: megamenu_tabs
+    label: 'Mega Menu - Tabs'
+    type: Collection
+    maxitems: 3
+    labelField: page
+    security:
+      ignorePageTypeRestriction: true
+    fields:
+      - identifier: page
+        label: Page
+        type: Relation
+        allowed: 'pages'
+        minitems: 1
+        maxitems: 1
+      - identifier: twocolumns_layout
+        label: 'Two-Columns Layout'
+        type: Select
+        renderType: selectSingle
+        displayCond: 'FIELD:site_pagesheader_megamenu_tabs_sections:=:2'
+        items:
+          - label: '25/75'
+            value: '2575'
+          - label: '33/66'
+            value: '3366'
+          - label: '50/50'
+            value: '5050'
+          - label: '66/33'
+            value: '6633'
+          - label: '75/25'
+            value: '7525'
+      - identifier: threecolumns_layout
+        label: 'Three-Columns Layout'
+        type: Select
+        renderType: selectSingle
+        displayCond: 'FIELD:site_pagesheader_megamenu_tabs_sections:=:3'
+        items:
+          - label: '33/33/33'
+            value: '333333'
+          - label: '50/25/25'
+            value: '502525'
+      - identifier: site_pagesheader_megamenu_tabs_sections
+        label: Sections
+        type: Collection
+        labelField: title
+        security:
+          ignorePageTypeRestriction: true
+        onChange: reload
+        fields:
+          - identifier: title
+            label: Title
+            type: Text
+          - identifier: site_pagesheader_megamenu_tabs_sections_tiles
+            label: Tiles
+            type: Collection
+            labelField: title
+            security:
+              ignorePageTypeRestriction: true
+            fields:
+              - identifier: title
+                label: Title
+                type: Text
+              - identifier: link
+                label: Link
+                type: Link
+              - identifier: image
+                label: Image
+                type: File
+                maxitems: 1
+                allowed: common-image-types
+          - identifier: btn_text
+            label: First Button Text
+            type: Text
+          - identifier: btn_link
+            label: First Button Link
+            type: Link
+          - identifier: btn_text_second
+            label: Second Button Text
+            type: Text
+          - identifier: btn_link_second
+            label: Second Button Link
+            type: Link
+          - identifier: links
+            label: Links
+            type: Relation
+            allowed: 'pages'
+          - identifier: teaser_image
+            label: 'Teaser Image'
+            type: File
+            maxitems: 1
+            allowed: common-image-types

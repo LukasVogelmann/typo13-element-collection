@@ -1,0 +1,51 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+    <f:layout name="Default" />
+
+    <f:section name="Main">
+        <div class="cb-fact">
+            <div class="facts-wrapper sm-column-12 sm-column-largetablet-6">
+                <div class="facts">
+                    <f:for each="{data.fact_item}" as="fact">
+                        <div class="item">
+                            <div class="content background-{fact.color}"  style="--background: var(--{fact.color});">
+                                <div class="number-wrapper">
+                                    <f:if condition="{fact.number_prefix}">
+                                        <p  class="prefix color-{fact.color-text}"
+                                            style="--color: var(--{fact.color-text});"
+                                        >
+                                            {fact.number_prefix}
+                                        </p>
+                                    </f:if>
+                                    <f:if condition="{fact.number}">
+                                        <p  class="number color-{fact.color-text}"
+                                            style="--color: var(--{fact.color-text});"
+                                            data-value="{fact.number}"
+                                        >
+                                            0
+                                        </p>
+                                    </f:if>
+                                </div>
+
+                                <f:if condition="{fact.title}">
+                                    <p  class="title mb-0 color-{fact.color-text}"
+                                        style="--color: var(--{fact.color-text});"
+                                    >
+                                        {fact.title}
+                                    </p>
+                                </f:if>
+                            </div>
+                        </div>
+                    </f:for>
+                </div>
+            </div>
+            <div class="text-wrapper sm-column-12 sm-column-tablet-6">
+                <div class="text">
+                    <f:format.html parseFuncTSPath="lib.parseFunc">{data.rte}</f:format.html>
+                </div>
+            </div>
+        </div>
+    </f:section>
+</html>

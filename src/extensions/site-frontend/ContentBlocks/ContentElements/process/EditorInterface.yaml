@@ -1,0 +1,20 @@
+group: site/contentblocks
+name: site/process
+basics:
+  - TYPO3/Appearance
+  - TYPO3/Links
+fields:
+  - identifier: site/default-basics
+    type: Basic
+  - identifier: process_item
+    type: Collection
+    labelField: step
+    minitems: 1
+    fields:
+      - identifier: step
+        type: Text
+      - identifier: title
+        type: Text
+      - identifier: textarea
+        type: Textarea
+        enableRichtext: true

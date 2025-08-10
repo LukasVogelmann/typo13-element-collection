@@ -1,0 +1,171 @@
+@use '@/Scss/Functions/Px-To-Rem' as Fn;
+@use '@/Scss/Mixins/Breakpoint' as Br;
+
+[data-ctype='site_technicaldetail'] {
+    .cb-technicaldetail {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+
+        .image {
+            width: 100%;
+            padding-bottom: Fn.px-to-rem(50);
+            text-align: center;
+
+            img {
+                width: auto !important;
+                max-height: calc(100vh - 150px)
+            }
+        }
+
+        .items {
+            width: 100%;
+
+            .item {
+                display: flex;
+                align-items: center;
+                padding-bottom: Fn.px-to-rem(30);
+
+                .box {
+                    width: Fn.px-to-rem(76);
+                    height: Fn.px-to-rem(76);
+                    border: Fn.px-to-rem(.5) solid var(--dark-gray);
+                    background-color: var(--lighter-gray);
+                    overflow: hidden;
+                    flex-shrink: 0;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+
+                .line {
+                    width: Fn.px-to-rem(10);
+                    flex-shrink: 0;
+                }
+
+                .text {
+                    width: fit-content;
+                    min-width: Fn.px-to-rem(200);
+                    padding-top: Fn.px-to-rem(20);
+
+                    .title {
+                        font-size: Fn.px-to-rem(16);
+                        line-height: Fn.px-to-rem(22);
+                        font-weight: 450;
+                        font-family: 'Jost-Regular';
+                    }
+
+                    .description {
+                        font-size: Fn.px-to-rem(14);
+                        line-height: Fn.px-to-rem(20);
+                        font-weight: 400;
+                        font-family: 'Jost-Regular';
+                        color: var(--dark-gray);
+                    }
+                }
+
+                &:last-child {
+                    padding-bottom: 0;
+                }
+            }
+        }
+
+        @include Br.sm-breakpoint-up(tablet) {
+            .image {
+                width: 50%;
+                padding-bottom: 0;
+                text-align: left;
+
+                img {
+                    max-height: calc(100vh - 250px)
+                }
+            }
+
+            .items {
+                padding-left: Fn.px-to-rem(25);
+                width: 50%;
+
+                .item {
+                    .box {
+                        width: Fn.px-to-rem(70);
+                        height: Fn.px-to-rem(70);
+                    }
+
+                    .line {
+                        width: Fn.px-to-rem(45);
+
+                        &::after {
+                            content: '';
+                            display: block;
+                            width: 80%;
+                            height: Fn.px-to-rem(.5);
+                            background-color: var(--dark-gray);
+                            position: relative;
+                            top: 50%;
+                            transform: translateY(-50%);
+                        }
+                    }
+
+                    .text {
+                        padding-top: .5rem;
+                        justify-content: center;
+
+                        .title {
+                            font-size: Fn.px-to-rem(24);
+                            line-height: Fn.px-to-rem(30);
+                            font-family: 'Jost-Regular';
+                        }
+
+                        .description {
+                            font-size: Fn.px-to-rem(20);
+                            line-height: Fn.px-to-rem(26);
+                            font-family: 'Jost-Regular';
+                        }
+                    }
+                }
+            }
+        }
+
+        @include Br.sm-breakpoint-up(desktop) {
+            .image {
+                width: 60%;
+            }
+
+            .items {
+                width: 40%;
+
+                .item {
+                    padding-bottom: Fn.px-to-rem(50);
+
+                    .box {
+                        width: Fn.px-to-rem(110);
+                        height: Fn.px-to-rem(110);
+                    }
+
+                    .line {
+                        width: Fn.px-to-rem(127);
+                    }
+
+                    .text {
+                        padding-top: 1rem;
+
+                        .title {
+                            font-size: Fn.px-to-rem(28);
+                            line-height: Fn.px-to-rem(38);
+                            font-family: 'Jost-Regular';
+                        }
+
+                        .description {
+                            font-size: Fn.px-to-rem(22);
+                            line-height: Fn.px-to-rem(30);
+                            font-family: 'Jost-Regular';
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

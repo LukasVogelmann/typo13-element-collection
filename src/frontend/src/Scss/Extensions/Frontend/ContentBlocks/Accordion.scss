@@ -1,0 +1,192 @@
+@use '@/Scss/Functions/Px-To-Rem' as Fn;
+@use '@/Scss/Mixins/Breakpoint' as Br;
+
+[data-ctype='site_accordion'] {
+    header {
+        margin-bottom: 2rem;
+    }
+
+    .cb-accordion {
+        .accordion-item {
+            position: relative;
+            border-bottom: Fn.px-to-rem(1) solid var(--light-gray);
+
+            button {
+                cursor: pointer;
+                width: 100%;
+                border: none;
+                outline: none;
+                transition: 0.4s;
+                text-align: left;
+                padding: Fn.px-to-rem(50) Fn.px-to-rem(25);
+                display: flex;
+                background-color: transparent;
+
+                p {
+                    font-family: 'Jost-Regular', sans-serif;
+                    font-size: Fn.px-to-rem(24);
+                    line-height: Fn.px-to-rem(38);
+                    font-weight: 400;
+                    margin-bottom: 0;
+                }
+            }
+
+            .panel {
+                padding: 0 Fn.px-to-rem(25);
+                transition: max-height 0.2s ease-out;
+                border: 0;
+                display: none;
+                gap: Fn.px-to-rem(10);
+
+                .image {
+                    width: 100%;
+                    padding-bottom: Fn.px-to-rem(50);
+
+                    &.image-left {
+                        order: 0;
+                    }
+
+                    &.image-right {
+                        order: 1;
+                    }
+                }
+
+                &[data-layout-id="0"] {
+                    .image {
+                        width: 25%;
+                    }
+                }
+
+                &[data-layout-id="1"] {
+                    .image {
+                        width: 33%;
+                    }
+                }
+
+                &[data-layout-id="2"] {
+                    .image {
+                        width: 40%;
+                    }
+                }
+
+                &[data-layout-id="3"] {
+                    .image {
+                        width: 50%;
+                    }
+                }
+
+                &[data-layout-id="4"] {
+                    .image {
+                        width: 60%;
+                    }
+                }
+
+                &[data-layout-id="5"] {
+                    .image {
+                        width: 66%;
+                    }
+                }
+
+                &[data-layout-id="6"] {
+                    .image {
+                        width: 75%;
+                    }
+                }
+
+                .text {
+                    width: 100%;
+                    flex-grow: 1;
+                    flex-basis: 0;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+
+                    p {
+                        font-size: Fn.px-to-rem(24);
+                        line-height: Fn.px-to-rem(38);
+                        font-weight: 400;
+                        padding-bottom: Fn.px-to-rem(50);
+                        margin: 0;
+                    }
+                }
+
+
+            }
+
+            svg {
+                position: absolute;
+                right: 1.5rem;
+                top: 2.5rem;
+                width: Fn.px-to-rem(24);
+                height: Fn.px-to-rem(24);
+                transition: transform .4s ease-in-out;
+            }
+
+            &.active {
+                svg {
+                    transform: rotate(180deg);
+                }
+            }
+
+            &:first-child {
+                border-top: Fn.px-to-rem(1) solid var(--light-gray);
+            }
+        }
+
+        @include Br.sm-breakpoint-down(tablet-large) {
+            .accordion-item {
+                button {
+                    p {
+                        font-size: Fn.px-to-rem(18);
+                        line-height: Fn.px-to-rem(24);
+                    }
+                }
+
+                .panel .text {
+                    p {
+                        font-size: Fn.px-to-rem(18);
+                        line-height: Fn.px-to-rem(24);
+                    }
+                }
+            }
+        }
+
+        @include Br.sm-breakpoint-down(mobile-medium) {
+            .accordion-item {
+                button {
+                    padding: Fn.px-to-rem(40) 0;
+
+                    p {
+                        font-size: Fn.px-to-rem(16);
+                        line-height: Fn.px-to-rem(22);
+                    }
+                }
+
+                .panel {
+                    padding: 0 2rem 0 0;
+                    flex-wrap: wrap;
+                    flex-direction: column;
+
+                    .image {
+                        width: 100% !important;
+                        padding-bottom: Fn.px-to-rem(40);
+
+                        img {
+                            height: 100%;
+                            width: 100%;
+                            object-fit: cover;
+                        }
+                    }
+
+                    .text {
+                        p {
+                            font-size: Fn.px-to-rem(18);
+                            line-height: Fn.px-to-rem(24);
+                            padding-bottom: Fn.px-to-rem(40);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

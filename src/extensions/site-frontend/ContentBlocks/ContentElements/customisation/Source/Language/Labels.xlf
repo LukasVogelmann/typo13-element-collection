@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file datatype="plaintext" original="Labels.xlf" source-language="en" date="2024-08-11T10:56:14+00:00" product-name="site/customisation">
+		<header/>
+		<body>
+			<trans-unit id="title" resname="title">
+				<source>Customisation</source>
+			</trans-unit>
+			<trans-unit id="description" resname="description">
+				<source>Display tabs of products with different customisation options</source>
+			</trans-unit>
+			<trans-unit id="customisation_item.label" resname="customisation_item.label">
+				<source>Tab Item</source>
+			</trans-unit>
+			<trans-unit id="customisation_item.item_option.label" resname="customisation_item.item_option.label">
+				<source>Option</source>
+			</trans-unit>
+			<trans-unit id="customisation_item.title.label" resname="customisation_item.title.label">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="customisation_item.description.label" resname="customisation_item.description.label">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="customisation_item.textarea.label" resname="customisation_item.textarea.label">
+				<source>Text</source>
+			</trans-unit>
+			<trans-unit id="customisation_item.item_option.title.label" resname="customisation_item.item_option.title.label">
+				<source>Icon Title</source>
+			</trans-unit>
+			<trans-unit id="customisation_item.item_option.color.label" resname="customisation_item.item_option.color.label">
+				<source>Icon Backgroundcolor</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

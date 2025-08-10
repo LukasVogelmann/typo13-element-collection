@@ -1,0 +1,46 @@
+group: site/contentblocks
+name: site/profiledisplayer
+basics:
+  - TYPO3/Appearance
+  - TYPO3/Links
+fields:
+  - identifier: site/default-basics
+    type: Basic
+  - identifier: slides_per_view
+    label: Max Number of Slides Per View
+    type: Select
+    renderType: selectSingle
+    items:
+      - label: 4
+        value: 4
+      - label: 3
+        value: 3
+  - identifier: profile_item
+    type: Collection
+    labelField: headline
+    minitems: 1
+    fields:
+      - identifier: site/basics-images
+        type: Basic
+      - identifier: headline
+        label: Headline
+        type: Text
+      - identifier: description
+        label: Description
+        type: Textarea
+      - identifier: properties
+        type: Collection
+        label: Properties and Their Values
+        maxitems: 2
+        fields:
+          - identifier: property_name
+            label: Property
+            type: Text
+          - identifier: property_value
+            label: Property Value
+            type: Text
+      - identifier: file
+        label: Upload File
+        type: File
+        allowedTypes:
+          - pdf

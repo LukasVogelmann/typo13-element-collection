@@ -1,0 +1,9 @@
+blockquote {
+    p {
+        font-family: 'Merriweather-Regular', sans-serif;
+    }
+
+    p::after, p::before {
+        content: '"';
+    }
+}

@@ -1,0 +1,36 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+<f:section name="Main">
+
+    <f:if condition="{data.table_items}">
+        <h2>{data.table_caption}</h2>
+        <table class="table">
+            <thead class="table-head">
+                <tr>
+                    <f:for each="{data.table_items}" as="column">
+                        <th>
+                            <p>{column.row_name}</p>
+                        </th>
+                    </f:for>
+                </tr>
+            </thead>
+            <tbody class="table-body">
+                <f:for each="{data.table_items.0.row_columns}" as="row" iteration="iteration">
+                    <tr>
+                        <f:for each="{data.table_items}" as="column">
+                            <td>
+                                <f:if condition="{column.row_columns.{iteration.index}}">
+                                    <p>{column.row_columns.{iteration.index}.column_value}</p>
+                                </f:if>
+                            </td>
+                        </f:for>
+                    </tr>
+                </f:for>
+            </tbody>
+        </table>
+    </f:if>
+
+
+
+</f:section>

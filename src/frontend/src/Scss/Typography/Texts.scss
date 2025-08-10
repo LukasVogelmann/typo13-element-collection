@@ -1,0 +1,27 @@
+@use '@/Scss/Functions/Px-To-Rem' as Fn;
+@use '@/Scss/Mixins/Breakpoint' as Br;
+
+body {
+    font-family: 'Jost-Regular', sans-serif;
+    font-size: 1.5rem;
+    line-height: 2.375rem;
+
+    p,
+    span,
+    a,
+    li {
+        font-family: 'Jost-Regular', sans-serif;
+        font-size: Fn.px-to-rem(16);
+        line-height: Fn.px-to-rem(22);
+
+        @include Br.sm-breakpoint-up(tablet) {
+            font-size: Fn.px-to-rem(18);
+            line-height: Fn.px-to-rem(24);
+        }
+
+        @include Br.sm-breakpoint-up(desktop) {
+            font-size: Fn.px-to-rem(24);
+            line-height: Fn.px-to-rem(38);
+        }
+    }
+}

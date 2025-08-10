@@ -1,0 +1,10 @@
+mod.wizards.newContentElement.wizardItems {
+    site/contentblocks {
+        header = Content Blocks
+        before = common
+    }
+    site/startpage {
+        header = Startpage Blocks
+        before = site/contentblocks
+    }
+}

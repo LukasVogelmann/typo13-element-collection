@@ -1,0 +1,48 @@
+name: site/pages-footer
+typeName: 101
+table: pages
+security:
+  ignorePageTypeRestriction: true
+fields:
+  - identifier: copyright
+    label: Title
+    description: "Use `{year}` which will represent the current year."
+    type: Text
+    placeholder: "{year}  Fenster + Türen GmbH (...)"
+  - identifier: footerlinks
+    type: Collection
+    label: "Footer-Links"
+    labelField: title
+    security:
+      ignorePageTypeRestriction: true
+    fields:
+      - identifier: icon
+        label: Icon
+        type: File
+        minitems: 0
+        maxitems: 1
+        allowed: svg
+      - identifier: title
+        label: Title
+        type: Text
+      - identifier: link
+        label: Link
+        type: Link
+  - identifier: socials
+    label: Socials
+    type: File
+    maxitems: 3
+    allowed: common-image-types
+  - identifier: certificates
+    label: Certificates
+    type: Collection
+    maxitems: 3
+    security:
+      ignorePageTypeRestriction: true
+    fields:
+      - identifier: icon
+        label: Icon
+        type: File
+        minitems: 0
+        maxitems: 1
+        allowed: svg

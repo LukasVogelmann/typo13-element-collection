@@ -1,0 +1,20 @@
+{
+    "name": "site/frontend",
+    "type": "typo3-cms-extension",
+    "version": "0.1.0",
+    "require": {
+        "b13/container": "^2",
+        "b13/menus": "^1",
+        "contentblocks/content-blocks": "^0.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Site\\Frontend\\": "src/"
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "site_frontend"
+        }
+    }
+}

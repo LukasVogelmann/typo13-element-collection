@@ -1,0 +1,23 @@
+group: site/contentblocks
+name: site/separator
+basics:
+  - TYPO3/Appearance
+  - TYPO3/Links
+fields:
+  - identifier: site/default-basics
+    type: Basic
+  - identifier: site/basics-images
+    type: Basic
+  - identifier: icon
+    label: Icon
+    type: File
+    allowed: svg
+    minitems: 0
+    maxitems: 1
+  - identifier: bodytext
+    useExistingField: true
+  - identifier: cite
+    label: Cite
+    type: Text
+    rows: 2
+    

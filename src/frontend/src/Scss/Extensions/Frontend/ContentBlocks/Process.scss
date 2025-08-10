@@ -1,0 +1,59 @@
+@use '@/Scss/Functions/Px-To-Rem' as Fn;
+@use '@/Scss/Mixins/Breakpoint' as Br;
+
+[data-ctype='site_process'] {
+    .cb-process {
+        margin-top: Fn.px-to-rem(30);
+
+        .item {
+            margin-top: Fn.px-to-rem(20);
+
+            .step {
+                font-size: Fn.px-to-rem(16);
+                line-height: Fn.px-to-rem(22);
+                font-weight: 450;
+                background-color: var(--accent-dark);
+                color: var(--white);
+                padding: 0 Fn.px-to-rem(16);
+                width: fit-content;
+                height: Fn.px-to-rem(41);
+                display: flex;
+                align-items: center;
+                position: absolute;
+                left: Fn.px-to-rem(30);
+                top: Fn.px-to-rem(-20);
+
+                @include Br.sm-breakpoint-down(mobile-large) {
+                    font-size: Fn.px-to-rem(14);
+                }
+            }
+
+            .content {
+                padding: Fn.px-to-rem(47) Fn.px-to-rem(30) Fn.px-to-rem(38);
+                background-color: var(--lighter-gray);
+                height: 100%;
+
+                .title {
+                    font-size: Fn.px-to-rem(22);
+                    line-height: Fn.px-to-rem(30);
+                    font-weight: 450;
+                    font-family: 'Jost-Medium';
+
+                    @include Br.sm-breakpoint-down(mobile-large) {
+                        font-size: Fn.px-to-rem(20);
+                    }
+                }
+
+                .textarea p {
+                    font-size: Fn.px-to-rem(22);
+                    line-height: Fn.px-to-rem(30);
+                    font-family: 'Jost-Regular';
+
+                    @include Br.sm-breakpoint-down(mobile-large) {
+                        font-size: Fn.px-to-rem(16);
+                    }
+                }
+            }
+        }
+    }
+}

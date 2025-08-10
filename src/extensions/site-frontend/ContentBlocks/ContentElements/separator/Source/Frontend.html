@@ -1,0 +1,38 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+<f:section name="Main">
+    <div id="separator">
+        <div class="image">
+            <f:render partial="Image" arguments="{
+                                    images: {
+                                        desktop: data.image_desktop.0,
+                                        tablet: data.image_tablet.0,
+                                        mobile: data.image_mobile.0
+                                    }
+                                }" />
+        </div>
+        <div class="content">
+            <div class="sm-container">
+                <div class="sm-column-12">
+                    <blockquote class="large">
+                        <f:if condition="{data.icon.0}">
+                            <f:image src="{data.icon.0.uid}" treatIdAsReference="1" alt="{data.icon.0.alternative}"
+                                title="{data.icon.0.title}" class="img-fluid icon" />
+                        </f:if>
+
+                        <div class="text">
+                            <f:format.raw>{data.bodytext -> f:format.nl2br()}</f:format.raw>
+                        </div>
+
+                        <f:if condition="{data.cite}">
+                            <cite>{data.cite}</cite>
+                        </f:if>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+</f:section>
+
+</html>

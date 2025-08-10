@@ -1,0 +1,13 @@
+group: site/startpage
+name: site/award
+basics:
+  - TYPO3/Appearance
+  - TYPO3/Links
+fields:
+  - identifier: site/default-basics
+    type: Basic
+  - identifier: images
+    type: File
+    minitems: 1
+    maxitems: 6
+    allowed: common-image-types

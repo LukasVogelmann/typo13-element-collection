@@ -1,0 +1,33 @@
+<f:for each="{jobs}" as="job">
+    <div class="job-list__item">
+        <div class="position">
+            <div class="job_tags">
+                <f:for each="{job.data.tags}" as="tag">
+                    <div class="tag">
+                        <p>{tag.name}</p>
+                    </div>
+                </f:for>
+            </div>
+            <div class="job_position">
+                <p>{job.data.position}</p>
+            </div>
+        </div>
+        <div class="department_link">
+            <div class="department">
+                <p>{job.data.department}</p>
+            </div>
+            <div class="link">
+                <div class="job-list__link">
+                    <f:link.typolink parameter="{job.data.link}">
+                        {site:asset.svg(icon: 'arrow') -> f:format.raw()}
+                    </f:link.typolink>
+                </div>
+            </div>
+        </div>
+    </div>
+</f:for>
+<f:if condition="{jobs -> f:count()} == 0">
+    <p class="no-results">
+        <f:translate key="LLL:EXT:site_frontend/Resources/Private/Language/locallang.xlf:job.Noresult" />
+    </p>
+</f:if>

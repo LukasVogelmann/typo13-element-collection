@@ -1,0 +1,54 @@
+@use '@/Scss/Functions/Px-To-Rem' as Fn;
+@use '@/Scss/Mixins/Breakpoint' as Br;
+
+body {
+    width: 100%;
+    overflow-x: hidden;
+    font-weight: 500;
+
+    #content,
+    footer {
+        width: 100%;
+        overflow-x: hidden;
+    }
+}
+
+.d-tablet-none {
+    @include Br.sm-breakpoint-up(tablet) {
+        display: none !important;
+    }
+}
+
+.d-tablet-block {
+    @include Br.sm-breakpoint-up(tablet) {
+        display: block !important;
+    }
+}
+
+.d-tablet-flex {
+    @include Br.sm-breakpoint-up(tablet) {
+        display: flex !important;
+    }
+}
+
+.d-desktop-none {
+    @include Br.sm-breakpoint-up(desktop) {
+        display: none !important;
+    }
+}
+
+.d-desktop-block {
+    @include Br.sm-breakpoint-up(desktop) {
+        display: block !important;
+    }
+}
+
+.d-desktop-flex {
+    @include Br.sm-breakpoint-up(desktop) {
+        display: flex !important;
+    }
+}
+
+.frame {
+    scroll-margin-top: Fn.px-to-rem(150);
+}

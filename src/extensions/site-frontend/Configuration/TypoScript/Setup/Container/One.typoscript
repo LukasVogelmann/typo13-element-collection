@@ -1,0 +1,11 @@
+tt_content.site_containerone =< lib.container
+tt_content.site_containerone {
+    templateName = One
+    dataProcessing {
+        1 = B13\Container\DataProcessing\ContainerProcessor
+        1 {
+            colPos = 200
+            as = children
+        }
+    }
+}

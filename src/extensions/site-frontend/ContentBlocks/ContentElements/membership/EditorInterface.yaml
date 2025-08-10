@@ -1,0 +1,26 @@
+group: site/startpage
+name: site/membership
+basics:
+  - TYPO3/Appearance
+  - TYPO3/Links
+fields:
+  - identifier: site/default-basics
+    type: Basic
+  - identifier: toggleSlider
+    label: Slide on mobile
+    type: Checkbox
+    renderType: checkboxToggle
+  - identifier: membership_item
+    type: Collection
+    label: Items
+    labelField: heading
+    minitems: 1
+    fields:
+      - identifier: image
+        type: File
+        minitems: 1
+        maxitems: 1
+        allowed: common-image-types
+      - identifier: heading
+        type: Text
+        label: Heading

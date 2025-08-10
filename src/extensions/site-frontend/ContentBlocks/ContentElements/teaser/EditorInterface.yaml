@@ -1,0 +1,35 @@
+group: site/contentblocks
+name: site/teaser
+basics:
+  - TYPO3/Appearance
+  - TYPO3/Links
+fields:
+  - identifier: site/default-basics
+    type: Basic
+  - identifier: no_slider
+    label: Deactivate Slider
+    type: Checkbox
+    renderType: checkboxToggle
+  - identifier: slides_per_view
+    label: Max Number of Slides Per View
+    type: Select
+    renderType: selectSingle
+    items:
+      - label: 4
+        value: 4
+      - label: 3
+        value: 3
+  - identifier: teaser_item
+    type: Collection
+    labelField: text
+    minitems: 1
+    fields:
+      - identifier: site/basics-images
+        type: Basic
+      - identifier: text
+        type: Text
+      - identifier: textarea
+        type: Textarea
+        enableRichtext: true
+      - identifier: site/basics-link
+        type: Basic

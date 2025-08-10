@@ -1,0 +1,90 @@
+@use '@/Scss/Functions/Px-To-Rem' as Fn;
+@use '@/Scss/Mixins/Breakpoint' as Br;
+
+[data-ctype='site_producttype'] {
+    .cb-producttype {
+        .item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: Fn.px-to-rem(20);
+
+            .icon-wrapper {
+                width: Fn.px-to-rem(72);
+                height: Fn.px-to-rem(72);
+                background-color: var(--primary);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .icon {
+                    width: 60%;
+                    height: 60%;
+
+                    figure,
+                    img {
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        margin: 0;
+                    }
+                }
+            }
+
+            .content {
+                .title {
+                    font-family: 'Jost-Medium';
+                    font-size: Fn.px-to-rem(18);
+                    line-height: Fn.px-to-rem(24);
+                    font-weight: 450;
+                    text-align: center;
+                }
+
+                .textarea {
+                    font-family: 'Jost-Regular';
+                    font-size: Fn.px-to-rem(18);
+                    line-height: Fn.px-to-rem(24);
+                    font-weight: 400;
+                    text-align: center;
+                }
+            }
+        }
+
+        @include Br.sm-breakpoint-up(tablet) {
+            .item {
+                gap: Fn.px-to-rem(30);
+
+                .content {
+                    .title {
+                        font-size: Fn.px-to-rem(20);
+                        line-height: Fn.px-to-rem(26);
+                    }
+
+                    .textarea {
+                        font-size: Fn.px-to-rem(20);
+                        line-height: Fn.px-to-rem(26);
+                    }
+                }
+            }
+        }
+
+        @include Br.sm-breakpoint-up(tablet-large) {
+            .item {
+                gap: Fn.px-to-rem(30);
+
+                .content {
+                    .title {
+                        font-size: Fn.px-to-rem(28);
+                        line-height: Fn.px-to-rem(38);
+                    }
+
+                    .textarea {
+                        font-size: Fn.px-to-rem(28);
+                        line-height: Fn.px-to-rem(38);
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,36 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+    <f:layout name="Default" />
+
+    <f:section name="Main">
+        <div class="cb-technicaldetail">
+            <div class="image">
+                <f:render partial="Image" arguments="{
+                    images: {
+                        desktop: data.image_desktop.0,
+                        tablet: data.image_tablet.0,
+                        mobile: data.image_mobile.0
+                    }
+                }" />
+            </div>
+            <div class="items">
+                <f:for each="{data.detail_item}" as="item">
+                    <div class="item">
+                        <div class="box">
+                            <f:if condition="{item.icon.0}">
+                                <f:image src="{item.icon.0.uid}" treatIdAsReference="1" loading="lazy" alt="{f:if(condition: '{item.icon.alternative}', then: '{item.icon.alternative}', else: 'Icon of Detail with Id: {item.uid}')}" />
+                            </f:if>
+                        </div>
+                        <div class="line"></div>
+                        <div class="text">
+                            <div class="title">{item.title}</div>
+                            <div class="description">{item.text}</div>
+                        </div>
+                    </div>
+                </f:for>
+            </div>
+        </div>
+    </f:section>
+</html>

@@ -1,0 +1,27 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+    <f:layout name="Standard" />
+
+    <f:section name="Main">
+        <f:render partial="Header" arguments="{
+            navigation: navigation,
+            metanavigation: metanavigation,
+            languagenavigation: languagenavigation,
+            page: data,
+            site: site
+        }" />
+
+        <f:render partial="Content" arguments="{
+            page: data,
+            content: content
+        }" />
+
+        <f:render partial="Footer" arguments="{
+            page: data,
+            footernavigation: footernavigation,
+            footer_metanavigation: footer_metanavigation
+        }" />
+    </f:section>
+</html>

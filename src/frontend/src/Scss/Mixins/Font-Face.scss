@@ -1,0 +1,17 @@
+@mixin ttf($name, $file, $weight: normal, $style: normal) {
+    @font-face {
+        font-family: $name;
+        src: url('#{$file}.ttf') format('truetype');
+        font-weight: $weight;
+        font-style: $style;
+    }
+}
+
+@mixin woff($name, $file, $weight: normal, $style: normal) {
+    @font-face {
+        font-family: $name;
+        src: url('#{$file}.woff');
+        font-weight: $weight;
+        font-style: $style;
+    }
+}

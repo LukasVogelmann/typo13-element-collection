@@ -1,0 +1,25 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+    <f:layout name="Default" />
+
+    <f:section name="Main">
+        <div class="cb-textimage" data-layout-id="{data.layout_options}">
+            <div class="wrapper">
+                <div class="image image-{data.image_position}">
+                    <f:render partial="Image" arguments="{
+                        images: {
+                            desktop: data.image_desktop.0,
+                            tablet: data.image_tablet.0,
+                            mobile: data.image_mobile.0
+                        }
+                    }" />
+                </div>
+                <div class="text background-{data.color}"  style="--background: var(--{data.color});">
+                    <f:format.html parseFuncTSPath="lib.parseFunc">{data.textarea}</f:format.html>
+                </div>
+            </div>
+        </div>
+    </f:section>
+</html>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="de" datatype="plaintext" original="messages" date="2023-05-05T08:49:00Z" product-name="javascript-frontend">
+        <body>
+            <trans-unit id="formRequired">
+                <source>This field is required</source>
+            </trans-unit>
+            <trans-unit id="formEmailInvalid">
+                <source>This email is invalid</source>
+            </trans-unit>
+            <trans-unit id="formPhoneInvalid">
+                <source>This phone number is invalid</source>
+            </trans-unit>
+            <trans-unit id="formCheckboxRequired">
+                <source>This checkbox is required</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

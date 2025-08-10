@@ -1,0 +1,19 @@
+group: site/contentblocks
+name: site/tabs
+basics:
+  - TYPO3/Appearance
+  - TYPO3/Links
+fields:
+  - identifier: site/default-basics
+    type: Basic
+  - identifier: tabs_item
+    type: Collection
+    labelField: title
+    minitems: 1
+    fields:
+      - identifier: title
+        type: Text
+        required: true
+      - identifier: link
+        type: Link
+        required: true

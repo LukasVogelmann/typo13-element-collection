@@ -1,0 +1,144 @@
+@use '@/Scss/Functions/Px-To-Rem' as Fn;
+@use '@/Scss/Mixins/Breakpoint' as Br;
+
+@import './Form/LinkedCheckbox';
+@import './Form/Checkbox';
+@import './Form/FileUpload';
+
+form {
+    &>.form-group {
+        margin-block-end: 1.88rem;
+    }
+
+    input,
+    textarea,
+    select {
+        &.form-control {
+            height: 3.375rem;
+            border-radius: 0;
+            outline: none !important;
+            box-shadow: unset !important;
+
+            &:focus {
+                border-color: var(--primary);
+                box-shadow: unset !important;
+            }
+        }
+    }
+
+    .select {
+        position: relative;
+
+        select:hover {
+            cursor: pointer;
+        }
+
+        &:before {
+            content: '';
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M5.79289 8.29289C6.18342 7.90237 6.81658 7.90237 7.20711 8.29289L12.5 13.5858L17.7929 8.29289C18.1834 7.90237 18.8166 7.90237 19.2071 8.29289C19.5976 8.68342 19.5976 9.31658 19.2071 9.70711L13.2071 15.7071C12.8166 16.0976 12.1834 16.0976 11.7929 15.7071L5.79289 9.70711C5.40237 9.31658 5.40237 8.68342 5.79289 8.29289Z' fill='%23111111'/%3E%3C/svg%3E");
+            background-size: contain;
+            position: absolute;
+            width: 1.5rem;
+            height: 1.5rem;
+            right: 1rem;
+            top: 1rem;
+            pointer-events: none;
+        }
+    }
+
+    textarea.form-control {
+        display: flex;
+        min-height: 12.5rem;
+        padding: 0.9375rem 0.75rem;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 0.5rem;
+        flex: 1 0 0;
+        align-self: stretch;
+    }
+
+    label.form-label {
+        display: flex;
+
+        span.required {
+            font-family: 'Jost-Regular';
+        }
+    }
+
+    span,
+    label {
+        font-size: 1rem;
+        line-height: 1rem;
+        margin-bottom: 10px;
+
+        a {
+            font-size: 1rem;
+            line-height: 1rem;
+        }
+
+        &.required {
+            margin-bottom: 0;
+        }
+    }
+
+    .btn-group {
+        width: 100%;
+
+        button[type="submit"] {
+            border: none;
+            margin-top: Fn.px-to-rem(0);
+        }
+
+        @include Br.sm-breakpoint-up(tablet) {
+            button[type="submit"] {
+                border: none;
+                margin-top: Fn.px-to-rem(20);
+            }
+        }
+    }
+
+    .error-present {
+
+        input,
+        textarea,
+        select,
+        .icon-checkbox {
+            border: 1px solid var(--red) !important;
+        }
+    }
+
+    .validation-error {
+        display: block;
+        margin-top: 5px;
+    }
+
+    fieldset.form-group {
+        margin-bottom: Fn.px-to-rem(50);
+
+        &>.form-group {
+            margin-block-end: 1.88rem;
+
+            &:last-child {
+                margin-block-end: 0;
+            }
+        }
+    }
+
+    legend {
+        font-family: 'Jost-Medium';
+        font-size: Fn.px-to-rem(20);
+        line-height: Fn.px-to-rem(26);
+        margin-bottom: Fn.px-to-rem(30);
+    }
+
+    .clearfix {
+        margin-bottom: Fn.px-to-rem(50);
+
+        p {
+            font-family: 'Jost-Regular';
+            font-size: Fn.px-to-rem(16);
+            line-height: Fn.px-to-rem(26);
+            margin-bottom: 0;
+        }
+    }
+}

@@ -1,0 +1,22 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+    <f:layout name="Default" />
+
+    <f:section name="Main">
+        <div class="cb-award">
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <f:for each="{data.images}" as="image">
+                        <div class="swiper-slide">
+                            <div class="item">
+                                <f:render partial="SingleImage" arguments="{image: image}" />
+                            </div>
+                        </div>
+                    </f:for>
+                </div>
+            </div>
+        </div>
+    </f:section>
+</html>

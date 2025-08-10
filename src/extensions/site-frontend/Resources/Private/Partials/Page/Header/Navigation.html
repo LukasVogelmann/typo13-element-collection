@@ -1,0 +1,46 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+    <nav id="mega-menu-nav">
+        <div id="mega-menu-backdrop" data-step="1"></div>
+            <div id="menu-desktop" class="d-none d-tablet-block">
+                <ul class="first-level open">
+                    <f:for each="{navigation}" as="item">
+                        <li>
+                            <f:link.page
+                                pageUid="{item.data.uid}"
+                                additionalAttributes="{ data-page-id: item.data.uid}"
+                                class="{f:if(condition: item.active, then: 'underline bold')}"
+                            >
+                                {item.title}
+                            </f:link.page>
+                        </li>
+                    </f:for>
+                </ul>
+
+                <f:render partial="Header/MegaMenu" arguments="{
+                    navigation: navigation
+                }" />
+            </div>
+
+            <div id="menu-mobile" class="d-tablet-none">
+                <div class="d-flex d-tablet-none">
+                    <button class="back-button" data-step="1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="22" viewBox="0 0 24 22" fill="#777" class="d-none">
+                            <path fill-rule="evenodd" fill="#777" clip-rule="evenodd" d="M5.79289 8.29289C6.18342 7.90237 6.81658 7.90237 7.20711 8.29289L12.5 13.5858L17.7929 8.29289C18.1834 7.90237 18.8166 7.90237 19.2071 8.29289C19.5976 8.68342 19.5976 9.31658 19.2071 9.70711L13.2071 15.7071C12.8166 16.0976 12.1834 16.0976 11.7929 15.7071L5.79289 9.70711C5.40237 9.31658 5.40237 8.68342 5.79289 8.29289Z" fill="#111111"/>
+                        </svg>
+                        <p>Qualität entdecken</p>
+                    </button>
+
+                    <div class="languages-column">
+                        <f:render partial="Header/Languages" arguments="{languagenavigation: languagenavigation}" />
+                    </div>
+                </div>
+
+                <f:render partial="Header/MobileMenu" arguments="{
+                    navigation: navigation
+                }" />
+            </div>
+    </nav>
+</html>

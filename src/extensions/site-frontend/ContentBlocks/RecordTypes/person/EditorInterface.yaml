@@ -1,0 +1,48 @@
+name: site/persons
+typeName: 102
+table: tx_site_persons
+labelField: lastname
+security:
+  ignorePageTypeRestriction: true
+fields:
+  - identifier: icon
+    label: Icons
+    type: File
+    minitems: 1
+    maxitems: 1
+    allowed: common-image-types
+  - identifier: firstname
+    label: Firstname
+    type: Text
+  - identifier: lastname
+    label: Lastname
+    type: Text
+  - identifier: position
+    label: Position
+    type: Text
+  - identifier: telephone
+    label: Telephone
+    type: Text
+  - identifier: email
+    label: Email
+    type: Email
+  - identifier: booking
+    label: Link to booking
+    type: Link
+  - identifier: booking_text
+    label: Text of link to booking
+    type: Text
+  - identifier: pdf
+    type: File
+    minitems: 0
+    maxitems: 1
+    allowed: pdf
+  - identifier: pdf_text
+    label: Text of link to pdf
+    type: Text
+  - identifier: tab_1
+    label: Layout Images
+    type: Tab
+  - identifier: site/person-images
+    type: Basic
+

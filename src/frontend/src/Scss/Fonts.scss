@@ -1,0 +1,30 @@
+@use './Mixins/Font-Face' as font-face;
+
+// Merriweather
+@include font-face.ttf('Merriweather-Black', '../Fonts/Merriweather/Merriweather-Black', 900, normal);
+@include font-face.ttf('Merriweather-BlackItalic', '../Fonts/Merriweather/Merriweather-BlackItalic', 900, normal);
+@include font-face.ttf('Merriweather-Bold', '../Fonts/Merriweather/Merriweather-Bold', 900, normal);
+@include font-face.ttf('Merriweather-BoldItalic', '../Fonts/Merriweather/Merriweather-BoldItalic', 900, normal);
+@include font-face.ttf('Merriweather-Italic', '../Fonts/Merriweather/Merriweather-Italic', 400, normal);
+@include font-face.ttf('Merriweather-Light', '../Fonts/Merriweather/Merriweather-Light', 100, normal);
+@include font-face.ttf('Merriweather-LightItalic', '../Fonts/Merriweather/Merriweather-LightItalic', 100, normal);
+@include font-face.ttf('Merriweather-Regular', '../Fonts/Merriweather/Merriweather-Regular', 400, normal);
+
+// Futura PT
+@include font-face.woff('Jost-Regular', '../Fonts/FuturaPT/FuturaCyrillicBook', 400, normal);
+@include font-face.woff('FuturaPT-Light', '../Fonts/FuturaPT/FuturaCyrillicLight', 400, normal);
+@include font-face.woff('Jost-Medium', '../Fonts/FuturaPT/FuturaCyrillicMedium', 400, normal);
+@include font-face.woff('FuturaPT-Demi', '../Fonts/FuturaPT/FuturaCyrillicDemi', 400, normal);
+@include font-face.woff('FuturaPT-Heavy', '../Fonts/FuturaPT/FuturaCyrillicHeavy', 400, normal);
+@include font-face.woff('FuturaPT-Bold', ' ../Fonts/FuturaPT/FuturaCyrillicBold', 400, normal);
+@include font-face.woff('FuturaPT-Extra Bold', '../Fonts/FuturaPT/FuturaCyrillicExtraBold', 400, normal);
+
+
+// Jost 
+@include font-face.ttf('Jost-Black', '../Fonts/Jost/Jost-Black', 900, normal);
+@include font-face.ttf('Jost-Bold', '../Fonts/Jost/Jost-Bold', 700, normal);
+@include font-face.ttf('Jost-ExtraBold', '../Fonts/Jost/Jost-ExtraBold', 800, normal);
+@include font-face.ttf('Jost-Light', '../Fonts/Jost/Jost-Light', 300, normal);
+@include font-face.ttf('Jost-Medium', '../Fonts/Jost/Jost-Medium', 500, normal);
+@include font-face.ttf('Jost-Regular', '../Fonts/Jost/Jost-Regular', 400, normal);
+@include font-face.ttf('Jost-Thin', '../Fonts/Jost/Jost-Thin', 100, normal);

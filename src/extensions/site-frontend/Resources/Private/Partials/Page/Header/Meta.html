@@ -1,0 +1,19 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+    <nav class="meta">
+        <ul>
+            <f:for each="{metanavigation}" as="item">
+                <li>
+                    <f:link.page pageUid="{item.data.uid}">
+                        <f:if condition="{item.active}">
+                            <f:then><strong>{item.title}</strong></f:then>
+                            <f:else>{item.title}</f:else>
+                        </f:if>
+                    </f:link.page>
+                </li>
+            </f:for>
+        </ul>
+    </nav>
+</html>

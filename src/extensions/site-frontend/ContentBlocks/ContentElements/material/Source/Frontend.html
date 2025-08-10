@@ -1,0 +1,62 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+<f:section name="Main">
+    <div data-ctype="site_material">
+        <div class="splide">
+            <div class="splide__track">
+                <div class="splide__list">
+                    <f:for each="{data.material_item}" as="item">
+                        <div class="splide__slide">
+                            <f:render partial="Image" arguments="{
+                                            images: {
+                                                desktop: item.image_desktop.0,
+                                                tablet: item.image_tablet.0,
+                                                mobile: item.image_mobile.0
+                                            }
+                                        }" />
+                            <p class="h1-lookalike">{item.headline}</p>
+                            <f:if condition="{item.description}">
+                                <f:then>
+                                    <p>{item.description}</p>
+                                </f:then>
+                            </f:if>
+                            <div class="item_icons">
+                                <f:for each="{item.icons}" as="icon">
+                                    <div class="icon">
+                                        <f:render partial="SingleImage" arguments="{
+                                                        image:icon.image.0
+                                                    }" />
+                                    </div>
+                                </f:for>
+                            </div>
+                            <f:if condition="{item.description}">
+                                <f:then>
+                                    <p class="h3-lookalike">{item.text}</p>
+                                </f:then>
+                            </f:if>
+                            <f:variable name="linkPrefix"
+                                value="{item.link -> f:format.trim() -> f:format.crop(maxCharacters: 3, append: '')}" />
+                            <f:if condition="{linkPrefix} == 't3:'">
+                                <f:then>
+                                    <f:link.typolink parameter="{item.link}">
+                                        {item.link_text}
+                                        {site:asset.svg(icon: 'arrow') -> f:format.raw()}
+                                    </f:link.typolink>
+                                </f:then>
+                                <f:else>
+                                    <a href="{item.link}">
+                                        {item.link_text}
+                                        {site:asset.svg(icon: 'arrow') -> f:format.raw()}
+                                    </a>
+                                </f:else>
+                            </f:if>
+                        </div>
+                    </f:for>
+                </div>
+            </div>
+        </div>
+    </div>
+</f:section>
+
+</html>

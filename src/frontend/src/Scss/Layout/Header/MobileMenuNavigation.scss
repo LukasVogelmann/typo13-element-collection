@@ -1,0 +1,171 @@
+@use '@/Scss/Functions/Px-To-Rem' as Fn;
+
+#mega-menu-nav {
+    order: 0;
+    height: 100%;
+
+    #menu-mobile {
+        height: 100%;
+        overflow-y: scroll;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        #mobile-mega-menu {
+            margin-bottom: Fn.px-to-rem(30);
+
+            ul {
+                padding-left: 0;
+                display: none;
+
+                li {
+                    border-bottom: Fn.px-to-rem(1) solid var(--light-gray);
+                    padding: Fn.px-to-rem(20) 0;
+                    display: flex;
+                    align-items: center;
+
+                    a {
+                        display: block;
+                        width: 100%;
+                    }
+
+                    &:last-of-type {
+                        border-bottom: none;
+                    }
+                }
+
+                &.open {
+                    display: block;
+                }
+
+            }
+
+            .items {
+                z-index: 1;
+                width: 100%;
+                position: relative;
+                overflow: hidden;
+                height: calc(100% + 2rem);
+
+                .tabs,
+                .sections,
+                .tiles {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    left: 0;
+                    top: 0;
+                    background-color: white;
+                }
+
+                .tabs {
+                    z-index: 2;
+                    height: 100%;
+                }
+
+                .sections {
+                    z-index: 3;
+                }
+
+                .tiles {
+                    z-index: 10;
+
+                    li {
+                        a {
+                            margin: 0;
+                            font-size: Fn.px-to-rem(20);
+                        }
+
+                        figure {
+                            display: flex;
+                            align-items: center;
+                            margin: 0;
+                            gap: Fn.px-to-rem(20);
+
+                            img {
+                                max-height: Fn.px-to-rem(40);
+                                width: auto;
+                            }
+
+                            figcaption {
+                                font-size: Fn.px-to-rem(20);
+                            }
+                        }
+                    }
+                }
+            }
+
+            .overview {
+                width: 100%;
+                border: Fn.px-to-rem(1) solid var(--black);
+                border-radius: Fn.px-to-rem(50);
+                text-align: center;
+                margin-top: Fn.px-to-rem(30);
+                padding: Fn.px-to-rem(20) 0;
+
+                a {
+                    font-family: 'Jost-Regular';
+                    font-size: Fn.px-to-rem(16);
+                    font-weight: 450;
+                    display: block;
+                }
+            }
+
+            figure.teaser-image {
+                position: relative;
+                margin-block-start: 3.5rem;
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(166deg, rgba(0, 0, 0, 0.4) 25.43%, rgba(0, 0, 0, 0.4) 68.06%, rgba(0, 0, 0, 0.4) 68.06%);
+                }
+
+                figcaption {
+                    position: absolute;
+                    bottom: 0.95rem;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    color: var(--white);
+                    font-family: 'Jost-Regular';
+                    font-size: 1.25rem;
+                    font-style: normal;
+                    font-weight: 400;
+                }
+            }
+        }
+
+        .back-button {
+            background-color: var(--white);
+            border: none;
+            display: flex;
+            align-items: center;
+            padding: 0;
+            width: 50%;
+
+            p {
+                font-family: 'Jost-Regular';
+                font-size: Fn.px-to-rem(16);
+                color: var(--dark-gray);
+                margin: 0;
+            }
+
+            svg {
+                transform: rotate(90deg);
+                width: Fn.px-to-rem(16);
+                height: Fn.px-to-rem(16);
+
+                path {
+                    fill: var(--dark-gray);
+                }
+            }
+        }
+    }
+}

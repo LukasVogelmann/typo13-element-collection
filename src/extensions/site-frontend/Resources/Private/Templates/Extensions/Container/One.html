@@ -1,0 +1,24 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+    <f:layout name="Default" />
+
+    <f:section name="Main">
+        <f:render partial="Container" contentAs="content" arguments="{
+            __containerClasses: __containerClasses,
+            onecol: 'true',
+            background: data.container_background,
+            padding-x: data.container_padding_x,
+            padding-y: data.container_padding_y
+        }">
+            <div class="sm-column-12">
+                <f:for each="{children}" as="child">
+                    {child.renderedContent -> f:format.raw()}
+                </f:for>
+            </div>
+        </f:render>
+
+
+    </f:section>
+</html>

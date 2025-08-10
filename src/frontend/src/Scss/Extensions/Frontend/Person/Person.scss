@@ -1,0 +1,149 @@
+@use '@/Scss/Functions/Px-To-Rem' as Fn;
+@use '@/Scss/Mixins/Breakpoint' as Br;
+
+.plugin-person {
+    width: 100%;
+    display: flex;
+
+    .plugin-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .image {
+        overflow: hidden;
+
+        img {
+            height: 100%;
+            width: auto;
+            margin-inline: auto;
+        }
+    }
+
+    .info {
+        width: 100%;
+        background-color: var(--white);
+        padding: Fn.px-to-rem(34);
+
+        .name {
+            display: flex;
+            gap: Fn.px-to-rem(5);
+            margin-bottom: Fn.px-to-rem(15);
+
+            p {
+                font-family: 'Jost-Regular';
+                font-weight: bold;
+                font-size: Fn.px-to-rem(24);
+                line-height: Fn.px-to-rem(24);
+                margin: 0;
+            }
+        }
+
+        .position {
+            color: var(--dark-gray);
+            font-size: Fn.px-to-rem(20);
+            line-height: Fn.px-to-rem(26);
+            margin-bottom: Fn.px-to-rem(30);
+        }
+
+        .optional-text {
+            margin-top: Fn.px-to-rem(30);
+            margin-bottom: Fn.px-to-rem(30);
+
+            p {
+                margin: 0;
+                color: var(--dark-gray);
+            }
+        }
+
+        .telephone,
+        .email,
+        .booking {
+            display: flex;
+            gap: Fn.px-to-rem(15);
+            margin-bottom: Fn.px-to-rem(10);
+
+            a {
+                font-family: 'Jost-Medium';
+                font-size: Fn.px-to-rem(18);
+                line-height: normal;
+            }
+
+            .icon {
+                width: Fn.px-to-rem(24);
+                height: Fn.px-to-rem(24);
+
+                svg {
+                    vertical-align: top;
+                }
+            }
+        }
+    }
+
+    @include Br.sm-breakpoint-up(mobile-large) {
+        .info {
+            .name {
+                margin-bottom: Fn.px-to-rem(10);
+
+                p {
+                    font-size: Fn.px-to-rem(20);
+                    line-height: Fn.px-to-rem(20);
+                }
+            }
+
+            .position {
+                font-size: Fn.px-to-rem(16);
+                line-height: normal;
+            }
+
+            .telephone,
+            .email,
+            .booking {
+                .icon {
+                    position: relative;
+                    top: 2px;
+                }
+            }
+        }
+    }
+
+    @include Br.sm-breakpoint-up(tablet-large) {
+        .info {
+            .name {
+                margin-bottom: Fn.px-to-rem(20);
+
+                p {
+                    font-size: Fn.px-to-rem(28);
+                    line-height: Fn.px-to-rem(28);
+                }
+            }
+
+            .position {
+                font-size: Fn.px-to-rem(22);
+                line-height: Fn.px-to-rem(30);
+                margin-bottom: Fn.px-to-rem(40);
+            }
+
+            .telephone,
+            .email,
+            .booking {
+                margin-bottom: Fn.px-to-rem(15);
+
+                a {
+                    font-size: Fn.px-to-rem(22);
+                }
+            }
+
+            .optional-text {
+                margin-top: Fn.px-to-rem(40);
+                margin-bottom: 1rem;
+            }
+        }
+    }
+}
+
+@import '@/Scss/Extensions/Frontend/Person/Layouts/Default.scss';
+@import '@/Scss/Extensions/Frontend/Person/Layouts/Minimal.scss';
+@import '@/Scss/Extensions/Frontend/Person/Layouts/Large.scss';
+@import '@/Scss/Extensions/Frontend/Person/Layouts/Teaser.scss';
+@import '@/Scss/Extensions/Frontend/Person/Layouts/Pdf.scss';

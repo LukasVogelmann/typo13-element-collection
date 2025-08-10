@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file datatype="plaintext" original="Labels.xlf" source-language="en" date="2024-08-11T10:55:03+00:00" product-name="site/accordion">
+		<header/>
+		<body>
+			<trans-unit id="title" resname="title">
+				<target>Akkordeon</target>
+			</trans-unit>
+			<trans-unit id="accordion_item.label" resname="accordion_item.label">
+				<target>Items</target>
+			</trans-unit>
+			<trans-unit id="accordion_item.text.label" resname="accordion_item.text.label">
+				<target>Label</target>
+			</trans-unit>
+			<trans-unit id="accordion_item.textarea.label" resname="accordion_item.textarea.label">
+				<target>Text</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -1,0 +1,64 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+
+    <div class="media-wrapper" data-player-type="{file.extension}">
+        <f:media
+            class="video-player"
+            file="{file}"
+            alt="{f:if(condition: '{file.alternative}', then: '{file.alternative}', else: 'This represents the video with ID: {file.uid}')}"
+            title="{f:if(condition: '{file.title}', then: '{file.title}', else: 'This is the Title of the Video with ID: {file.uid}')}"
+            additionalConfig="{controls='0'}"
+        />
+        <div class="overlay">
+            <svg width="169" height="168" viewBox="0 0 169 168" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M84.4571 0.109375C38.04 0.109375 0.648438 37.5009 0.648438 83.9181C0.648438 130.335 38.04 167.727 84.4571 167.727C130.874 167.727 168.266 130.335 168.266 83.9181C168.266 37.5009 130.874 0.109375 84.4571 0.109375Z" fill="white" fill-opacity="0.05"/>
+                <path d="M84.4564 15.6797C46.6632 15.6797 16.2188 46.1242 16.2188 83.9174C16.2188 121.711 46.6632 152.155 84.4564 152.155C122.25 152.155 152.694 121.711 152.694 83.9174C152.694 46.1242 122.25 15.6797 84.4564 15.6797Z" fill="white" fill-opacity="0.2"/>
+                <path d="M84.4576 30.3359C54.7811 30.3359 30.875 54.242 30.875 83.9185C30.875 113.595 54.7811 137.501 84.4576 137.501C114.134 137.501 138.04 113.595 138.04 83.9185C138.04 54.242 114.134 30.3359 84.4576 30.3359Z" fill="white" fill-opacity="0.4"/>
+                <path d="M84.4566 42.2422C61.3749 42.2422 42.7812 60.8358 42.7812 83.9175C42.7812 106.999 61.3749 125.593 84.4566 125.593C107.538 125.593 126.132 106.999 126.132 83.9175C126.132 60.8358 107.538 42.2422 84.4566 42.2422Z" fill="white"/>
+                <path d="M83.9981 101.549C93.483 101.549 101.172 93.86 101.172 84.3751C101.172 74.8902 93.483 67.2012 83.9981 67.2012C74.5132 67.2012 66.8242 74.8902 66.8242 84.3751C66.8242 93.86 74.5132 101.549 83.9981 101.549Z" stroke="#111111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M83.1384 78.9372L89.1683 81.9521C91.172 82.9444 91.172 85.7877 89.1683 86.799L83.1384 89.814C81.3447 90.7108 79.2266 89.4133 79.2266 87.3906V81.3606C79.2266 79.357 81.3447 78.0403 83.1384 78.9372Z" stroke="#111111" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+    </div>
+
+    <script>
+        const isYoutube = document.querySelector('.media-wrapper[data-player-type="youtube"]');
+
+        if (isYoutube) {
+            var tag = document.createElement('script');
+            tag.src = "https://www.youtube.com/iframe_api";
+            var firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+            for (const videoplayer of document.querySelectorAll('.video-player')) {
+                var player;
+                var overlay = videoplayer.parentElement.querySelector('.overlay');
+
+                function onYouTubeIframeAPIReady() {
+                    player = new YT.Player(videoplayer, {
+                        events: {
+                            'onReady': onPlayerReady
+                        },
+                        playerVars: {
+                            controls: 0,
+                            showInfo: 0,
+                            modestbranding: 1,
+                            rel: 0,
+                        }
+                    });
+                }
+
+                function onPlayerReady(event) {
+                    overlay.addEventListener('click', function() {
+                        overlay.style.display = 'none';
+                        player.playVideo();
+                        player.setOption('playerVars', { controls: 1 });
+                        videoplayer.style.filter = 'none';
+                    });
+                }
+            }
+        }
+    </script>
+</html>

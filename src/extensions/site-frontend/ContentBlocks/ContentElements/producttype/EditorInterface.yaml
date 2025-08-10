@@ -1,0 +1,23 @@
+group: site/contentblocks
+name: site/producttype
+basics:
+  - TYPO3/Appearance
+fields:
+  - identifier: site/default-basics
+    type: Basic
+  - identifier: producttype_item
+    type: Collection
+    labelField: text
+    minitems: 1
+    maxitems: 4
+    fields:
+      - identifier: text
+        type: Text
+      - identifier: icon
+        type: File
+        minitems: 1
+        maxitems: 1
+        allowed: 'svg'
+      - identifier: textarea
+        type: Textarea
+        enableRichtext: true

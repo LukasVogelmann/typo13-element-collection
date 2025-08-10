@@ -1,0 +1,101 @@
+@use '@/Scss/Functions/Px-To-Rem' as Fn;
+@use '@/Scss/Mixins/Breakpoint' as Br;
+
+[data-ctype='site_textimage'] {
+    .cb-textimage {
+        .wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: Fn.px-to-rem(20);
+
+            .image {
+                width: 100%;
+                min-height: Fn.px-to-rem(350);
+                max-height: Fn.px-to-rem(350);
+
+                img {
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            .text {
+                width: 100%;
+                flex-grow: 1;
+                flex-basis: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: 1.5rem;
+            }
+        }
+
+        @include Br.sm-breakpoint-up(tablet) {
+            .wrapper {
+                .image {
+                    min-height: Fn.px-to-rem(550);
+                    max-height: unset;
+
+                    &.image-left {
+                        order: 0;
+                    }
+
+                    &.image-right {
+                        order: 1;
+                    }
+                }
+                .text {
+                    padding: 2.5rem;
+                }
+            }
+
+            &[data-layout-id="0"] {
+                .image {
+                    width: 50%;
+                }
+            }
+            &[data-layout-id="1"] {
+                .image {
+                    width: 60%;
+                }
+            }
+            &[data-layout-id="2"] {
+                .image {
+                    width: 40%;
+                }
+            }
+            &[data-layout-id="3"] {
+                .image {
+                    width: 66%;
+                }
+            }
+            &[data-layout-id="4"] {
+                .image {
+                    width: 33%;
+                }
+            }
+            &[data-layout-id="5"] {
+                .image {
+                    width: 75%;
+                }
+            }
+            &[data-layout-id="6"] {
+                .image {
+                    width: 25%;
+                }
+            }
+        }
+
+        @include Br.sm-breakpoint-up(desktop) {
+            .wrapper {
+                .image {
+                    min-height: Fn.px-to-rem(750);
+                }
+                .text {
+                    padding: Fn.px-to-rem(72);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,164 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+    <div id="mega-menu">
+        <div class="sm-container">
+            <div class="sm-column-12">
+                <f:for each="{navigation}" as="item">
+                    <div class="item" data-page-id="{item.data.uid}">
+                        <f:variable name="item" value="{site:menu(page: item)}" />
+
+                        <div class="tabs">
+                            <f:if condition="{item.data.site_pagesheader_megamenu_tabs} > 0">
+                                <div class="top">
+                                    <f:for each="{item.data.site_pagesheader_megamenu_tabs}" as="tab" iteration="i">
+                                        <f:if condition="{tab.data}">
+                                            <f:variable name="tab" value="{tab.data}"></f:variable>
+                                        </f:if>
+                                        <div class="tab{f:if(condition: i.isFirst, then: ' active')}" data-tab-id="{tab.uid}">
+                                            {tab.page.0.title}
+                                        </div>
+                                    </f:for>
+                                </div>
+
+                                <div class="bottom">
+                                    <f:for each="{item.data.site_pagesheader_megamenu_tabs}" as="tab" iteration="i">
+                                        <div class="content{f:if(condition: i.isFirst, then: ' active')}" data-tab-id="{tab.data.uid}">
+                                            <div class="row">
+                                                <f:if condition="{tab.data}">
+                                                    <f:variable name="tab" value="{tab.data}"></f:variable>
+                                                </f:if>
+
+                                                <f:variable name="sectionsCount" value="{tab.site_pagesheader_megamenu_tabs_sections -> f:count()}" />
+
+                                                <f:if condition="{sectionsCount} > 0">
+                                                    <f:switch expression="{sectionsCount}">
+                                                        <f:case value="2">
+                                                            <div class="sm-column-9 left-section">
+                                                                <f:render section="TabSection" arguments="{section: tab.site_pagesheader_megamenu_tabs_sections.0, position: 'left'}" />
+                                                            </div>
+                                                            <div class="sm-column-3 right-section">
+                                                                <f:render section="TabSection" arguments="{section: tab.site_pagesheader_megamenu_tabs_sections.1, position: 'right'}" />
+                                                            </div>
+                                                        </f:case>
+
+                                                        <f:defaultCase>
+                                                            <!-- No section's switch-case triggered. Fallback to default-case! -->
+                                                        </f:defaultCase>
+                                                    </f:switch>
+                                                </f:if>
+                                            </div>
+                                        </div>
+                                    </f:for>
+                                </div>
+                            </f:if>
+                        </div>
+                    </div>
+                </f:for>
+            </div>
+        </div>
+    </div>
+
+    <f:section name="TabSection">
+        <f:if condition="{section}">
+            <p class="section d-flex">
+                {section.title}
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M14.2929 5.79289C14.6835 5.40237 15.3166 5.40237 15.7071 5.7929L21.7071 11.7929C22.0976 12.1834 22.0976 12.8166 21.7071 13.2071L15.7071 19.2071C15.3166 19.5976 14.6835 19.5976 14.2929 19.2071C13.9024 18.8166 13.9024 18.1834 14.2929 17.7929L18.5858 13.5H3C2.44772 13.5 2 13.0523 2 12.5C2 11.9477 2.44772 11.5 3 11.5H18.5858L14.2929 7.2071C13.9024 6.81658 13.9024 6.18341 14.2929 5.79289Z" fill="#111111"/>
+                </svg>
+            </p>
+
+            <f:if condition="{section.site_pagesheader_megamenu_tabs_sections_tiles}">
+                <div class="row">
+                    <div class="sm-column-12 tiles">
+                        <f:for each="{section.site_pagesheader_megamenu_tabs_sections_tiles}" as="tile">
+                            <div class="tile">
+                                <f:if condition="{position} == 'left'">
+                                    <f:then>
+                                        <f:if condition="{tile.image}">
+                                            <f:then>
+                                                <f:link.typolink parameter="{tile.link}">
+                                                    <figure>
+                                                        <img src="{f:uri.image(image: tile.image.0, fileExtension: 'webp')}"
+                                                            alt="{tile.image.0.alternative}"
+                                                            class="img-fluid"
+                                                            type="image/webp"
+                                                        />
+
+                                                        <figcaption>
+                                                            {tile.title}
+                                                        </figcaption>
+                                                    </figure>
+                                                </f:link.typolink>
+                                            </f:then>
+                                            <f:else>
+                                                <f:link.typolink parameter="{tile.link}">
+                                                    {tile.title}
+                                                </f:link.typolink>
+                                            </f:else>
+                                        </f:if>
+                                    </f:then>
+                                    <f:else>
+                                        <f:link.typolink parameter="{tile.link}">
+                                            {tile.title}
+                                        </f:link.typolink>
+                                    </f:else>
+                                </f:if>
+                            </div>
+                        </f:for>
+                    </div>
+                </div>
+            </f:if>
+
+            <f:if condition="{section.btn_text}">
+                <f:link.typolink parameter="{section.btn_link}" class="btn btnSecondary" additionalAttributes="{
+                    role: 'button'
+                }">
+                    {section.btn_text}
+                </f:link.typolink>
+            </f:if>
+
+            <f:if condition="{section.btn_text_second}">
+                <f:link.typolink parameter="{section.btn_link_second}" class="btn btnSecondary" additionalAttributes="{
+                    role: 'button'
+                }">
+                    {section.btn_text_second}
+                </f:link.typolink>
+            </f:if>
+
+            <f:if condition="{position} == 'left' && {section.links}">
+                <nav class="links">
+                    <ul>
+                        <f:for each="{section.links}" as="item">
+                            <li>
+                                <f:link.page parameter="{item.uid}">
+                                    <f:if condition="{item.nav_title}">
+                                        <f:then>{item.nav_title}</f:then>
+                                        <f:else>{item.title}</f:else>
+                                    </f:if>
+                                </f:link.page>
+                            </li>
+                        </f:for>
+                    </ul>
+                </nav>
+            </f:if>
+            <f:if condition="{position} == 'right' && {section.teaser_image}">
+                <figure class="teaser-image">
+                    <f:link.typolink parameter="{section.teaser_image.0.link}">
+                        <img src="{f:uri.image(image: section.teaser_image.0, fileExtension: 'webp')}"
+                             alt="{section.teaser_image.0.alternative}"
+                             class="img-fluid"
+                             type="image/webp"
+                        />
+
+                        <f:if condition="{section.teaser_image.0.description}">
+                            <figcaption>{section.teaser_image.0.description}</figcaption>
+                        </f:if>
+                    </f:link.typolink>
+                </figure>
+            </f:if>
+        </f:if>
+    </f:section>
+</html>

@@ -1,0 +1,37 @@
+group: site/contentblocks
+name: site/material
+basics:
+  - TYPO3/Appearance
+  - TYPO3/Links
+fields:
+  - identifier: site/default-basics
+    type: Basic
+  - identifier: material_item
+    type: Collection
+    labelField: headline
+    maxitems: 5
+    fields:
+      - identifier: site/basics-images
+        type: Basic
+      - identifier: headline
+        label: Headline
+        type: Text
+      - identifier: description
+        label: Description
+        type: Text
+        max: 90
+      - identifier: icons
+        type: Collection
+        label: Icons
+        maxitems: 3
+        fields:
+          - identifier: image
+            type: File
+            minitems: 1
+            maxitems: 2
+            allowed: common-image-types
+      - identifier: text
+        label: Text
+        type: Text
+      - identifier: site/basics-link
+        type: Basic

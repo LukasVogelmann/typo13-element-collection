@@ -1,0 +1,98 @@
+@use '@/Scss/Functions/Px-To-Rem' as Fn;
+@use '@/Scss/Mixins/Breakpoint' as Br;
+
+[data-ctype='site_linkbox'] {
+    .cb-linkbox{
+        display: flex;
+        flex-wrap: wrap;
+        gap: Fn.px-to-rem(20);
+        width: 100%;
+
+        .box-item {
+            width: calc(50% - Fn.px-to-rem(20));
+        }
+
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: Fn.px-to-rem(10);
+            min-height: Fn.px-to-rem(115);
+            padding: Fn.px-to-rem(27);
+            position: relative;
+            width: 100%;
+            height: 100%;
+
+            .text {
+                text-align: center;
+
+                p {
+                    font-size: Fn.px-to-rem(16);
+                    line-height: Fn.px-to-rem(22);
+                }
+            }
+
+            .icon {
+                display: none;
+            }
+
+            .arrow {
+                position: absolute;
+                bottom: Fn.px-to-rem(5);
+                right: Fn.px-to-rem(10);
+            }
+        }
+
+        @include Br.sm-breakpoint-up(tablet) {
+            .wrapper {
+                padding: Fn.px-to-rem(27);
+                gap: Fn.px-to-rem(10);
+                min-height: Fn.px-to-rem(138);
+
+                .text {
+                    p {
+                        font-size: Fn.px-to-rem(14);
+                        line-height: Fn.px-to-rem(20);
+                    }
+                }
+
+                .icon {
+                    display: block;
+
+                    svg {
+                        width: Fn.px-to-rem(26);
+                        height: Fn.px-to-rem(26);
+                    }
+                }
+            }
+        }
+
+        @include Br.sm-breakpoint-up(desktop) {
+            .wrapper {
+                padding: Fn.px-to-rem(58);
+                gap: Fn.px-to-rem(20);
+                min-height: Fn.px-to-rem(260);
+
+                .text {
+                    p {
+                        font-size: Fn.px-to-rem(22);
+                        line-height: Fn.px-to-rem(30);
+                    }
+                }
+
+                .icon {
+                    svg {
+                        width: Fn.px-to-rem(48);
+                        height: Fn.px-to-rem(48);
+                    }
+                }
+
+                .arrow {
+                    bottom: Fn.px-to-rem(5);
+                    right: Fn.px-to-rem(10);
+                }
+            }
+        }
+    }
+}

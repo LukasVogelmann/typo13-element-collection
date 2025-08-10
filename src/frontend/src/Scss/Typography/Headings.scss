@@ -1,0 +1,72 @@
+@use '@/Scss/Mixins/Breakpoint' as Br;
+
+.large-title {
+    font-family: 'Merriweather-Regular';
+    font-size: 2.5rem;
+    line-height: 3.375rem;
+
+    @include Br.sm-breakpoint-up(tablet-large) {
+        font-size: 4.5rem;
+        line-height: 5.75rem;
+    }
+}
+
+h1,
+h1>a,
+.h1-lookalike {
+    font-family: 'Merriweather-Regular';
+    font-size: 2.25rem;
+    line-height: 3.25rem;
+
+    @include Br.sm-breakpoint-up(tablet-large) {
+        font-size: 3.25rem;
+        line-height: 4.5rem;
+    }
+}
+
+h2,
+h2>a,
+.h2-lookalike {
+    font-family: 'Merriweather-Regular';
+    font-size: 2rem;
+    line-height: 3.125rem;
+
+    @include Br.sm-breakpoint-up(tablet-large) {
+        font-size: 2.25rem;
+        line-height: 3.25rem;
+    }
+}
+
+h3,
+h3>a,
+.h3-lookalike {
+    font-family: 'Merriweather-Regular';
+    font-size: 1.75rem;
+    line-height: 2.875rem;
+
+    @include Br.sm-breakpoint-up(tablet-large) {
+        font-size: 1.75rem;
+        line-height: 2.5rem;
+    }
+}
+
+h4,
+h4>a,
+.h4-lookalike {
+    font-family: 'Merriweather-Regular';
+    font-size: 1.625rem;
+    line-height: 3.25rem;
+
+    @include Br.sm-breakpoint-up(tablet-large) {
+        font-size: 1.5rem;
+        line-height: 2.25rem;
+    }
+}
+
+.intermediate-headline {
+    @include Br.sm-breakpoint-up(tablet-large) {
+        font-family: 'Jost-Regular';
+        font-size: 1.75rem;
+        line-height: 2.375rem;
+    }
+}

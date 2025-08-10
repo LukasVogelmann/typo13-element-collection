@@ -1,0 +1,23 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+    <f:if condition="{image}">
+        <f:then>
+            <figure>
+                <img src="{f:uri.image(image: image, fileExtension: 'webp')}"
+                     loading="lazy"
+                     class="img-fluid{classes}"
+                     type="image/webp"
+                     alt="{f:if(condition: image.alt, then: image.alternative)}" />
+                <f:if condition="{caption}">
+                    <figcaption>{caption}</figcaption>
+                </f:if>
+            </figure>
+        </f:then>
+
+        <f:else>
+            <!-- Cannot render non-existant image within partial: SingleImage! -->
+        </f:else>
+    </f:if>
+</html>

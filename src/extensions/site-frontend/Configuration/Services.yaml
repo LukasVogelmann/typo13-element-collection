@@ -1,0 +1,13 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Site\Frontend\:
+    resource: '../src/*'
+
+  Site\Frontend\DataProcessing\PageProcessor:
+    public: true
+    arguments:
+      $fileRepository: '@TYPO3\CMS\Core\Resource\FileRepository'

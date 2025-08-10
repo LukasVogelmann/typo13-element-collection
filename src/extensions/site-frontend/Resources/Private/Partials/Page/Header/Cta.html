@@ -1,0 +1,14 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+    <f:link.typolink parameter="{link}" class="cta">
+        <h5 class="headline">
+            {headline}
+            {site:asset.svg(icon: 'chevron-cta') -> f:format.raw()}
+        </h5>
+        <div class="subline d-none d-desktop-block">
+            {subline -> f:format.nl2br() -> f:format.raw()}
+        </div>
+    </f:link.typolink>
+</html>

@@ -1,0 +1,20 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+<f:section name="Main">
+    <div class="banner">
+        <p class="headline">
+            {data.headline}
+        </p>
+        <p class="description">
+            {data.description}
+        </p>
+        <div class="button-wrapper">
+            <f:link.typolink parameter="{data.link}" class="button">
+                {data.link_text}
+            </f:link.typolink>
+        </div>
+    </div>
+</f:section>
+
+</html>

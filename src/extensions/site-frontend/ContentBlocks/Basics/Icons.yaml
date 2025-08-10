@@ -1,0 +1,52 @@
+identifier: site/basics-icons
+group: site/contentblocks
+basics:
+  - TYPO3/Appearance
+fields:
+  - identifier: icons-palette
+    type: Palette
+    fields:
+      - identifier: icons
+        type: Select
+        renderType: selectSingle
+        items:
+          - label: Book
+            value: book
+          - label: Chevron-down
+            value: chevron-down
+          - label: Circle with chevron-right
+            value: circle-chevron-right
+          - label: Calendar
+            value: calendar
+          - label: Checkmark
+            value: checkmark
+          - label: Code
+            value: code
+          - label: Letter
+            value: letter
+          - label: Fingerpring
+            value: fingerprint
+          - label: Contact
+            value: contact
+          - label: Link
+            value: link
+          - label: LinkedId
+            value: linkedin
+          - label: Delete
+            value: delete
+          - label: Download
+            value: download
+          - label: Cross
+            value: cross
+          - label: Lock
+            value: lock
+          - label: Telephone
+            value: telephone
+          - label: Arrow-right
+            value: arrow-right
+          - label: Wifi
+            value: wifi
+          - label: Gallery
+            value: gallery
+          - label: Filter
+            value: filter

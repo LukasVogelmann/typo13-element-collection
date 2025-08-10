@@ -1,0 +1,10 @@
+lib.contentBlock {
+    layoutRootPaths {
+        100 = EXT:fluid_styled_content/Resources/Private/Layouts/
+        101 = EXT:site_frontend/Resources/Private/Layouts/ContentBlocks/
+    }
+    partialRootPaths {
+        100 = EXT:fluid_styled_content/Resources/Private/Partials/
+        101 = EXT:site_frontend/Resources/Private/Partials/ContentBlocks/
+    }
+}

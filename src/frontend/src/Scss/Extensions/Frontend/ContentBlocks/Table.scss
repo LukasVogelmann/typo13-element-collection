@@ -1,0 +1,119 @@
+@use '@/Scss/Functions/Px-To-Rem' as Fn;
+@use '@/Scss/Mixins/Breakpoint' as Br;
+
+[data-ctype='site_table'] {
+    width: 100%;
+    container-type: inline-size;
+    container-name: site_table;
+
+    h2 {
+        font-family: 'Jost-Medium';
+        font-size: Fn.px-to-rem(38);
+        margin-bottom: 3rem;
+    }
+
+
+    .table {
+        width: 70%;
+
+        .table-head tr th {
+            background-color: #044782 !important;
+            color: white !important;
+
+            p {
+                font-family: 'FuturaPT-Demi';
+                font-weight: 500;
+                line-height: Fn.px-to-rem(20);
+                font-size: Fn.px-to-rem(16);
+                margin-bottom: 0rem;
+                text-align: left;
+            }
+
+        }
+
+        .table-body tr td p {
+            font-family: 'Jost-Regular';
+            font-weight: 400;
+            font-size: Fn.px-to-rem(16);
+            line-height: Fn.px-to-rem(20);
+            margin-bottom: 0rem;
+            text-align: left;
+        }
+    }
+
+    @container site_table (max-width: 1000px) {
+        .table {
+            background-color: #044782;
+            width: 100%;
+        }
+    }
+
+    @include Br.sm-breakpoint-down(tablet) {
+        overflow-x: auto;
+        position: relative;
+        scrollbar-width: none;
+
+        h2 {
+            position: sticky;
+            left: 0;
+        }
+
+        .table {
+            width: max-content;
+            min-width: 100%;
+            table-layout: fixed;
+
+            tr {
+                position: relative;
+
+                th p {
+                    line-height: Fn.px-to-rem(20);
+                    font-size: Fn.px-to-rem(14);
+                }
+            }
+
+            thead th {
+                min-width: Fn.px-to-rem(160);
+            }
+
+            tbody td {
+                min-width: Fn.px-to-rem(160);
+
+                p {
+                    line-height: Fn.px-to-rem(20);
+                    font-size: Fn.px-to-rem(14);
+                }
+            }
+
+            thead th:first-child {
+                position: sticky;
+                left: 0;
+                background-color: #044782 !important;
+                z-index: 2;
+            }
+
+            tbody td:first-child {
+                position: sticky;
+                left: 0;
+                background-color: #fff;
+                z-index: 1;
+            }
+
+            @include Br.sm-breakpoint-down(mobile-large) {
+
+                tbody td:not(:first-child)::after,
+                thead th:not(:first-child)::after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background-color: #0a0a0a03;
+                    z-index: 0;
+                    pointer-events: none;
+                }
+            }
+        }
+    }
+}

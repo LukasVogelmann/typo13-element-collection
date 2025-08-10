@@ -1,0 +1,156 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+    <div id="mobile-mega-menu">
+        <f:render section="Level-1" arguments="{_all}" />
+    </div>
+
+    <f:section name="Level-1">
+        <ul class="items open current" data-level-id="1">
+            <f:for each="{navigation}" as="item">
+                <li>
+                    <f:link.page pageUid="{item.data.uid}">
+                        <f:if condition="{item.active}">
+                            <f:then><strong>{item.title}</strong></f:then>
+                            <f:else>{item.title}</f:else>
+                        </f:if>
+                    </f:link.page>
+
+                    <f:variable name="item" value="{site:menu(page: item)}" />
+                    <f:if condition="{item.data.site_pagesheader_megamenu_tabs}">
+                        <div class="icon">
+                            {site:asset.svg(icon: 'chevron-right') -> f:format.raw()}
+                        </div>
+
+                        <f:render section="Level-2" arguments="{tabs: item.data.site_pagesheader_megamenu_tabs, item: item}" />
+                    </f:if>
+                </li>
+            </f:for>
+        </ul>
+    </f:section>
+
+    <f:section name="Level-2">
+        <ul class="tabs" data-level-id="2">
+            <f:for each="{tabs}" as="tab" iteration="i">
+                <f:variable name="tabsCount" value="{i.total}" />
+
+                <f:if condition="{tabsCount} == 1">
+                    <f:then>
+                        <li>
+                            <f:link.page pageUid="{tab.page.0.uid}">
+                                {tab.page.0.title}
+                            </f:link.page>
+
+                            <f:if condition="{tab.site_pagesheader_megamenu_tabs_sections}">
+                                <div class="icon">
+                                    {site:asset.svg(icon: 'chevron-right') -> f:format.raw()}
+                                </div>
+
+                               <f:render section="Level-3" arguments="{sections: tab.site_pagesheader_megamenu_tabs_sections, tab: tab.page.0}" />
+                            </f:if>
+                        </li>
+                    </f:then>
+                    <f:else>
+                        <li>
+                            <f:link.page pageUid="{tab.data.page.0.uid}">
+                                {tab.data.page.0.title}
+                            </f:link.page>
+
+                            <f:if condition="{tab.data.site_pagesheader_megamenu_tabs_sections}">
+                                <div class="icon">
+                                    {site:asset.svg(icon: 'chevron-right') -> f:format.raw()}
+                                </div>
+
+                               <f:render section="Level-3" arguments="{sections: tab.data.site_pagesheader_megamenu_tabs_sections, tab: tab.data.page.0}" />
+                            </f:if>
+                        </li>
+                    </f:else>
+                </f:if>
+
+            </f:for>
+
+            <div class="overview d-tablet-none">
+                <f:link.page pageUid="{item.data.uid}">
+                    Alle {item.title} entdecken
+                </f:link.page>
+            </div>
+        </ul>
+    </f:section>
+
+    <f:section name="Level-3">
+         <ul class="sections" data-level-id="3">
+            <f:for each="{sections}" as="section">
+                <li>
+                    <f:link.page pageUid="{section.uid}">
+                        {section.title}
+                    </f:link.page>
+
+                    <f:if condition="{section.site_pagesheader_megamenu_tabs_sections_tiles}">
+                        <div class="icon">
+                            {site:asset.svg(icon: 'chevron-right') -> f:format.raw()}
+                        </div>
+
+                        <f:render section="Level-4" arguments="{tiles: section.site_pagesheader_megamenu_tabs_sections_tiles, section: section}" />
+                    </f:if>
+                </li>
+            </f:for>
+
+            <div class="overview d-tablet-none">
+                <f:link.page pageUid="{tab.uid}">
+                    Alle {tab.title} entdecken
+                </f:link.page>
+            </div>
+
+            <f:for each="{sections}" as="section">
+                <f:if condition="{section.teaser_image}">
+                    <f:link.typolink parameter="{section.link}">
+                        <figure class="teaser-image">
+                            <img src="{f:uri.image(image: section.teaser_image.0, fileExtension: 'webp')}"
+                                 title="{section.teaser_image.0.title}"
+                                 alt="{section.teaser_image.0.alternative}"
+                                 class="img-fluid"
+                                 type="image/webp"
+                            />
+
+                            <figcaption>
+                                {section.title}
+                            </figcaption>
+                        </figure>
+                    </f:link.typolink>
+                </f:if>
+            </f:for>
+        </ul>
+    </f:section>
+
+    <f:section name="Level-4">
+        <ul class="tiles" data-level-id="4">
+            <f:for each="{tiles}" as="tile">
+                <li>
+                    <f:if condition="{tile.image}">
+                        <f:then>
+                            <f:link.typolink parameter="{tile.link}">
+                                <figure>
+                                    <img src="{f:uri.image(image: tile.image.0, fileExtension: 'webp')}"
+                                         title="{tile.image.0.title}"
+                                         alt="{tile.image.0.alternative}"
+                                         class="img-fluid"
+                                         type="image/webp"
+                                    />
+                                    <figcaption>
+                                        {tile.title}
+                                    </figcaption>
+                                </figure>
+                            </f:link.typolink>
+                        </f:then>
+                        <f:else>
+                            <f:link.typolink parameter="{tile.link}">
+                                {tile.title}
+                            </f:link.typolink>
+                        </f:else>
+                    </f:if>
+                </li>
+            </f:for>
+        </ul>
+    </f:section>
+</html>

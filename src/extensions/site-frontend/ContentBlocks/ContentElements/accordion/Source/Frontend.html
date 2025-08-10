@@ -1,0 +1,40 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:cb="http://typo3.org/ns/TYPO3/CMS/ContentBlocks/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+<f:section name="Main">
+    <div class="cb-accordion">
+        <f:for each="{data.accordion_item}" as="item">
+            <div class="accordion-item">
+                <button class="accordion-title">
+                    <p style="color: var(--{item.color});">{item.text}</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="22" viewBox="0 0 24 22"
+                        fill="var(--{item.color})">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M5.79289 8.29289C6.18342 7.90237 6.81658 7.90237 7.20711 8.29289L12.5 13.5858L17.7929 8.29289C18.1834 7.90237 18.8166 7.90237 19.2071 8.29289C19.5976 8.68342 19.5976 9.31658 19.2071 9.70711L13.2071 15.7071C12.8166 16.0976 12.1834 16.0976 11.7929 15.7071L5.79289 9.70711C5.40237 9.31658 5.40237 8.68342 5.79289 8.29289Z" />
+                    </svg>
+                </button>
+                <div class="panel" style="display: none;" data-layout-id="{item.layout_options}">
+                    <f:if condition="{item.image_desktop}">
+                        <f:then>
+                            <div class="image image-{item.image_position}">
+                                <f:render partial="Image" arguments="{
+                                            images: {
+                                                desktop: item.image_desktop.0,
+                                                tablet: item.image_tablet.0,
+                                                mobile: item.image_mobile.0
+                                            }
+                                        }" />
+                            </div>
+                        </f:then>
+                    </f:if>
+                    <div class="text" style="color: var(--{item.color});">
+                        <f:format.html parseFuncTSPath="lib.parseFunc">{item.textarea}</f:format.html>
+                    </div>
+                </div>
+            </div>
+        </f:for>
+    </div>
+</f:section>
+
+</html>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages"
+        product-name="site_frontend">
+        <header />
+        <body>
+            <trans-unit id="departments.header">
+                <source>Departments</source>
+            </trans-unit>
+            <trans-unit id="positions.header">
+                <source>Positions</source>
+            </trans-unit>
+            <trans-unit id="job.toggle-filter">
+                <source>Filter</source>
+            </trans-unit>
+            <trans-unit id="job.mobile-info">
+                <source>Mobile</source>
+            </trans-unit>
+            <trans-unit id="filter.apply">
+                <source>Apply filter</source>
+            </trans-unit>
+            <trans-unit id="job.Noresult">
+                <source>No jobs found for the selected filters. Please adjust your filters.</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

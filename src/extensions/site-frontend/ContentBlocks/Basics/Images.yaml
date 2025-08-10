@@ -1,0 +1,25 @@
+identifier: site/basics-images
+group: site/contentblocks
+basics:
+  - TYPO3/Appearance
+fields:
+  - identifier: images-palette
+    type: Palette
+    label: Images
+    fields:
+      - identifier: image_desktop
+        label: Desktop
+        type: File
+        maxitems: 1
+        allowed: common-image-types
+      - identifier: image_tablet
+        label: Tablet
+        type: File
+        maxitems: 1
+        allowed: common-image-types
+      - type: Linebreak
+      - identifier: image_mobile
+        label: Mobile
+        type: File
+        maxitems: 1
+        allowed: common-image-types

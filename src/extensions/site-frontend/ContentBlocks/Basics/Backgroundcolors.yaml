@@ -1,0 +1,30 @@
+identifier: site/basics-backgroundcolors
+group: site/contentblocks
+basics:
+  - TYPO3/Appearance
+fields:
+  - identifier: backgroundcolors-palette
+    type: Palette
+    fields:
+      - identifier: backgroundcolor
+        type: Select
+        renderType: selectSingle
+        items:
+          - label: Weiss
+            value: white
+          - label: Schwarz
+            value: black
+          - label: Dunkelblau
+            value: primary
+          - label: Akzentfarbe
+            value: accent-dark
+          - label: Schmuckfarbe
+            value: secondary
+          - label: Hellblau
+            value: baby-blue
+          - label: Dunkelgrau
+            value: dark-gray
+          - label: Mittelgrau
+            value: light-gray
+          - label: Hellgrau
+            value: lighter-gray

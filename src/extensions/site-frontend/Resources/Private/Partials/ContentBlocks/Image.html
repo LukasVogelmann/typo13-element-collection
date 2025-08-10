@@ -1,0 +1,143 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+    <picture>
+        <f:if condition="{images.desktop}">
+            <f:then>
+                <f:if condition="{images.desktop.properties.extension} == gif">
+                    <f:then>
+                        <source
+                            srcset="/fileadmin/{images.desktop.identifier}"
+                            media="(min-width: 1920px)"
+                        />
+                        <source
+                            srcset="/fileadmin/{images.desktop.identifier}"
+                            media="(min-width: 1200px)"
+                        />
+                    </f:then>
+                    <f:else>
+                        <source
+                            srcset="{f:uri.image(image: images.desktop, width: '3840c', fileExtension: 'webp')}"
+                            type="image/webp"
+                            media="(min-width: 1920px)"
+                        />
+                        <source
+                            srcset="{f:uri.image(image: images.desktop, width: '1920c', fileExtension: 'webp')}"
+                            type="image/webp"
+                            media="(min-width: 1200px)"
+                        />
+                    </f:else>
+                </f:if>
+            </f:then>
+            <f:else>
+                <source
+                    srcset="{f:uri.image(src: 'EXT:site_frontend/Resources/Public/Images/fallback-desktop.png')}"
+                    media="(min-width: 1200px)"
+                />
+            </f:else>
+        </f:if>
+
+        <f:if condition="{images.tablet}">
+            <f:then>
+                <f:if condition="{images.tablet.properties.extension} == gif">
+                    <f:then>
+                        <source
+                            srcset="/fileadmin/{images.tablet.identifier}"
+                            media="(min-width: 1920px)"
+                        />
+                    </f:then>
+                    <f:else>
+                        <source
+                            srcset="{f:uri.image(image: images.tablet, width: '1024c', fileExtension: 'webp')}"
+                            type="image/webp"
+                            media="(min-width: 1024px)"
+                        />
+                    </f:else>
+                </f:if>
+            </f:then>
+            <f:else>
+                <f:if condition="{images.desktop}">
+                    <f:then>
+                        <f:if condition="{images.desktop.properties.extension} == gif">
+                            <f:then>
+                                <source
+                                    srcset="/fileadmin/{images.desktop.identifier}"
+                                    media="(min-width: 1920px)"
+                                />
+                            </f:then>
+                            <f:else>
+                                <source
+                                    srcset="{f:uri.image(image: images.desktop, width: '3840c', fileExtension: 'webp')}"
+                                    type="image/webp"
+                                    media="(min-width: 1920px)"
+                                />
+
+                            </f:else>
+                        </f:if>
+                    </f:then>
+                    <f:else>
+                        <source
+                            srcset="{f:uri.image(src: 'EXT:site_frontend/Resources/Public/Images/fallback-tablet.png')}"
+                            media="(min-width: 1024px)"
+                        />
+                    </f:else>
+                </f:if>
+            </f:else>
+        </f:if>
+
+        <f:if condition="{images.mobile}">
+            <f:then>
+                <f:if condition="{images.mobile.properties.extension} == gif">
+                    <f:then>
+                        <source
+                            srcset="/fileadmin/{images.mobile.identifier}"
+                            media="(min-width: 1200px)"
+                        />
+                    </f:then>
+                    <f:else>
+                        <source
+                            srcset="{f:uri.image(image: images.mobile, width: '393c', fileExtension: 'webp')}"
+                            type="image/webp"
+                        />
+                    </f:else>
+                </f:if>
+            </f:then>
+            <f:else>
+
+                <f:if condition="{images.desktop}">
+                    <f:then>
+                        <f:if condition="{images.desktop.properties.extension} == gif">
+                            <f:then>
+                                <source
+                                    srcset="/fileadmin/{images.desktop.identifier}"
+                                />
+                            </f:then>
+                            <f:else>
+                                <source
+                                    srcset="{f:uri.image(image: images.desktop, width: '393c', fileExtension: 'webp')}"
+                                    type="image/webp"
+                                />
+                            </f:else>
+                        </f:if>
+                    </f:then>
+                    <f:else>
+                        <source
+                            srcset="{f:uri.image(src: 'EXT:site_frontend/Resources/Public/Images/fallback-mobile.png')}"
+                        />
+                    </f:else>
+                </f:if>
+
+            </f:else>
+        </f:if>
+
+        <img
+            src="#"
+            class="img-fluid w-100"
+            loading="{f:if(condition: '{noLazy}', then: 'eager', else: 'lazy')}"
+            title="{f:if(condition: '{images.desktop.title}', then: '{images.desktop.title}')}"
+            alt="{f:if(condition: '{images.desktop.alternative}', then: '{images.desktop.alternative}')}"
+        />
+    </picture>
+
+</html>

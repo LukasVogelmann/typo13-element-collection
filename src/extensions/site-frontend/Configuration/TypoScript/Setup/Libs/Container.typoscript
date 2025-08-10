@@ -1,0 +1,17 @@
+lib.container =< lib.contentElement
+lib.container {
+    templateRootPaths {
+        200 = EXT:site_frontend/Resources/Private/Templates/Extensions/Container/
+    }
+    partialRootPaths {
+        200 = EXT:site_frontend/Resources/Private/Partials/Extensions/Container/
+    }
+    layoutRootPaths {
+        200 = EXT:site_frontend/Resources/Private/Layouts/ContentBlocks/
+        201 = EXT:site_frontend/Resources/Private/Layouts/Extensions/Container/
+    }
+
+    dataProcessing {
+        0 = Site\Frontend\DataProcessing\ContainerProcessor
+    }
+}

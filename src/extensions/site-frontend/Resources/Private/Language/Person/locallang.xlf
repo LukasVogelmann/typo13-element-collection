@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="de" datatype="plaintext" original="locallang" date="2024-11-25T00:00:00Z" product-name="site/person">
+        <body>
+            <!-- Content Element name  -->
+            <trans-unit id="person.booking-link.label">
+                <source>Termin vereinbaren oda</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

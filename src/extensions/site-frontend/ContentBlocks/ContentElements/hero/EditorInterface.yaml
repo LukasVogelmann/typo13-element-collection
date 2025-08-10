@@ -1,0 +1,28 @@
+group: site/startpage
+name: site/hero
+basics:
+  - TYPO3/Appearance
+  - TYPO3/Links
+fields:
+  - identifier: site/default-basics
+    type: Basic
+  - identifier: slider_auto
+    label: Slide automatically
+    type: Checkbox
+    renderType: checkboxToggle
+  - identifier: hero_item
+    type: Collection
+    label: Items
+    labelField: heading
+    minitems: 1
+    fields:
+      - identifier: heading
+        type: Text
+        label: Heading
+      - identifier: text
+        type: Textarea
+        label: Text
+      - identifier: site/basics-link
+        type: Basic
+      - identifier: site/basics-images
+        type: Basic

@@ -1,0 +1,70 @@
+@use '@/Scss/Functions/Px-To-Rem' as Fn;
+@use '@/Scss/Mixins/Breakpoint' as Br;
+
+[data-ctype="site_banner"] {
+    .banner {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: Fn.px-to-rem(50) 0;
+        text-align: center;
+
+        .headline {
+            font-size: Fn.px-to-rem(24);
+            font-weight: 450;
+            font-family: 'Jost-Regular';
+            line-height: Fn.px-to-rem(30.77);
+            color: white;
+
+            @include Br.sm-breakpoint-down(mobile-medium) {
+                padding: 0rem 3rem;
+            }
+
+            @include Br.sm-breakpoint-down(mobile) {
+                padding: 0rem 2rem;
+            }
+        }
+
+        .description {
+            font-size: Fn.px-to-rem(20);
+            font-weight: 400;
+            font-family: 'Jost-Regular';
+            line-height: Fn.px-to-rem(25.64);
+            color: white;
+            margin-bottom: Fn.px-to-rem(30);
+
+            @include Br.sm-breakpoint-down(mobile-medium) {
+                padding: 0rem 5rem;
+            }
+
+        }
+
+        .button {
+            padding: Fn.px-to-rem(10) Fn.px-to-rem(20);
+            border: 1px solid white;
+            border-radius: Fn.px-to-rem(30);
+            font-size: Fn.px-to-rem(22);
+            font-weight: 450;
+            font-family: 'Jost-Regular';
+            line-height: Fn.px-to-rem(28);
+            color: white;
+            text-decoration: none;
+
+            @include Br.sm-breakpoint-down(tablet-large) {
+                font-size: Fn.px-to-rem(16);
+                line-height: Fn.px-to-rem(22);
+            }
+
+            @include Br.sm-breakpoint-down(mobile-medium) {
+                padding: Fn.px-to-rem(15) Fn.px-to-rem(140);
+            }
+
+            @include Br.sm-breakpoint-down(mobile) {
+                padding: Fn.px-to-rem(15) Fn.px-to-rem(120);
+            }
+        }
+    }
+
+
+}

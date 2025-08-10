@@ -1,0 +1,67 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<header id="layout" {f:if(condition: '{site:contentBlocks.heroExists(pageId: page.uid)}' , then: ' data-has-hero' )}>
+    <div class="sm-container">
+        <div class="navrow d-flex justify-content-between w-100">
+            <div class="sm-column-12 sm-column-desktop-3 header-column">
+                <f:render partial="Header/Logo" arguments="{
+                        site: site,
+                        page: page
+                    }" />
+
+                <div id="burger-menu">
+                    <svg class="burger" xmlns="http://www.w3.org/2000/svg" width="28" height="22" viewBox="0 0 28 22"
+                        fill="none">
+                        <path d="M2 2H26" stroke="#044782" stroke-width="3.5" stroke-linecap="round" />
+                        <path d="M2 11H26" stroke="#044782" stroke-width="3.5" stroke-linecap="round" />
+                        <path d="M2 20H26" stroke="#044782" stroke-width="3.5" stroke-linecap="round" />
+                    </svg>
+
+                    <svg class="cross d-none" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+                        viewBox="0 0 40 40" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M10.4882 10.4882C11.139 9.83728 12.1943 9.83728 12.8452 10.4882L20 17.643L27.1548 10.4882C27.8057 9.83728 28.861 9.83728 29.5118 10.4882C30.1627 11.139 30.1627 12.1943 29.5118 12.8452L22.357 20L29.5118 27.1548C30.1627 27.8057 30.1627 28.861 29.5118 29.5118C28.861 30.1627 27.8057 30.1627 27.1548 29.5118L20 22.357L12.8452 29.5118C12.1943 30.1627 11.139 30.1627 10.4882 29.5118C9.83728 28.861 9.83728 27.8057 10.4882 27.1548L17.643 20L10.4882 12.8452C9.83728 12.1943 9.83728 11.139 10.4882 10.4882Z"
+                            fill="#044782" />
+                    </svg>
+                </div>
+            </div>
+
+            <div class="sm-column-12 sm-column-desktop-9 nav-column-desktop">
+                <div class="meta-row">
+                    <div class="meta-col">
+                        <f:render partial="Header/Meta" arguments="{
+                                metanavigation: metanavigation
+                            }" />
+                    </div>
+
+                    <div class="languages-column d-none d-tablet-block">
+                        <f:render partial="Header/Languages" arguments="{
+                                languagenavigation: languagenavigation
+                            }" />
+                    </div>
+                </div>
+
+                <f:render partial="Header/Navigation" arguments="{
+                        navigation: navigation,
+                        languagenavigation: languagenavigation
+                    }" />
+            </div>
+        </div>
+    </div>
+
+    <f:render partial="Header/Cta" arguments="{
+            headline: page.site_pagesheader_cta_headline,
+            subline: page.site_pagesheader_cta_subline,
+            link: page.site_pagesheader_cta_link,
+        }" />
+    <f:if condition="{page.site_pagesheader_stickycta_link}">
+        <div class="cta-mobile">
+            <div class="cta_circle">
+                <f:link.typolink parameter="{page.site_pagesheader_stickycta_link}">
+                    {site:asset.svg(icon: 'cta') -> f:format.raw()}
+                </f:link.typolink>
+            </div>
+        </div>
+    </f:if>
+</header>
+
+</html>

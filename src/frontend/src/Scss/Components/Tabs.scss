@@ -1,0 +1,47 @@
+@use '@/Scss/Functions/Px-To-Rem' as Fn;
+
+.tabs {
+    .top {
+        display: flex;
+        gap: 3.6rem;
+        margin-block-end: 2.5rem;
+        padding-block-end: 0.2rem;
+        border-bottom: Fn.px-to-rem(1) solid var(--light-gray);
+
+        .tab {
+            position: relative;
+            font-family: 'Jost-Regular';
+            font-size: 1.375rem;
+            font-style: normal;
+            font-weight: 450;
+            line-height: 1.875rem;
+            cursor: pointer;
+
+            &.active {
+                cursor: default;
+                font-family: 'Jost-Bold';
+                font-weight: 700;
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    bottom: -0.25rem;
+                    left: 0;
+                    width: 100%;
+                    height: Fn.px-to-rem(4);
+                    background-color: var(--primary);
+                }
+            }
+        }
+    }
+
+    .bottom {
+        .content {
+            display: none;
+
+            &.active {
+                display: block;
+            }
+        }
+    }
+}

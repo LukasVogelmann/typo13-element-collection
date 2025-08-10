@@ -1,0 +1,54 @@
+@use '@/Scss/Functions/Px-To-Rem' as Fn;
+@use '@/Scss/Mixins/Breakpoint' as Br;
+
+[data-ctype='site_tabs'] {
+    .cb-tabs {
+        .tabs {
+            width: 100%;
+            display: none;
+            justify-content: center;
+            list-style: none;
+            border-bottom: Fn.px-to-rem(1) solid var(--dark-gray);
+            padding: 0;
+            gap: 0 Fn.px-to-rem(40);
+            margin-bottom: Fn.px-to-rem(50);
+
+            .tab {
+                width: fit-content;
+
+                a {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    padding: Fn.px-to-rem(20) Fn.px-to-rem(20) Fn.px-to-rem(17);
+                    font-family: 'Jost-Regular', sans-serif;
+                    font-size: Fn.px-to-rem(18);
+                    text-decoration: none;
+                    color: var(--black);
+                    border-bottom: 3px solid transparent;
+
+                    &:hover {
+                        cursor: pointer;
+                        font-weight: bold;
+                        text-decoration: none;
+                        padding-bottom: Fn.px-to-rem(17);
+                        border-bottom: Fn.px-to-rem(3) solid var(--accent-dark);
+                    }
+                }
+            }
+
+            @include Br.sm-breakpoint-up(tablet-large) {
+                display: flex;
+                gap: 0 Fn.px-to-rem(60);
+                margin-bottom: Fn.px-to-rem(150);
+
+                .tab {
+
+                    a {
+                        font-size: Fn.px-to-rem(24);
+                    }
+                }
+            }
+        }
+    }
+}

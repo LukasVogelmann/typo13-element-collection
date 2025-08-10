@@ -1,0 +1,37 @@
+.btnPrimary {
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 50px;
+    text-decoration: none;
+    color: black;
+    background-color: #044782;
+}
+.btnPrimaryDark {
+    color: black;
+    background-color: #BCBEC0;
+}
+.btnPrimaryDisabled {
+    color: #777;
+    background-color: #BCBEC0;
+}
+.btnSecondary {
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 50px;
+    text-decoration: none;
+    color: black;
+    background-color: white;
+}
+.btnSecondaryDark {
+    color: white;
+    background-color: black;
+}
+.btnSecondaryDisabled {
+    color: #BCBEC0;
+    background-color: white;
+}
+.subline {
+    font-weight: 450;
+    font-size: 2.25rem;
+    line-height: 2.875rem;
+}

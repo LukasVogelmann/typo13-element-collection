@@ -1,0 +1,56 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+<f:section name="Main">
+    <div id="subhero">
+        <div class="image">
+            <f:render partial="Image" arguments="{
+                                        images: {
+                                            desktop: data.image_desktop.0,
+                                            tablet: data.image_tablet.0,
+                                            mobile: data.image_mobile.0
+                                        }
+                                    }" />
+        </div>
+        <div class="content">
+            <div class="sm-container">
+                <div class="section">
+                    <div class="sm-column-12 subhero-content">
+                        <f:if condition="{data.headline}">
+                            <h1 class="h1-lookalike heading">{data.headline}</h1>
+                        </f:if>
+                        <f:if condition="{data.description}">
+                            <p>{data.description}</p>
+                        </f:if>
+                        <f:if condition="{data.link}">
+                            <f:variable name="linkPrefix"
+                                value="{data.link -> f:format.trim() -> f:format.crop(maxCharacters: 3, append: '')}" />
+                            <f:if condition="{linkPrefix} == 't3:'">
+                                <f:then>
+                                    <f:link.typolink class="btnSecondary" parameter="{data.link}">
+                                        {data.link_text}
+                                    </f:link.typolink>
+                                </f:then>
+                                <f:else>
+                                    <a class="btn btnSecondary" href="{data.link}">
+                                        {data.link_text}
+                                    </a>
+                                </f:else>
+                            </f:if>
+                        </f:if>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <f:if condition="{data.icon.0}">
+            <div class="award">
+
+                <f:image src="{data.icon.0.uid}" treatIdAsReference="1" alt="{data.icon.0.alternative}"
+                    title="{data.icon.0.title}" class="img-fluid icon" />
+
+            </div>
+        </f:if>
+    </div>
+</f:section>
+
+</html>

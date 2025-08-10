@@ -1,0 +1,46 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+<f:section name="Main">
+    <div id="hero" class="swiper{f:if(condition: '{data.slider_auto}', then: ' autoplay')}">
+        <div class="swiper-wrapper">
+            <f:for each="{data.hero_item}" as="item">
+                <div class="item swiper-slide">
+                    <div class="image">
+                        <f:render partial="Image" arguments="{
+                                images: {
+                                    desktop: item.image_desktop.0,
+                                    tablet: item.image_tablet.0,
+                                    mobile: item.image_mobile.0
+                                },
+                                noLazy: 'true'
+                            }" />
+                    </div>
+                    <div class="content">
+                        <div class="sm-container">
+                            <div class="sm-column-12 sm-column-tablet-9 hero-content">
+                                <f:if condition="{item.heading}">
+                                    <h1 class="h1-lookalike heading">{item.heading}</h1>
+                                </f:if>
+                                <f:if condition="{item.text}">
+                                    <p>{item.text}</p>
+                                </f:if>
+                                <f:if condition="{item.link}">
+                                    <f:link.typolink parameter="{item.link}" class="btnSecondary">
+                                        {item.link_text}
+                                    </f:link.typolink>
+                                </f:if>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </f:for>
+        </div>
+
+        <div class="sm-container swiper-pagination pagination-lines my-5"></div>
+
+        <div class="arrow-icon">
+            {site:asset.svg(icon: 'arrow-down') -> f:format.raw()}
+        </div>
+    </div>
+</f:section>

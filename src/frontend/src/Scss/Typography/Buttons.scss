@@ -1,0 +1,211 @@
+@use '@/Scss/Functions/Px-To-Rem' as Fn;
+@use '@/Scss/Mixins/Breakpoint' as Br;
+
+.btnPrimary {
+    font-family: 'Jost-Medium';
+    padding: 1.25rem 1.875rem;
+    color: var(--white);
+    background-color: var(--primary);
+    text-align: center;
+    border-radius: Fn.px-to-rem(50);
+    width: 100%;
+    display: block;
+
+    &:hover {
+        background-color: var(--secondary);
+    }
+
+    @include Br.sm-breakpoint-up(mobile-large) {
+        width: fit-content;
+    }
+
+    @include Br.sm-breakpoint-up(tablet-large) {
+        font-size: Fn.px-to-rem(22);
+    }
+}
+
+.btnPrimaryDisabled {
+    font-family: 'Jost-Medium';
+    padding: 1.25rem 1.875rem;
+    color: var(--dark-gray);
+    background-color: var(--light-gray);
+    text-align: center;
+    border-radius: Fn.px-to-rem(50);
+    width: 100%;
+    display: block;
+
+    &:hover {
+        background-color: var(--light-gray);
+        cursor: not-allowed;
+    }
+
+    @include Br.sm-breakpoint-up(mobile-large) {
+        width: fit-content;
+    }
+
+    @include Br.sm-breakpoint-up(tablet-large) {
+        font-size: Fn.px-to-rem(22);
+    }
+}
+
+.btnPrimaryDark {
+    font-family: 'Jost-Medium';
+    padding: 1.25rem 1.875rem;
+    color: var(--black);
+    background-color: var(--white);
+    text-align: center;
+    border-radius: Fn.px-to-rem(50);
+    width: 100%;
+    display: block;
+    border-color: var(--black);
+
+    &:hover {
+        background-color: var(--baby-blue);
+    }
+
+    @include Br.sm-breakpoint-up(mobile-large) {
+        width: fit-content;
+    }
+
+    @include Br.sm-breakpoint-up(tablet-large) {
+        font-size: Fn.px-to-rem(22);
+    }
+}
+
+
+.btnSecondary {
+    display: block;
+    font-family: 'Jost-Medium';
+    padding: 1.25rem 1.875rem;
+    color: var(--black);
+    background-color: var(--white);
+    border: Fn.px-to-rem(1) solid var(--black);
+    border-radius: Fn.px-to-rem(50);
+    width: 100%;
+    text-align: center;
+
+    &:hover {
+        background-color: var(--lighter-gray);
+    }
+
+    @include Br.sm-breakpoint-up(mobile-large) {
+        width: fit-content;
+    }
+
+    @include Br.sm-breakpoint-up(tablet-large) {
+        font-size: Fn.px-to-rem(22);
+    }
+}
+
+.btnSecondaryDisabled {
+    display: block;
+    font-family: 'Jost-Medium';
+    padding: 1.25rem 1.875rem;
+    background-color: var(--white);
+    color: var(--dark-gray);
+    border: Fn.px-to-rem(1) solid var(--dark-gray);
+    border-radius: Fn.px-to-rem(50);
+    width: 100%;
+    text-align: center;
+
+    &:hover {
+        background-color: var(--white);
+        cursor: not-allowed;
+    }
+
+    @include Br.sm-breakpoint-up(mobile-large) {
+        width: fit-content;
+    }
+
+    @include Br.sm-breakpoint-up(tablet-large) {
+        font-size: Fn.px-to-rem(22);
+    }
+}
+
+.btnSecondaryDark {
+    display: block;
+    font-family: 'Jost-Medium';
+    padding: 1.25rem 1.875rem;
+    color: var(--white);
+    background-color: var(--black);
+    border: Fn.px-to-rem(1) solid var(--white);
+    border-radius: Fn.px-to-rem(50);
+    text-align: center;
+    width: 100%;
+
+    &:hover {
+        color: var(--black);
+        background-color: var(--white);
+    }
+
+    @include Br.sm-breakpoint-up(mobile-large) {
+        width: fit-content;
+    }
+
+    @include Br.sm-breakpoint-up(tablet-large) {
+        font-size: Fn.px-to-rem(22);
+    }
+}
+
+.btnTextlink {
+    color: var(--accent-dark);
+
+    &:after {
+        content: '';
+        position: relative;
+        display: inline-block;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M3.31217 3.3278C1.57281 5.06717 1.50775 7.88734 3.2467 9.62629L6.8608 13.2404C7.25133 13.6309 7.88449 13.6309 8.27502 13.2404C8.66554 12.8499 8.66554 12.2167 8.27502 11.8262L4.66092 8.21207C3.73852 7.28967 3.73209 5.73632 4.72639 4.74201C5.72069 3.74771 7.27405 3.75414 8.19645 4.67654L12.4129 8.89299L12.4193 8.89935C13.3353 9.82252 13.3394 11.371 12.3474 12.363C11.9569 12.7535 11.9569 13.3866 12.3474 13.7772C12.7379 14.1677 13.3711 14.1677 13.7616 13.7772C15.501 12.0378 15.566 9.21763 13.8271 7.47868L13.8194 7.47108L9.61066 3.26233C7.87171 1.52338 5.05154 1.58843 3.31217 3.3278Z' fill='%230668BE'/%3E%3Cpath d='M20.7071 20.7064C18.9677 22.4457 16.1476 22.5108 14.4086 20.7718L10.1922 16.5554C10.1815 16.5447 10.1711 16.5339 10.1611 16.5229C10.1494 16.5123 10.138 16.5014 10.1267 16.4901C8.38776 14.7511 8.45281 11.931 10.1922 10.1916C10.5827 9.80109 11.2159 9.80109 11.6064 10.1916C11.9969 10.5821 11.9969 11.2153 11.6064 11.6058C10.6121 12.6001 10.6185 14.1535 11.5409 15.0759C11.5516 15.0865 11.5619 15.0974 11.572 15.1084C11.5837 15.119 11.5951 15.1299 11.6064 15.1412L15.8228 19.3576C16.7452 20.28 18.2986 20.2865 19.2929 19.2922C20.2872 18.2979 20.2808 16.7445 19.3584 15.8221L15.7443 12.208C15.3537 11.8175 15.3537 11.1843 15.7443 10.7938C16.1348 10.4033 16.7679 10.4033 17.1585 10.7938L20.7726 14.4079C22.5115 16.1468 22.4465 18.967 20.7071 20.7064Z' fill='%230668BE'/%3E%3C/svg%3E");
+        background-size: contain;
+        width: 16px;
+        height: 16px;
+        margin-left: 2px;
+        margin-right: 2px;
+        top: 2px;
+    }
+
+    @include Br.sm-breakpoint-up(tablet) {
+        &:after {
+            width: 18px;
+            height: 18px;
+        }
+    }
+
+    @include Br.sm-breakpoint-up(desktop) {
+        &:after {
+            width: 24px;
+            height: 24px;
+        }
+    }
+}
+
+.btnTeaserlink {
+    color: var(--accent-dark);
+
+    &:after {
+        content: '';
+        position: relative;
+        display: inline-block;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M14.2929 5.29289C14.6834 4.90237 15.3166 4.90237 15.7071 5.2929L21.7071 11.2929C22.0976 11.6834 22.0976 12.3166 21.7071 12.7071L15.7071 18.7071C15.3166 19.0976 14.6834 19.0976 14.2929 18.7071C13.9024 18.3166 13.9024 17.6834 14.2929 17.2929L18.5858 13H2.99997C2.44768 13 1.99997 12.5523 1.99997 12C1.99997 11.4477 2.44768 11 2.99997 11H18.5858L14.2929 6.7071C13.9024 6.31658 13.9024 5.68341 14.2929 5.29289Z' fill='%230668BE'/%3E%3C/svg%3E");
+        background-size: contain;
+        width: 16px;
+        height: 16px;
+        margin-left: 5px;
+        top: 2px;
+    }
+
+    @include Br.sm-breakpoint-up(tablet) {
+        &:after {
+            width: 18px;
+            height: 18px;
+            margin-left: 10px;
+            top: 3px;
+        }
+    }
+
+    @include Br.sm-breakpoint-up(desktop) {
+        &:after {
+            width: 24px;
+            height: 24px;
+        }
+    }
+}

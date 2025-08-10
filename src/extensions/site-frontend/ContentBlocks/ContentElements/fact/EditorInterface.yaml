@@ -1,0 +1,58 @@
+group: site/startpage
+name: site/fact
+basics:
+  - TYPO3/Appearance
+  - TYPO3/Links
+fields:
+  - identifier: site/default-basics
+    type: Basic
+  - identifier: fact_item
+    type: Collection
+    label: Items
+    labelField: title
+    minitems: 4
+    maxitems: 4
+    fields:
+      - identifier: title
+        type: Text
+        label: Title
+      - identifier: number_prefix
+        type: Text
+        label: Number Prefix
+      - identifier: number
+        type: Number
+        label: Number
+      - identifier: color
+        type: Select
+        renderType: selectSingle
+        items:
+          - label: Weiss
+            value: white
+          - label: Schwarz
+            value: black
+          - label: Dunkelblau
+            value: primary
+          - label: Akzentfarbe
+            value: accent-dark
+          - label: Schmuckfarbe
+            value: secondary
+          - label: Hellblau
+            value: baby-blue
+          - label: Dunkelgrau
+            value: dark-gray
+          - label: Mittelgrau
+            value: light-gray
+          - label: Hellgrau
+            value: lighter-gray
+      - identifier: color-text
+        type: Select
+        renderType: selectSingle
+        items:
+            - label: Weiss
+              value: white
+            - label: Schwarz
+              value: black
+  - identifier: rte
+    label: Text
+    type: Textarea
+    enableRichtext: true

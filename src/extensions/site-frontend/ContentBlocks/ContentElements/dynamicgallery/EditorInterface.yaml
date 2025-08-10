@@ -1,0 +1,90 @@
+group: site/contentblocks
+name: site/dynamicgallery
+basics:
+  - TYPO3/Appearance
+fields:
+  - identifier: site/default-basics
+    type: Basic
+  - identifier: variant
+    type: Select
+    renderType: selectSingle
+    onChange: reload
+    label: Variant
+    items:
+      - identifier: placeholder
+        value: -1
+        label: -- Nothing selected --
+      - identifier: images5
+        value: 0
+        label: Gallery with 5 images
+      - identifier: images4
+        value: 1
+        label: Gallery with 4 images
+      - identifier: fullwidth
+        value: 2
+        label: Full Width Image
+      - identifier: slider1
+        value: 3
+        label: Slider with tall images
+      - identifier: slider3
+        value: 4
+        label: Slider with short images
+      - identifier: video
+        value: 5
+        label: Video
+  - identifier: images5_items
+    type: Collection
+    label: Images
+    minitems: 5
+    maxitems: 5
+    displayCond: 'FIELD:variant:=:0'
+    fields:
+      - identifier: site/basics-images
+        type: Basic
+  - identifier: images4_items
+    type: Collection
+    label: Images
+    minitems: 4
+    maxitems: 4
+    displayCond: 'FIELD:variant:=:1'
+    fields:
+      - identifier: site/basics-images
+        type: Basic
+  - identifier: fullwidth
+    type: Collection
+    label: Images
+    minitems: 1
+    maxitems: 1
+    displayCond: 'FIELD:variant:=:2'
+    fields:
+      - identifier: site/basics-images
+        type: Basic
+  - identifier: slider1
+    type: Collection
+    labelField: text
+    label: Slider Tall
+    minitems: 3
+    displayCond: 'FIELD:variant:=:3'
+    fields:
+      - identifier: site/basics-images
+        type: Basic
+      - identifier: text
+        type: Text
+  - identifier: slider3
+    type: Collection
+    labelField: text
+    label: Slider Short
+    minitems: 3
+    displayCond: 'FIELD:variant:=:4'
+    fields:
+      - identifier: site/basics-images
+        type: Basic
+      - identifier: text
+        type: Text
+  - identifier: video
+    label: Video
+    displayCond: 'FIELD:variant:=:5'
+    type: File
+    minitems: 0
+    maxitems: 1
+    allowed: 'mp4, webm, youtube, vimeo'

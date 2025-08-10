@@ -1,0 +1,63 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+<f:section name="Main">
+    <div class="cb-profiledisplayer splide" id="splide" data-profiledisplayer-slide-number="{data.slides_per_view}">
+        <div class="slides splide__track">
+            <div class="splide__list">
+                <f:for each="{data.profile_item}" as="item" iteration="itemIteration">
+                    <div class="splide__slide item" data-index="{itemIteration.index}">
+                        <div class="image">
+                            <p class="title">{item.headline}</p>
+                            <f:render partial="Image" arguments="{
+                                images: {
+                                    desktop: item.image_desktop.0,
+                                    tablet: item.image_tablet.0,
+                                    mobile: item.image_mobile.0
+                                }
+                            }" />
+                        </div>
+                    </div>
+                </f:for>
+            </div>
+        </div>
+
+        <div class="countslide">
+            <span id="previous-arrow" class="arrow-back">{site:asset.svg(icon: 'arrow') -> f:format.raw()}</span>
+            <span id="current-slide">1</span> / <span id="total-slides">{data.profile_item -> f:count()}</span>
+            <span id="next-arrow" class="arrow">{site:asset.svg(icon: 'arrow') -> f:format.raw()}</span>
+        </div>
+
+        <div class="content-area">
+            <f:for each="{data.profile_item}" as="item" iteration="itemIteration">
+                <div class="content" data-index="{itemIteration.index}">
+                    <p class="title">{item.headline}</p>
+                    <div class="textarea">
+                        <p>{item.description}</p>
+                    </div>
+                    <div class="properties">
+                        <f:for each="{item.properties}" as="property">
+                            <div>
+                                <p class="property">
+                                    {property.property_name}:
+                                </p>
+                                <p class="property_value">
+                                    {property.property_value}
+                                </p>
+                            </div>
+                        </f:for>
+                    </div>
+                    <f:for each="{item.file}" as="file">
+                        <a href="{file.publicUrl}" download="{file.name}">
+                            {site:asset.svg(icon: 'download') -> f:format.raw()}
+                            {file.title}
+                        </a>
+                    </f:for>
+                </div>
+            </f:for>
+        </div>
+
+    </div>
+</f:section>
+
+</html>

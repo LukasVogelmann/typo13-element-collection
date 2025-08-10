@@ -1,0 +1,50 @@
+.plugin-person {
+    .style-large {
+        .image {
+            height: Fn.px-to-rem(225);
+            width: 100%;
+
+            img {
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .info {
+            width: 100%;
+
+            .optional-text {
+                font-size: Fn.px-to-rem(18);
+            }
+        }
+
+        @include Br.sm-breakpoint-up(mobile-large) {
+            .image {
+                height: 100%;
+                width: Fn.px-to-rem(300);
+            }
+
+            .info {
+                flex-grow: 1;
+                flex-basis: 0;
+                max-width: 60%;
+            }
+        }
+        @include Br.sm-breakpoint-up(tablet-large) {
+            .image {
+                height: 100%;
+                width: Fn.px-to-rem(365);
+            }
+
+            .info {
+                flex-grow: 1;
+                flex-basis: 0;
+                max-width: Fn.px-to-rem(385);
+
+                .optional-text {
+                    font-size: Fn.px-to-rem(20);
+                }
+            }
+        }
+    }
+}

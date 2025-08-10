@@ -1,0 +1,13 @@
+plugin.tx_sitefrontend_person {
+    view {
+        templateRootPaths {
+            0 = EXT:site_frontend/Resources/Private/Templates/Plugins/
+        }
+        partialRootPaths {
+            0 = EXT:site_frontend/Resources/Private/Partials/
+        }
+        layoutRootPaths {
+            0 = EXT:site_frontend/Resources/Private/Layouts/Plugins/Person
+        }
+    }
+}

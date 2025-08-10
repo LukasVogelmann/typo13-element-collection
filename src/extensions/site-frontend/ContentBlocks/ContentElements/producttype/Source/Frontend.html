@@ -1,0 +1,30 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+    <f:layout name="Default" />
+
+    <f:section name="Main">
+        <div class="cb-producttype swiper">
+            <div class="swiper-wrapper">
+                <f:for each="{data.producttype_item}" as="item">
+                    <div class="swiper-slide item">
+                        <div class="icon-wrapper">
+                            <div class="icon">
+                                <f:image src="{item.icon.0.uid}" treatIdAsReference="1" loading="lazy" class="img-fluid" alt="{f:if(condition: item.icon.0.alt, then: item.icon.0.alt, else: 'This represents the image with ID: {item.icon.0.uid}')}" />
+                            </div>
+                        </div>
+
+                        <div class="content">
+                            <p class="title">{item.text}</p>
+                            <div class="textarea">
+                                <f:format.html parseFuncTSPath="lib.parseFunc">{item.textarea}</f:format.html>
+                            </div>
+                        </div>
+                    </div>
+                </f:for>
+            </div>
+            <div class="swiper-pagination pagination-lines my-5 px-5"></div>
+        </div>
+    </f:section>
+</html>

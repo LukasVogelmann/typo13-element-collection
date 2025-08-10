@@ -1,0 +1,132 @@
+@use '@/Scss/Functions/Px-To-Rem' as Fn;
+@use '@/Scss/Mixins/Breakpoint' as Br;
+
+
+.languages-column {
+    position: relative;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    .languages {
+        list-style: none;
+        margin-bottom: 0;
+
+        li {
+
+            div,
+            a {
+                font-family: 'Jost-Regular';
+                font-size: Fn.px-to-rem(16);
+                display: block;
+                display: flex;
+                gap: Fn.px-to-rem(10);
+                align-items: center;
+            }
+        }
+    }
+
+    .languages-menu {
+        position: absolute;
+        background-color: var(--white);
+        top: 2.25rem;
+        right: 0;
+        text-align: right;
+        padding: 1rem 1.5rem 1rem 2.75rem;
+        border-radius: 0.25rem;
+        box-shadow: 0 .67rem 1rem #11111152;
+        width: fit-content;
+        z-index: 20;
+
+        &:not(.active) {
+            display: none;
+        }
+
+        a {
+            font-size: Fn.px-to-rem(16);
+            color: var(--font-color);
+            display: flex;
+            gap: Fn.px-to-rem(10);
+            align-items: center;
+            width: max-content;
+        }
+    }
+
+    @include Br.sm-breakpoint-down(tablet) {
+        .languages {
+            li {
+
+                div,
+                a {
+                    color: var(--dark-gray) !important;
+                }
+            }
+
+            .chevron {
+                path {
+                    fill: var(--dark-gray) !important;
+                }
+            }
+        }
+    }
+
+    @include Br.sm-breakpoint-up(tablet) {
+        .languages {
+            padding-left: Fn.px-to-rem(30);
+
+            li {
+
+                div,
+                a {
+                    font-family: 'Jost-Regular';
+                    font-size: Fn.px-to-rem(16);
+                }
+            }
+        }
+
+        .languages-menu {
+            a {
+                font-size: Fn.px-to-rem(16);
+            }
+        }
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            height: 1.4375rem;
+            width: 0.125rem;
+            background-color: var(--lighter-gray);
+        }
+    }
+
+    @include Br.sm-breakpoint-up(desktop) {
+        .languages {
+            li {
+
+                div,
+                a {
+                    font-size: Fn.px-to-rem(18);
+                }
+            }
+        }
+
+        .languages-menu {
+            a {
+                font-size: Fn.px-to-rem(18);
+            }
+        }
+    }
+}
+
+.languages .active {
+    color: var(--white);
+}
+
+.scrolled .languages .active,
+header#layout.active .languages .active {
+    color: var(--black);
+}

@@ -1,0 +1,220 @@
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+
+footer {
+    background-color: var(--primary);
+    color: var(--white);
+    font-size: 1.125rem;
+    font-weight: 450;
+    line-height: normal;
+
+    padding-block: {
+        start: 5.25rem;
+        end: 3.1rem;
+    }
+
+    .sm-container {
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+
+    .section {
+        display: flex;
+        flex-wrap: nowrap;
+    }
+
+    .section2 {
+        min-height: 92px;
+    }
+
+    .list-unstyled {
+        z-index: 1;
+    }
+
+    @media (max-width: 1024px) {
+        .section {
+            flex-wrap: nowrap;
+            flex-direction: column-reverse !important;
+        }
+
+        #footer-links {
+            width: 50% !important;
+            margin-bottom: 2rem;
+        }
+
+        .footer_navigation {
+            width: 100%;
+        }
+
+        .list-unstyled {
+            padding: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            z-index: 1;
+        }
+    }
+
+    @media (max-width: 750px) {
+        .section {
+            flex-direction: column-reverse !important;
+        }
+
+        #footer-links {
+            width: 100% !important;
+        }
+
+        .list-unstyled {
+            padding: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 1;
+        }
+    }
+
+    .social {
+        margin-top: 2rem;
+
+        @media (max-width: 750px) {
+            margin-top: 0.2rem;
+        }
+    }
+
+    .footerlinks {
+        display: flex;
+        gap: 14px;
+    }
+
+    hr {
+        margin-block: {
+            start: 3.2rem;
+            end: 3.1rem;
+        }
+    }
+
+    .tree-menu {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.875rem;
+
+        @media (max-width: 750px) {
+            align-items: center;
+            gap: 0.875rem;
+        }
+    }
+
+    .footer-links {
+        padding: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 15px;
+
+        @media (max-width: 1024px) {
+            align-items: start;
+        }
+
+        @media (max-width: 750px) {
+            align-items: center;
+        }
+    }
+
+
+
+    p,
+    a {
+        font-family: 'Jost-Medium';
+        color: var(--white);
+    }
+
+    a {
+        font-family: 'Jost-Medium';
+        display: inline-block;
+        font-size: 1.375rem;
+
+        &.level-2 {
+            font-size: 1rem;
+            line-height: 1.75rem;
+        }
+    }
+
+    .copyright {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+    }
+
+    #copyright {
+        opacity: .7;
+        font-family: 'Jost-Regular';
+        font-size: 1.375rem;
+
+        @media (max-width: 576px) {
+            text-align: center;
+            padding: 0px 35px;
+        }
+    }
+
+    .footer_metanavigation {
+        opacity: .7;
+
+        @media (max-width: 576px) {
+            margin-bottom: 30px;
+        }
+    }
+
+    .link-unstyled {
+        padding: 0;
+        list-style: none;
+        width: 100%;
+        display: flex;
+        justify-content: end;
+
+        @media (max-width: 1024px) {
+            justify-content: start;
+        }
+
+        @media (max-width: 576px) {
+            justify-content: center;
+        }
+    }
+
+    .footer_navigation {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+
+        @media (max-width: 1024px) {
+            gap: 5px;
+            justify-content: start;
+            margin-bottom: 2rem;
+            padding-inline: 0;
+        }
+
+        @media (max-width: 750px) {
+            flex-direction: column;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+    }
+
+    .footer_certificate {
+        width: 100%;
+        display: flex;
+        justify-content: end;
+        align-items: end;
+        gap: 10px;
+        margin-top: -10vh;
+
+        @media (max-width: 750px) {
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 0vh;
+        }
+    }
+}

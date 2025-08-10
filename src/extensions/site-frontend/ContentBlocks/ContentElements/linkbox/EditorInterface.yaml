@@ -1,0 +1,25 @@
+group: site/contentblocks
+name: site/linkbox
+basics:
+  - TYPO3/Appearance
+  - TYPO3/Links
+fields:
+  - identifier: site/default-basics
+    type: Basic
+  - identifier: box_item
+    type: Collection
+    label: Boxes
+    labelField: title
+    fields:
+      - identifier: title
+        type: Text
+        label: Title
+      - identifier: link
+        label: Link
+        type: Link
+      - identifier: site/basics-backgroundcolors
+        type: Basic
+      - identifier: site/basics-colors
+        type: Basic
+      - identifier: site/basics-icons
+        type: Basic

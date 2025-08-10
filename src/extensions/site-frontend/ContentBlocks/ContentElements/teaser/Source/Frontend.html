@@ -1,0 +1,83 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+    <f:layout name="Default" />
+
+    <f:section name="Main">
+        <f:if condition="{data.no_slider}">
+            <f:then>
+                <div class="cb-teaser no_slider">
+                    <div class="wrapper">
+                        <f:for each="{data.teaser_item}" as="item">
+                            <div class="item">
+                               <f:if condition="{item.link}">
+                                    <f:then>
+                                        <f:link.typolink parameter="{item.link}">
+                                            <f:render section="TeaserContent" arguments="{_all}" />
+                                        </f:link.typolink>
+                                    </f:then>
+                                    <f:else>
+                                        <f:render section="TeaserContent" arguments="{_all}" />
+                                    </f:else>
+                               </f:if>
+                            </div>
+                        </f:for>
+                    </div>
+                </div>
+            </f:then>
+            <f:else>
+                <div class="cb-teaser swiper" data-teaser-slide-number="{data.slides_per_view}">
+                    <div class="swiper-wrapper">
+                        <f:for each="{data.teaser_item}" as="item">
+                            <div class="item swiper-slide">
+                                <f:if condition="{item.link}">
+                                    <f:then>
+                                        <f:link.typolink parameter="{item.link}">
+                                            <f:render section="TeaserContent" arguments="{_all}" />
+                                        </f:link.typolink>
+                                    </f:then>
+                                    <f:else>
+                                        <f:render section="TeaserContent" arguments="{_all}" />
+                                    </f:else>
+                                </f:if>
+                            </div>
+                        </f:for>
+                    </div>
+                    <div class="swiper-pagination pagination-lines my-5 px-5"></div>
+                </div>
+            </f:else>
+        </f:if>
+    </f:section>
+
+    <f:section name="TeaserContent">
+        <div class="image">
+            <f:render partial="Image" arguments="{
+                images: {
+                    desktop: item.image_desktop.0,
+                    tablet: item.image_tablet.0,
+                    mobile: item.image_mobile.0
+                }
+            }" />
+        </div>
+        <div class="content">
+            <h3 class="title">{item.text}</h3>
+            <div class="textarea">
+                <f:format.html parseFuncTSPath="lib.parseFunc">{item.textarea}</f:format.html>
+            </div>
+            <div class="button-wrapper">
+
+                <f:if condition="{item.link}">
+                    <f:then>
+                        <div class="button">
+                            {item.link_text}
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M14.2929 5.29289C14.6835 4.90237 15.3166 4.90237 15.7071 5.2929L21.7071 11.2929C22.0976 11.6834 22.0976 12.3166 21.7071 12.7071L15.7071 18.7071C15.3166 19.0976 14.6835 19.0976 14.2929 18.7071C13.9024 18.3166 13.9024 17.6834 14.2929 17.2929L18.5858 13H3C2.44772 13 2 12.5523 2 12C2 11.4477 2.44772 11 3 11H18.5858L14.2929 6.7071C13.9024 6.31658 13.9024 5.68341 14.2929 5.29289Z" fill="#0668BE"/>
+                            </svg>
+                        </div>
+                    </f:then>
+                </f:if>
+            </div>
+        </div>
+    </f:section>
+</html>

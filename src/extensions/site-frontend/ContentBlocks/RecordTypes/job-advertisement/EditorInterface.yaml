@@ -1,0 +1,25 @@
+name: site/job-advertisement
+table: tx_site_jobadvertisement
+labelField: position
+security:
+  ignorePageTypeRestriction: true
+fields:
+  - identifier: position
+    label: Position
+    type: Text
+  - identifier: department
+    label: Department
+    type: Text
+  - identifier: tags
+    type: Select
+    required: true
+    renderType: selectMultipleSideBySide
+    label: Tags
+    foreign_table: tx_site_jobtag
+    MM: tx_site_job_tag_mm
+    maxitems: 3
+  - identifier: link
+    label: Link
+    type: Link
+
+

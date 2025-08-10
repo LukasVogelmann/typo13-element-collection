@@ -1,0 +1,172 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+    <f:layout name="Standard" />
+
+    <f:section name="Main">
+        <div class="plugin-person justify-content-{settings.contact_position}">
+            <div class="plugin-wrapper style-{settings.contact_layout}">
+                <f:render section="Content" arguments="{contact: contact.data}" />
+            </div>
+        </div>
+    </f:section>
+
+    <f:section name="Content">
+        <div class="image">
+            <f:switch expression="{settings.contact_layout}">
+                <f:case value="minimal">
+                    <f:if condition="{contact.s_image_desktop}">
+                        <f:then>
+                            <f:render section="Image" arguments="{image_desktop: contact.s_image_desktop, image_tablet: contact.s_image_tablet, image_mobile: contact.s_image_mobile}" />
+                        </f:then>
+                        <f:else>
+                            <f:render section="Image" arguments="{image_desktop: contact.l_image_desktop, image_tablet: contact.l_image_tablet, image_mobile: contact.l_image_mobile}" />
+                        </f:else>
+                    </f:if>
+                </f:case>
+                <f:case value="teaser">
+                    <f:if condition="{contact.m_image_desktop}">
+                        <f:then>
+                            <f:render section="Image" arguments="{image_desktop: contact.m_image_desktop, image_tablet: contact.m_image_tablet, image_mobile: contact.m_image_mobile}" />
+                        </f:then>
+                        <f:else>
+                            <f:render section="Image" arguments="{image_desktop: contact.l_image_desktop, image_tablet: contact.l_image_tablet, image_mobile: contact.l_image_mobile}" />
+                        </f:else>
+                    </f:if>
+                </f:case>
+                <f:case value="large">
+                    <f:if condition="{contact.xl_image_desktop}">
+                        <f:then>
+                            <f:render section="Image" arguments="{image_desktop: contact.xl_image_desktop, image_tablet: contact.xl_image_tablet, image_mobile: contact.xl_image_mobile}" />
+                        </f:then>
+                        <f:else>
+                            <f:render section="Image" arguments="{image_desktop: contact.l_image_desktop, image_tablet: contact.l_image_tablet, image_mobile: contact.l_image_mobile}" />
+                        </f:else>
+                    </f:if>
+                </f:case>
+                <f:case value="pdf">
+                    <f:if condition="{contact.pdf_image_desktop}">
+                        <f:then>
+                            <f:render section="Image" arguments="{image_desktop: contact.pdf_image_desktop, image_tablet: contact.pdf_image_tablet, image_mobile: contact.pdf_image_mobile}" />
+                        </f:then>
+                        <f:else>
+                            <f:render section="Image" arguments="{image_desktop: contact.l_image_desktop, image_tablet: contact.l_image_tablet, image_mobile: contact.l_image_mobile}" />
+                        </f:else>
+                    </f:if>
+                </f:case>
+                <f:defaultCase>
+                    <f:render section="Image" arguments="{image_desktop: contact.l_image_desktop, image_tablet: contact.l_image_tablet, image_mobile: contact.l_image_mobile}" />
+                </f:defaultCase>
+            </f:switch>
+        </div>
+
+        <div class="info">
+            <f:if condition="{settings.contact_layout} != minimal && {settings.contact_layout} != pdf">
+                <f:if condition="{contact.firstname} || contact.lastname">
+                    <div class="name">
+                        <f:if condition="{contact.firstname}">
+                            <p>{contact.firstname}</p>
+                        </f:if>
+                        <f:if condition="{contact.lastname}">
+                            <p>{contact.lastname}</p>
+                        </f:if>
+                    </div>
+                </f:if>
+
+                <f:if condition="{contact.position}">
+                    <p class="position">{contact.position}</p>
+                </f:if>
+
+                <f:if condition="{contact.telephone}">
+                    <div class="telephone">
+                        <div class="icon">
+                            <f:render section="TelephoneIcon" />
+                        </div>
+                        <a href="tel:+{contact.telephone}">Tel. +{contact.telephone}</a>
+                    </div>
+                </f:if>
+
+                <f:if condition="{contact.email}">
+                    <div class="email">
+                        <div class="icon">
+                            <f:render section="MailIcon" />
+                        </div>
+                        <a href="mailto:{contact.email}">{contact.email}</a>
+                    </div>
+                </f:if>
+            </f:if>
+
+            <f:if condition="{settings.contact_layout} == large || {settings.contact_layout} == pdf || {settings.contact_layout} == minimal">
+                <f:if condition="{settings.optional_text}">
+                    <div class="optional-text">
+                        <f:format.html parseFuncTSPath="lib.parseFunc">{settings.optional_text}</f:format.html>
+                    </div>
+                </f:if>
+            </f:if>
+
+
+            <f:if condition="{settings.contact_layout} == minimal">
+                <f:if condition="{settings.optional_button_link} && {settings.optional_button_text}">
+                    <f:link.typolink class="btnSecondary" parameter="{settings.optional_button_link}">{settings.optional_button_text}</f:link.typolink>
+                </f:if>
+            </f:if>
+
+            <f:if condition="{settings.contact_layout} == large || {settings.contact_layout} == default">
+                <f:if condition="{contact.booking}">
+                    <div class="booking">
+                        <div class="icon">
+                            <f:render section="CalendarIcon" />
+                        </div>
+                        <f:link.typolink parameter="{contact.booking}">{contact.booking_text}</f:link.typolink>
+                    </div>
+                </f:if>
+            </f:if>
+            <f:if condition="{settings.contact_layout} == pdf && {contact.pdf}">
+                <div class="pdf">
+                    <a href="fileadmin{contact.pdf.0.identifier}">
+                        <div class="icon">
+                            <f:render section="PdfIcon" />
+                        </div>
+                        {contact.pdf_text}
+                    </a>
+                </div>
+            </f:if>
+        </div>
+    </f:section>
+
+    <f:section name="TelephoneIcon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M8.49836 2.84293H5.96201C3.98671 2.84293 2.57039 4.7128 3.20263 6.58662C4.46633 10.3317 6.16568 13.6495 8.37985 15.8637C10.594 18.0779 13.9119 19.7773 17.657 21.0409C19.5308 21.6732 21.4007 20.2569 21.4007 18.2816V15.7448C21.4007 15.0187 21.0071 14.3497 20.3725 13.9968L18.1628 12.7683L18.0026 12.6884C17.4595 12.4472 16.8335 12.459 16.2965 12.7275L14.2752 13.737L14.2272 13.722C14.1474 13.696 14.0576 13.6647 13.9595 13.6276C13.457 13.4378 12.9535 13.1727 12.4873 12.8232C12.2851 12.6716 12.0939 12.5067 11.9154 12.3282C11.7346 12.1475 11.5678 11.9536 11.4143 11.7483C11.066 11.2822 10.8011 10.7789 10.6107 10.2763L10.5159 10.0084L10.5002 9.95901L11.5104 7.94077C11.8055 7.35054 11.7905 6.65264 11.4702 6.07561L10.247 3.87219C9.89426 3.23694 9.22488 2.84293 8.49836 2.84293ZM5.96201 4.84293H8.49838L9.72156 7.04629L8.54313 9.40321C8.44449 9.60048 8.41384 9.82484 8.45595 10.0413C8.60364 10.8006 9.00905 11.8709 9.81229 12.9456C10.022 13.2261 10.2513 13.4925 10.5012 13.7424C10.7481 13.9893 11.011 14.216 11.2876 14.4234C12.3647 15.2309 13.4375 15.6362 14.1989 15.7822C14.4147 15.8236 14.638 15.7928 14.8345 15.6945L17.191 14.5163L19.4007 15.7448V18.2816C19.4007 18.9141 18.8486 19.3322 18.2965 19.1459C14.8186 17.9724 11.7403 16.3958 9.79407 14.4495C7.84781 12.5033 6.27116 9.42499 5.09767 5.9472C4.91135 5.39499 5.3295 4.84293 5.96201 4.84293Z" fill="#777777"/>
+        </svg>
+    </f:section>
+
+    <f:section name="MailIcon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M22 3.5C22.1486 3.503 22.2896 3.53016 22.4304 3.59712C22.5756 3.66656 22.7034 3.7712 22.8 3.9C22.8485 3.96607 22.8634 3.99439 22.8 3.9C22.9295 4.0727 23 4.28417 23 4.5C22.9974 4.42362 22.9996 4.44673 23 4.5V19.5C23 20.0523 22.5523 20.5 22 20.5H2C1.44772 20.5 1 20.0523 1 19.5V4.5C1 4.32097 1.04857 4.14321 1.13992 3.98967C1.32609 3.67598 1.64856 3.50709 2 3.5H22ZM21 6.5L12.6 12.8C12.28 13.04 11.852 13.064 11.5104 12.872L11.4 12.8L3 6.5V18.5H21V6.5ZM5 5.5L12 10.75L19 5.5H5Z" fill="#777777"/>
+        </svg>
+    </f:section>
+
+    <f:section name="CalendarIcon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M8 1C8.55228 1 9 1.44772 9 2V2.5H15V2C15 1.44772 15.4477 1 16 1C16.5523 1 17 1.44772 17 2V2.5H20.5C21.6046 2.5 22.5 3.39544 22.5 4.5V20C22.5 21.1046 21.6046 22 20.5 22H3.5C2.39544 22 1.5 21.1046 1.5 20V4.5C1.5 3.39543 2.39543 2.5 3.5 2.5H7V2C7 1.44772 7.44772 1 8 1ZM7 4.5H3.5V8.5H20.5V4.5H17V6C17 6.55228 16.5523 7 16 7C15.4477 7 15 6.55228 15 6V4.5H9V6C9 6.55228 8.55228 7 8 7C7.44772 7 7 6.55228 7 6V4.5ZM20.5 10.5H3.5V20H20.5V10.5ZM6 13C6 12.4477 6.44772 12 7 12H10C10.5523 12 11 12.4477 11 13C11 13.5523 10.5523 14 10 14H7C6.44772 14 6 13.5523 6 13ZM13 13C13 12.4477 13.4477 12 14 12H17C17.5523 12 18 12.4477 18 13C18 13.5523 17.5523 14 17 14H14C13.4477 14 13 13.5523 13 13ZM6 17C6 16.4477 6.44772 16 7 16H10C10.5523 16 11 16.4477 11 17C11 17.5523 10.5523 18 10 18H7C6.44772 18 6 17.5523 6 17ZM13 17C13 16.4477 13.4477 16 14 16H17C17.5523 16 18 16.4477 18 17C18 17.5523 17.5523 18 17 18H14C13.4477 18 13 17.5523 13 17Z" fill="#777777"/>
+        </svg>
+    </f:section>
+
+    <f:section name="PdfIcon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M12.9958 3C12.9958 2.44772 12.5481 2 11.9958 2C11.4436 2 10.9958 2.44772 10.9958 3V13.5816L8.20711 10.7929C7.81658 10.4024 7.18342 10.4024 6.79289 10.7929C6.40237 11.1834 6.40237 11.8166 6.79289 12.2071L11.2365 16.6507C11.4199 16.8645 11.6921 17 11.9958 17L11.9979 17C12.2545 17.0005 12.5113 16.9029 12.7071 16.7071L17.2071 12.2071C17.5976 11.8166 17.5976 11.1834 17.2071 10.7929C16.8166 10.4024 16.1834 10.4024 15.7929 10.7929L12.9958 13.5899V3Z" fill="#777777"/>
+            <path d="M21 11C21.5523 11 22 11.4477 22 12V21C22 21.5523 21.5523 22 21 22H3C2.44772 22 2 21.5523 2 21V12.0042C2 11.4519 2.44772 11.0042 3 11.0042C3.55228 11.0042 4 11.4519 4 12.0042V20H20V12C20 11.4477 20.4477 11 21 11Z" fill="#777777"/>
+        </svg>
+    </f:section>
+
+    <f:section name="Image">
+        <f:render partial="ContentBlocks/Image" arguments="{
+            images: {
+                desktop: image_desktop.0,
+                tablet: image_tablet.0,
+                mobile: image_mobile.0
+            }
+        }" />
+    </f:section>
+</html>

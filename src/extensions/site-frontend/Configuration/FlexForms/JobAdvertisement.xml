@@ -1,0 +1,27 @@
+<T3DataStructure>
+    <sheets>
+        <sDEF>
+            <ROOT>
+                <sheetTitle>
+                    General
+                </sheetTitle>
+                <type>array</type>
+                <el>
+                    <settings.job>
+                        <TCEforms>
+                            <label>Job Advertisement</label>
+                            <config>
+                                <type>select</type>
+                                <renderType>selectMultipleSideBySide</renderType>
+                                <items type="array"></items>
+                                <foreign_table>tx_site_jobadvertisement</foreign_table>
+                                <minitems>1</minitems>
+                                <maxitems>100</maxitems>
+                            </config>
+                        </TCEforms>
+                    </settings.job>
+                </el>
+            </ROOT>
+        </sDEF>
+    </sheets>
+</T3DataStructure>

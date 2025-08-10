@@ -1,0 +1,110 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<footer>
+    <div class="sm-container">
+        <div class="section">
+            <div id="footer-links" class="sm-column-12 sm-column-tablet-4">
+                <ul class="footer-links">
+                    <f:for each="{page.site_pagesfooter_footerlinks}" as="item" iteration="i">
+                        <li class="{f:if(condition: '{i.cycle} % 2 === 0', then: 'mb-3')} footerlinks">
+                            <f:if condition="{item.data.icon}">
+                                <f:image src="{item.data.icon.0.uid}"
+                                        treatIdAsReference="1"
+                                        title="{item.data.icon.0.title}"
+                                        alt="{item.data.icon.0.alternative}"
+                                        class="img-fluid"
+                                        type="image/webp"
+                                />
+                            </f:if>
+                            <f:link.typolink parameter="{item.data.link}">
+                                {item.data.title}
+                            </f:link.typolink>
+                        </li>
+                    </f:for>
+                </ul>
+            </div>
+            <div class="footer_navigation sm-column-12 sm-column-tablet-6">
+                <f:for each="{page.footernavigation}" as="item">
+                    <div class="tree-menu sm-column-12 sm-column-tablet-4">
+                        <p class="mb-0">
+                            <f:link.page pageUid="{item.uid}" class="level-{item.level}">
+                                <b>{item.title}</b>
+                            </f:link.page>
+                        </p>
+
+                        <ul class="list-unstyled">
+                            <f:for each="{item.subpages}" as="subitem">
+                                <f:if condition="{subitem.url}">
+                                    <f:then>
+
+                                        <li>
+                                            <f:link.typolink parameter="{subitem.link}">
+                                                <f:if condition="{subitem.url}">
+                                                    <f:image src="{subitem.url}" treatIdAsReference="0"
+                                                        class="img-fluid icon social" />
+                                                </f:if>
+                                            </f:link.typolink>
+                                        </li>
+                                    </f:then>
+                                    <f:else>
+                                        <li>
+                                            <f:link.page pageUid="{subitem.uid}" class="level-{subitem.level}">
+                                                {subitem.title}
+                                            </f:link.page>
+                                        </li>
+                                    </f:else>
+                                </f:if>
+                            </f:for>
+                    </div>
+                </f:for>
+            </div>
+
+
+        </div>
+        <div class="footer_certificate sm-column-12">
+            <f:for each="{page.site_pagesfooter_certificates}" as="item">
+                <f:if condition="{item.data.icon.0.uid}">
+                    <img src="{f:uri.image(image: item.data.icon.0, fileExtension: 'webp')}"
+                        title="{item.data.icon.0.title}"
+                        alt="{item.data.icon.0.alternative}"
+                        class="img-fluid"
+                        type="image/webp"
+                    />
+                </f:if>
+            </f:for>
+        </div>
+
+        <div class="section2">
+            <div class="sm-column-12">
+                <hr>
+            </div>
+        </div>
+
+        <div class="section">
+            <f:if condition="{page.site_pagesfooter_copyright}">
+                <div class="copyright sm-column-12 sm-column-tablet-9">
+                    <p id="copyright">
+                        © {page.site_pagesfooter_copyright}
+                    </p>
+                </div>
+            </f:if>
+
+            <div class="sm-column-12 sm-column-tablet-3">
+                <ul class="link-unstyled footer_metanavigation gap-3">
+                    <f:for each="{footer_metanavigation}" as="item">
+                        <li>
+                            <f:link.page pageUid="{item.data.uid}">
+                                {item.title}
+                            </f:link.page>
+                        </li>
+                    </f:for>
+
+                    <li>
+                        <a href="#" id="open-cookies">Cookies</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</html>

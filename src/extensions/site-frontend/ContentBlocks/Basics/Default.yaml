@@ -1,0 +1,7 @@
+identifier: site/default-basics
+group: site/contentblocks
+basics:
+  - TYPO3/Appearance
+fields:
+  - identifier: TYPO3/Header
+    type: Basic

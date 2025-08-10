@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file datatype="plaintext" original="Labels.xlf" source-language="en"
+        date="2024-08-11T10:56:14+00:00" product-name="site/profiledisplayer">
+        <header />
+        <body>
+            <trans-unit id="site.default-basics">
+                <source>Default Basics</source>
+            </trans-unit>
+            <trans-unit id="title" resname="title">
+                <source>Profile Displayer</source>
+            </trans-unit>
+			<trans-unit id="description" resname="description">
+				<source>Slider with product profiles</source>
+			</trans-unit>
+            <trans-unit id="slides_per_view">
+                <source>Max Number of Slides Per View</source>
+            </trans-unit>
+            <trans-unit id="slides_per_view.4">
+                <source>4</source>
+            </trans-unit>
+            <trans-unit id="slides_per_view.3">
+                <source>3</source>
+            </trans-unit>
+            <trans-unit id="profile_item">
+                <source>Profile Item</source>
+            </trans-unit>
+            <trans-unit id="site.basics-images">
+                <source>Basics Images</source>
+            </trans-unit>
+            <trans-unit id="headline">
+                <source>Headline</source>
+            </trans-unit>
+            <trans-unit id="description">
+                <source>Description</source>
+            </trans-unit>
+            <trans-unit id="properties">
+                <source>Properties and Their Values</source>
+            </trans-unit>
+            <trans-unit id="property_name">
+                <source>Property</source>
+            </trans-unit>
+            <trans-unit id="property_value">
+                <source>Property Value</source>
+            </trans-unit>
+            <trans-unit id="file">
+                <source>Upload File</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

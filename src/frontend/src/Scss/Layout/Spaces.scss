@@ -1,0 +1,17 @@
+$spaces: (
+    'extra-small': 50px,
+    'small': 100px,
+    'medium': 150px,
+    'large': 200px,
+    'extra-large': 250px,
+);
+
+@each $size, $value in $spaces {
+    .frame-space-before-#{$size} {
+        margin-block-start: $value;
+    }
+
+    .frame-space-after-#{$size} {
+        margin-block-end: $value;
+    }
+}

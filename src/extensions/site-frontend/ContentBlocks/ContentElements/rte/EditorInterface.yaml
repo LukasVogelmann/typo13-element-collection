@@ -1,0 +1,11 @@
+group: site/contentblocks
+name: site/rte
+basics:
+  - TYPO3/Appearance
+  - TYPO3/Links
+fields:
+  - identifier: site/default-basics
+    type: Basic
+  - identifier: bodytext
+    useExistingField: true
+    enableRichtext: true

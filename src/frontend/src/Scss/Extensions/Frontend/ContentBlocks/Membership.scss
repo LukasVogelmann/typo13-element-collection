@@ -1,0 +1,114 @@
+@use '@/Scss/Functions/Px-To-Rem' as Fn;
+@use '@/Scss/Mixins/Breakpoint' as Br;
+
+[data-ctype='site_membership'] {
+    .cb-membership {
+        .swiper-wrapper {
+            display: flex;
+
+            .item {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                align-items: center;
+                border: Fn.px-to-rem(1) solid var(--light-gray);
+                padding: Fn.px-to-rem(60) Fn.px-to-rem(17) Fn.px-to-rem(30);
+                margin-bottom: 0;
+                height: unset;
+
+                .image {
+                    flex-grow: 1;
+                    display: flex;
+                    align-items: center;
+                    justify-items: center;
+                    margin-bottom: Fn.px-to-rem(50);
+                }
+
+                .text {
+                    margin-bottom: 0;
+                    width: 100%;
+                    text-align: center;
+
+                    p {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+
+            @include Br.sm-breakpoint-up(tablet) {
+                gap: Fn.px-to-rem(20);
+                flex-wrap: wrap;
+                justify-content: center;
+
+                .item {
+                    flex: 0 0 30%;
+                    padding: Fn.px-to-rem(80) Fn.px-to-rem(10) Fn.px-to-rem(30);
+
+
+                    .text {
+                        p {
+                            font-size: 1.25rem;
+                        }
+                    }
+                }
+            }
+            @include Br.sm-breakpoint-up(tablet-large) {
+                flex-wrap: nowrap;
+
+                .item {
+                    flex: 1 1 20%;
+
+                    .text {
+                        p {
+                            font-size: 1.5rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        .swiper-removed {
+            .swiper-wrapper {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: Fn.px-to-rem(20);
+
+                .item {
+                    flex: 100%;
+                }
+
+                @include Br.sm-breakpoint-up(mobile-large) {
+                    .item {
+                        flex: 1 1 calc(50% - Fn.px-to-rem(10));
+                    }
+                }
+                @include Br.sm-breakpoint-up(tablet) {
+                    .item {
+                        flex: 0 0 30%;
+                    }
+                }
+                @include Br.sm-breakpoint-up(tablet-large) {
+                    flex-wrap: nowrap;
+
+                    .item {
+                        flex: 1 1 20%;
+
+                        .text {
+                            p {
+                                font-size: 1.5rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        @include Br.sm-breakpoint-up(tablet) {
+            .swiper-pagination {
+                display: none;
+            }
+        }
+    }
+}

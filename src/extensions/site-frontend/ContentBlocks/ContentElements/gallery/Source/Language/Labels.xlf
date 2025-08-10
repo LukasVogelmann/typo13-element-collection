@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file datatype="plaintext" original="Labels.xlf" source-language="en" date="2024-08-11T10:56:14+00:00" product-name="site/gallery">
+		<header/>
+		<body>
+			<trans-unit id="title" resname="title">
+				<source>Gallery</source>
+			</trans-unit>
+			<trans-unit id="description" resname="description">
+				<source>Tabs with galleries for startpage</source>
+			</trans-unit>
+			<trans-unit id="gallery_tab.label" resname="gallery_tab.label">
+				<source>Tab</source>
+			</trans-unit>
+			<trans-unit id="gallery_tab.tabname.label" resname="gallery_tab.tabname.label">
+				<source>Tabname</source>
+			</trans-unit>
+			<trans-unit id="gallery_tab.gallery_item.label" resname="gallery_tab.gallery_item.label">
+				<source>Gallery Item</source>
+			</trans-unit>
+			<trans-unit id="gallery_tab.gallery_item.text.label" resname="gallery_tab.gallery_item.text.label">
+				<source>Text</source>
+			</trans-unit>
+			<trans-unit id="gallery_tab.gallery_item.image.label" resname="gallery_tab.gallery_item.image.label">
+				<source>Image</source>
+			</trans-unit>
+			<trans-unit id="gallery_tab.gallery_item.background.label" resname="gallery_tab.gallery_item.background.label">
+				<source>Background</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

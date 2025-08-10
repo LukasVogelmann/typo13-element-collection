@@ -1,0 +1,70 @@
+.plugin-person {
+    .style-pdf {
+        .image {
+            height: Fn.px-to-rem(225);
+            width: 100%;
+
+            img {
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .info {
+            width: 100%;
+
+            .optional-text {
+                margin: 0;
+            }
+
+            .pdf {
+                a {
+                    display: flex;
+                    gap: Fn.px-to-rem(15);
+                    align-items: center;
+                    margin-bottom: Fn.px-to-rem(0);
+                    font-size: Fn.px-to-rem(18);
+                    font-weight: bold;
+
+                    .icon {
+                        width: Fn.px-to-rem(24);
+                        height: Fn.px-to-rem(24);
+
+                        svg {
+                            vertical-align: top;
+                        }
+                    }
+                }
+            }
+        }
+
+        @include Br.sm-breakpoint-up(mobile-large) {
+            .image {
+                height: 100%;
+                width: Fn.px-to-rem(195);
+            }
+
+            .info {
+                padding: Fn.px-to-rem(35);
+                flex-grow: 1;
+                flex-basis: 0;
+            }
+        }
+        @include Br.sm-breakpoint-up(tablet-large) {
+            .image {
+                width: Fn.px-to-rem(237);
+            }
+
+            .info {
+                padding: Fn.px-to-rem(50);
+
+                .pdf {
+                    a {
+                        font-size: Fn.px-to-rem(22);
+                        font-weight: 450;
+                    }
+                }
+            }
+        }
+    }
+}

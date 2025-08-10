@@ -1,0 +1,7 @@
+name: site/job-tag
+table: tx_site_jobtag
+labelField: name
+fields:
+  - identifier: name
+    label: Name
+    type: Text

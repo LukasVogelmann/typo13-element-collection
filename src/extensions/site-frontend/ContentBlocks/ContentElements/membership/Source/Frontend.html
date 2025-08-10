@@ -1,0 +1,27 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+    <f:layout name="Default" />
+
+    <f:section name="Main">
+        <div class="cb-membership">
+            <div class="swiper{f:if(condition: '!{data.toggleSlider}', then: ' swiper-removed')}">
+                <div class="swiper-wrapper">
+                    <f:for each="{data.membership_item}" as="membership" iteration="i">
+                        <div class="swiper-slide item">
+                            <div class="image">
+                                <img src="{f:uri.image(image: membership.image.0, fileExtension: 'webp')}" loading="lazy" class="img-fluid{classes}" type="image/webp" alt="{f:if(condition: membership.image.0.alternative, then: membership.image.0.alternative)}" />
+                            </div>
+
+                            <div class="text">
+                                <p>{membership.heading}</p>
+                            </div>
+                        </div>
+                    </f:for>
+                </div>
+                <div class="swiper-pagination pagination-lines my-5 px-5"></div>
+            </div>
+        </div>
+    </f:section>
+</html>

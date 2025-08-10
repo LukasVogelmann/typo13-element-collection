@@ -1,0 +1,26 @@
+@use '@/Scss/Functions/Px-To-Rem' as Fn;
+
+[data-ctype='site_award'] {
+    .cb-award {
+        .swiper-wrapper {
+            display: flex;
+            align-items: center;
+            -webkit-transition-timing-function: linear;
+            -o-transition-timing-function: linear;
+            transition-timing-function: linear;
+
+            .item {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+                padding: Fn.px-to-rem(30);
+
+                figure {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}

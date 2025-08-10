@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file datatype="plaintext" original="Labels.xlf" source-language="en">
+		<header/>
+		<body>
+			<trans-unit id="title" resname="title">
+				<source>Hero</source>
+			</trans-unit>
+			<trans-unit id="description" resname="description">
+				<source>Large hero for beginning of startpage</source>
+			</trans-unit>
+			<trans-unit id="hero_item.label" resname="hero_item.label">
+				<source>hero_item</source>
+			</trans-unit>
+			<trans-unit id="hero_item.text.label" resname="hero_item.text.label">
+				<source>text</source>
+			</trans-unit>
+			<trans-unit id="hero_item.textarea.label" resname="hero_item.textarea.label">
+				<source>textarea</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

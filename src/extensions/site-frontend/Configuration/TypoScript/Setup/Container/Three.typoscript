@@ -1,0 +1,21 @@
+tt_content.site_containerthree =< lib.container
+tt_content.site_containerthree {
+    templateName = Three
+    dataProcessing {
+        1 = B13\Container\DataProcessing\ContainerProcessor
+        1 {
+            colPos = 203
+            as = children_left
+        }
+        2 = B13\Container\DataProcessing\ContainerProcessor
+        2 {
+            colPos = 204
+            as = children_center
+        }
+        3 = B13\Container\DataProcessing\ContainerProcessor
+        3 {
+            colPos = 205
+            as = children_right
+        }
+    }
+}

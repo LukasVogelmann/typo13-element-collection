@@ -1,0 +1,178 @@
+@use '@/Scss/Functions/Px-To-Rem' as Fn;
+@use '@/Scss/Mixins/Breakpoint' as Br;
+
+$a: rgb(188, 190, 192);
+
+[data-ctype='site_quote'] {
+    blockquote {
+        position: relative;
+        color: var(--dark-gray);
+        font-family: 'Merriweather-Regular', sans-serif;
+
+        &.large {
+            padding: Fn.px-to-rem(40) 0 0 Fn.px-to-rem(40);
+
+            .text {
+                font-size: Fn.px-to-rem(18);
+                line-height: Fn.px-to-rem(26);
+            }
+        }
+
+        &.small {
+            font-family: 'Merriweather-LightItalic', sans-serif;
+            font-size: Fn.px-to-rem(20);
+            font-style: italic;
+            font-weight: 300;
+            line-height: Fn.px-to-rem(26);
+            padding-left: Fn.px-to-rem(26);
+
+            .text {
+                &:before {
+                    content: '';
+                    background-image: url('data:image/svg+xml;utf8,<svg width="58" height="41" viewBox="0 0 58 41" fill="none" xmlns="http://www.w3.org/2000/svg"><path opacity="0.3" d="M58 0.00109863L58 2.43285C54.387 4.5172 51.6183 6.93803 49.6939 9.69423C47.7695 12.4504 46.6441 15.1487 46.3155 17.7891C49.6474 18.2982 52.228 19.6648 54.0583 21.889C55.8886 24.1132 56.8038 26.498 56.8038 29.0466C56.8038 32.2431 55.6186 35.0342 53.2494 37.4201C50.8791 39.8071 47.9344 41 44.4143 41C40.3321 41 37.1761 39.5525 34.9463 36.6565C32.7176 33.7616 31.6033 30.5072 31.6033 26.8934C31.6033 23.5583 32.4952 20.0603 34.2779 16.4007C36.0617 12.741 38.9123 9.41675 42.8308 6.42896C46.7492 3.44116 51.8053 1.29781 58 0.00109863ZM26.3956 0.00109587L26.3956 2.43284C22.6885 4.61005 19.8966 7.06584 18.0187 9.79801C16.1419 12.5313 15.0862 15.1946 14.8516 17.7891C18.1836 18.2982 20.7531 19.6648 22.5591 21.889C24.365 24.1132 25.2691 26.498 25.2691 29.0466C25.2691 31.131 24.7413 33.1006 23.6856 34.9534C22.6299 36.8062 21.1515 38.2777 19.2514 39.3657C17.3514 40.4549 15.2743 40.9989 13.0224 40.9989C10.1596 40.9989 7.75502 40.2812 5.80741 38.8446C3.8598 37.4081 2.40574 35.6252 1.443 33.4939C0.481366 31.3626 -2.77982e-06 29.1624 -2.58137e-06 26.8924C-2.2898e-06 23.5572 0.891916 20.0592 2.67464 16.3996C4.45737 12.7399 7.29689 9.42767 11.1921 6.46282C15.0873 3.49796 20.1555 1.34369 26.3967 1.05185e-06L26.3956 0.00109587Z" fill="black" /></svg>');
+                    background-size: contain;
+                    position: absolute;
+                    top: Fn.px-to-rem(-5);
+                    left: Fn.px-to-rem(-23);
+                    width: Fn.px-to-rem(35);
+                    height: Fn.px-to-rem(25);
+                    opacity: 0.3;
+                }
+
+                &:after {
+                    content: '';
+                    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="58" height="41" viewBox="0 0 58 41" fill="none"><path opacity="0.3" d="M0 40.9989L0 38.5672C3.61304 36.4828 6.38174 34.062 8.30611 31.3058C10.2305 28.5496 11.3559 25.8513 11.6845 23.2109C8.35258 22.7018 5.772 21.3352 3.94169 19.111C2.11138 16.8868 1.19623 14.502 1.19623 11.9534C1.19623 8.75692 2.38139 5.96576 4.75062 3.57989C7.12094 1.19293 10.0656 0 13.5857 0C17.6679 0 20.8239 1.44747 23.0537 4.3435C25.2824 7.23844 26.3967 10.4928 26.3967 14.1066C26.3967 17.4417 25.5048 20.9397 23.7221 24.5993C21.9383 28.259 19.0877 31.5832 15.1692 34.571C11.2508 37.5588 6.19472 39.7022 0 40.9989ZM31.6044 40.9989V38.5672C35.3115 36.3899 38.1034 33.9342 39.9813 31.202C41.8581 28.4687 42.9138 25.8054 43.1484 23.2109C39.8164 22.7018 37.2469 21.3352 35.4409 19.111C33.635 16.8868 32.7309 14.502 32.7309 11.9534C32.7309 9.86901 33.2587 7.89936 34.3144 6.0466C35.3701 4.19384 36.8485 2.72234 38.7486 1.63428C40.6486 0.545123 42.7257 0.00109243 44.9776 0.00109243C47.8404 0.00109243 50.245 0.718819 52.1926 2.15536C54.1402 3.59191 55.5943 5.37476 56.557 7.50609C57.5186 9.63742 58 11.8376 58 14.1076C58 17.4428 57.1081 20.9408 55.3254 24.6004C53.5426 28.2601 50.7031 31.5723 46.8079 34.5372C42.9127 37.502 37.8445 39.6563 31.6033 41L31.6044 40.9989Z" fill="black"/></svg>');
+                    background-size: contain;
+                    position: absolute;
+                    bottom: Fn.px-to-rem(-8);
+                    right: auto;
+                    width: Fn.px-to-rem(35);
+                    height: Fn.px-to-rem(25);
+                    opacity: 0.3;
+                }
+            }
+        }
+
+        cite {
+            display: inline-block;
+            margin-block-start: Fn.px-to-rem(20);
+            color: var(--dark-gray);
+            font-family: 'Jost-Regular', sans-serif;
+            font-size: 1rem;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+        }
+
+        .icon {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: Fn.px-to-rem(40);
+            height: Fn.px-to-rem(40);
+        }
+
+        .text {
+            position: relative;
+            width: fit-content;
+        }
+    }
+
+    @include Br.sm-breakpoint-up(mobile-large) {
+        blockquote {
+            &.large {
+                padding: Fn.px-to-rem(60) 0 0 Fn.px-to-rem(60);
+
+                .text {
+                    font-size: Fn.px-to-rem(32);
+                    line-height: Fn.px-to-rem(52);
+                }
+            }
+
+            &.small {
+                padding-left: Fn.px-to-rem(28);
+
+                .text {
+                    font-size: Fn.px-to-rem(22);
+                    line-height: Fn.px-to-rem(36);
+
+                    &:before {
+                        top: Fn.px-to-rem(-5);
+                        left: Fn.px-to-rem(-38);
+                        width: Fn.px-to-rem(45);
+                        height: Fn.px-to-rem(32);
+                    }
+
+                    &:after {
+                        bottom: Fn.px-to-rem(-8);
+                        right: auto;
+                        width: Fn.px-to-rem(45);
+                        height: Fn.px-to-rem(32);
+                        margin-left: -2rem;
+                    }
+                }
+            }
+
+            cite {
+                margin-block-start: Fn.px-to-rem(30);
+                font-size: Fn.px-to-rem(22);
+                line-height: Fn.px-to-rem(28);
+            }
+
+            .icon {
+                width: Fn.px-to-rem(60);
+                height: Fn.px-to-rem(60);
+            }
+        }
+    }
+
+    @include Br.sm-breakpoint-up(desktop) {
+
+        blockquote {
+            &.large {
+                padding: Fn.px-to-rem(80) 0 0 Fn.px-to-rem(80);
+
+                .text {
+                    font-size: Fn.px-to-rem(45);
+                    line-height: Fn.px-to-rem(85);
+                }
+            }
+
+            &.small {
+                padding-left: Fn.px-to-rem(35);
+
+                .text {
+                    font-size: Fn.px-to-rem(26);
+                    line-height: Fn.px-to-rem(56);
+
+                    &:before {
+                        top: Fn.px-to-rem(-5);
+                        left: Fn.px-to-rem(-38);
+                        width: Fn.px-to-rem(58);
+                        height: Fn.px-to-rem(41);
+                    }
+
+                    &:after {
+
+                        bottom: Fn.px-to-rem(1);
+                        right: auto;
+                        width: Fn.px-to-rem(58);
+                        height: Fn.px-to-rem(41);
+                        margin-left: -2rem;
+                    }
+                }
+            }
+
+            cite {
+                margin-block-start: Fn.px-to-rem(40);
+                font-size: 2rem;
+                line-height: normal;
+            }
+
+            .icon {
+                width: Fn.px-to-rem(80);
+                height: Fn.px-to-rem(80);
+            }
+        }
+    }
+}

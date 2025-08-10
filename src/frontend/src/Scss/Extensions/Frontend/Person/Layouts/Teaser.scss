@@ -1,0 +1,39 @@
+.plugin-person {
+    .style-teaser {
+        .image {
+            height: Fn.px-to-rem(225);
+            width: 100%;
+
+            img {
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .info {
+            width: 100%;
+        }
+
+        @include Br.sm-breakpoint-up(mobile-large) {
+            flex-direction: column;
+            .image {
+                height: Fn.px-to-rem(203);
+                width: 100%;
+            }
+
+            .info {
+                width: 100%;
+            }
+        }
+        @include Br.sm-breakpoint-up(tablet-large) {
+            .image {
+                height: Fn.px-to-rem(247);
+                width: 100%;
+            }
+
+            .info {
+                width: 100%;
+            }
+        }
+    }
+}

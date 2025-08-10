@@ -1,0 +1,19 @@
+prototypes:
+  standard:
+    formElementsDefinition:
+      FileUpload:
+        formEditor:
+          editors:
+            300:
+              selectOptions:
+                100:
+                  value: application/zip
+                  label: Documents (zip)
+                110:
+                  value: image/jpeg
+                  label: Images (jpeg)
+            400:
+              selectOptions:
+                100:
+                  value: '1:/form_upload/'
+                  label: '1:/form_upload/'

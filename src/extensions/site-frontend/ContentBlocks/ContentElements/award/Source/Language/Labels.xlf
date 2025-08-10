@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file datatype="plaintext" original="Labels.xlf" source-language="en" date="2024-08-11T10:56:14+00:00" product-name="site/award">
+		<header/>
+		<body>
+			<trans-unit id="title" resname="title">
+				<source>Award</source>
+			</trans-unit>
+			<trans-unit id="description" resname="description">
+				<source>Infinite slider with awards for startpage</source>
+			</trans-unit>
+			<trans-unit id="images.label" resname="images.label">
+				<source>Images</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

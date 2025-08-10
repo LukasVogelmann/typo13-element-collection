@@ -1,0 +1,44 @@
+form {
+    .input.checkbox {
+
+        label,
+        .add-on.form-check-label {
+            display: flex;
+            align-items: center;
+            margin-top: 1.125rem;
+            cursor: pointer;
+
+            span {
+                font-family: 'Jost-Regular';
+                hyphens: auto;
+                line-height: 1.25rem;
+                margin-bottom: 0;
+            }
+
+            .icon-checkbox {
+                min-width: 1.25rem;
+                min-height: 1.25rem;
+                max-width: 1.25rem;
+                max-height: 1.25rem;
+                border: 1px solid var(--primary);
+                border-radius: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-inline-end: .5rem;
+
+                svg {
+                    display: none;
+                }
+            }
+
+            input[type="checkbox"]:checked+.icon-checkbox {
+                background-color: var(--primary);
+
+                svg {
+                    display: block;
+                }
+            }
+        }
+    }
+}
